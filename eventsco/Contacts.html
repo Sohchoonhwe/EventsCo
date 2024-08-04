@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Contact Us</h1>
+    <form action="/submit-contact-form" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company">
+
+        <label for="position">Your Position</label>
+        <input type="text" id="position" name="position">
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address">
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city">
+
+        <label for="state">State/Province</label>
+        <input type="text" id="state" name="state">
+
+        <label for="zip">Zip/Postal Code</label>
+        <input type="text" id="zip" name="zip">
+
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country">
+
+        <label for="event-type">Type of Event</label>
+        <select id="event-type" name="event-type" required>
+            <option value="" disabled selected>Select an event type</option>
+            <option value="conference">Conference</option>
+            <option value="webinar">Webinar</option>
+            <option value="workshop">Workshop</option>
+            <option value="seminar">Seminar</option>
+            <option value="networking">Networking Event</option>
+            <option value="trade-show">Trade Show</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
