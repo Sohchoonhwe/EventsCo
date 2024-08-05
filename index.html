@@ -60,6 +60,7 @@
             max-width: 1200px;
         }
 
+
         /* Footer styling */
         #footer-container {
             padding: 20px;
@@ -74,6 +75,41 @@
             text-align: center;
             margin-top: 50px;
             text-underline-offset: 10px;
+        }
+
+        /* Styling for the why-us section */
+        .why-us-section {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 23%;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            flex: 1;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .card p {
+            color: #666;
+        }
+        @media (max-width: 1200px) {
+            .card {
+                width: 48%;
+            }
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 98%;
+            }
         }
     </style>
     <script src="loadNavbar.js"></script>
@@ -94,7 +130,7 @@
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/image test.webp" alt="1" class="d-block w-100">
+                <img src="images/test.jpg" alt="1" class="d-block w-100">
             </div>
             <div class="carousel-item">
                 <img src="no2.jpeg" alt="2" class="d-block w-100">
@@ -113,8 +149,9 @@
     </div>
 
     <!-- Stats Boxes -->
-    <h2>About Us</h2>
+    
     <div class="container my-5">
+        <h2>About Us</h2>
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="stats-box">
@@ -137,8 +174,138 @@
                 </div>
             </div>
         </div>
+        <p> At EventsCo, our numbers tell the story. We've hosted numerous events, brought together thousands of participants,and executed a
+            wide range of successful corporate events. Trusted by esteemed clients, each statistic reflects our dedication to creating impactful and memorable experiences. 
+            Discover why EventsCo is the top choice for corporate events, team-building activities, and retreats.</p>
     </div>
+    <hr>
+<div class = "why-us-container">
+    <h2>Why Choose Us?</h2>
+    <section class="why-us-section">
+        
+        <div class="card">
+            <h3>Expertise</h3>
+            <p>We have a team of experienced professionals who are experts in their fields, ensuring you get top-notch services.</p>
+        </div>
+        <div class="card">
+            <h3>Quality</h3>
+            <p>Our commitment to quality is unmatched. We strive to deliver the best products and services to our clients.</p>
+        </div>
+        <div class="card">
+            <h3>Customer Service</h3>
+            <p>We prioritize our customers and provide exceptional customer service to ensure your satisfaction.</p>
+        </div>
+        <div class="card">
+            <h3>Innovation</h3>
+            <p>We embrace innovation and continuously improve our processes and products to stay ahead of the curve.</p>
+        </div>
+    </section>
+</div> 
 
+<div class ="Services">
+    <section class="section-services">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-md-10 col-lg-8">
+					<div class="header-section">
+						<h2 class="title">Exclusive <span>Services</span></h2>
+						<p class="description">There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some injected humour</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fab fa-500px"></i>
+							<h3 class="title">Express delivery innovative Design service</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fab fa-angellist"></i>
+							<h3 class="title">Online chat may refer to any kind communication</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fas fa-award"></i>
+							<h3 class="title">Service provider provide organizations consulting</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fab fa-asymmetrik"></i>
+							<h3 class="title">Express delivery innovative Design service</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fas fa-broadcast-tower"></i>
+							<h3 class="title">Provide solutions and services to end users</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+				<!-- Start Single Service -->
+				<div class="col-md-6 col-lg-4">
+					<div class="single-service">
+						<div class="part-1">
+							<i class="fab fa-canadian-maple-leaf"></i>
+							<h3 class="title">This broad term incorporates all IT businesses</h3>
+						</div>
+						<div class="part-2">
+							<p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+							<a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
+						</div>
+					</div>
+				</div>
+				<!-- / End Single Service -->
+			</div>
+		</div>
+	</section>
+
+    
+
+</div>
+    <!-- Footer -->
     <div id="footer-container"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
