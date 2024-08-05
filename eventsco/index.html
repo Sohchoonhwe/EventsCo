@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventsCo.</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Styling for carousel images */
+        .carousel-inner img {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        /* Custom button styling */
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        /* Custom styling for stats boxes */
+        .stats-box {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .stats-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-box h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .stats-box p {
+            font-size: 1.25rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Footer styling */
+        #footer-container {
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+            text-underline-offset: 10px;
+        }
+    </style>
+    <script src="loadNavbar.js"></script>
+    <script src="loadFooter.js"></script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators/dots -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/image test.webp" alt="1" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="no2.jpeg" alt="2" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="no3.jpeg" alt="3" class="d-block w-100">
+            </div>
+        </div>
+        <!-- Left and right controls/icons -->
+        <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <!-- Stats Boxes -->
+    <h2>About Us</h2>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="19200">0</h3>
+                    <p>Participants Served</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="2994">0</h3>
+                    <p>Successful Events</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="192">0</h3>
+                    <p>Corporate Clients</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll('.stats-box h3');
+
+            const animateCounter = (element, endValue) => {
+                let startValue = 0;
+                const duration = 2000; // Animation duration in milliseconds
+                const stepTime = 20; // Update interval in milliseconds
+                const steps = duration / stepTime;
+                const stepValue = endValue / steps;
+
+                const interval = setInterval(() => {
+                    startValue += stepValue;
+                    if (startValue >= endValue) {
+                        clearInterval(interval);
+                        element.textContent = endValue;
+                    } else {
+                        element.textContent = Math.floor(startValue).toLocaleString();
+                    }
+                }, stepTime);
+            };
+
+            counters.forEach(counter => {
+                let endValue = counter.getAttribute('data-end-value');
+                if (endValue.includes('+')) {
+                    endValue = parseInt(endValue.replace('+', ''));
+                } else {
+                    endValue = parseInt(endValue);
+                }
+                animateCounter(counter, endValue + (endValue % 1000 ? 0 : '+'));
+            });
+        });
+    </script>
+</body>
+
+</html>

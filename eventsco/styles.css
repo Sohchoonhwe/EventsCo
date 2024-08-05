@@ -1,33 +1,28 @@
-.navbar-custom {
-    background-color: #000; /* Black background */
-    font-family: avenir light; /* Avenir Light font */
-}
-.navbar-custom .navbar-brand,
-.navbar-custom .nav-link,
-.navbar-custom .dropdown-item,
-.navbar-custom .btn {
-    color: #fff; /* White text */
-    font-size: 1.2rem; /* Larger font size */
-}
-.navbar-custom .nav-link:hover,
-.navbar-custom .dropdown-item:hover,
-.navbar-custom .btn:hover {
-    color: #ccc; /* Light grey text on hover */
-}
-.navbar-nav {
-    margin-left: 15px; /* Add space between search bar and menu items */
-}
-.form-inline {
-    margin-left: auto; /* Align search bar and menu items to the right */
-}
-.container h1 {
-    font-size: 2.5rem; /* Larger font size for headings */
-}
-.footer p {
-    font-size: 1.2rem; /* Larger font size for footer text */
-}
-.navbar-brand{
-    font-size: 2.5rem;
+
+/* Footer styling */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
 }
 
-/* The above is navbar */
+.footer-social-icons {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer-social-icons a:hover {
+    color: #007bff;
+}
+
+.footer-info {
+    text-align: center;
+    margin-top: 20px;
+}
