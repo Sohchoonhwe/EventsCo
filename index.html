@@ -4,14 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventsCo.</title>
+    <title>EventsCo</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Global styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
         /* Styling for carousel images */
         .carousel-inner img {
             width: 100%;
-            height: 50vh;
+            height: 80vh;
             object-fit: cover;
         }
 
@@ -77,97 +88,214 @@
             text-underline-offset: 10px;
         }
 
+        .custom-h6 {
+    font-size: 3rem; 
+    font-weight: bold;
+    text-align: center; 
+    font-family: Cormorant Garamond, serif;
+    margin-bottom: 100px;
+        }   
+        line{ width: 112px; height: 47px; border-bottom: 1px solid black; position: absolute; }
+
         /* Styling for the why-us section */
         .why-us-section {
-            display: flex;
-            justify-content: space-around;
             margin: 50px 0;
-            flex-wrap: wrap;
         }
 
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 23%;
+        .why-us-card {
+            position: relative;
             padding: 20px;
-            margin: 10px;
+            margin: 20px;
+            /* Added margin to create space between cards */
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            width: 300px;
+            /* Initial width */
+            height: 350px;
+            /* Initial height */
+            color: white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            flex: 1;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+            /* Transition for width and height */
         }
 
-        .card h3 {
-            margin-top: 0;
-            color: #333;
+        .row {
+            margin-left: -15px;
+            /* Adjust for Bootstrap's row padding */
+            margin-right: -15px;
+            /* Adjust for Bootstrap's row padding */
         }
 
-        .card p {
-            color: #666;
+        .col-md-3 {
+            padding-left: 15px;
+            /* Adds space between columns */
+            padding-right: 15px;
+            /* Adds space between columns */
         }
 
-        @media (max-width: 1200px) {
-            .card {
-                width: 48%;
-            }
+
+
+        .why-us-card.expanded {
+            width: 400px;
+            /* Width when expanded */
+            height: 450px;
+            /* Height when expanded */
+        }
+
+        .why-us-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+            justify-content: center;
+        }
+
+        .why-us-card h2,
+        .why-us-card p,
+        .why-us-card .toggle-button {
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-us-card .description {
+            display: none;
+        }
+
+        .toggle-button {
+            background-color: #74787e;
+            text-decoration: underline;
+            cursor: hand;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+
+        .toggle-button:hover {
+            color: #9db3c1;
         }
 
         @media (max-width: 768px) {
-            .card {
-                width: 98%;
+            .why-us-card {
+                width: 100%;
+                /* Full width on smaller screens */
+                height: auto;
+                /* Auto height on smaller screens */
             }
         }
 
-        /* Styling for the services section */
-        .section-services .single-service {
-            margin-bottom: 30px;
-            padding: 15px;
+        /* Styling for the clients section */
+        .clients {
+            position: relative;
+            overflow: hidden;
         }
-    /* Styling for the clients section */
-    .clients {
-    position: relative;
-    overflow: hidden;
-}
 
-.carousel {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .carousel {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.carousel__track {
-    display: flex;
-    animation: scroll 30s linear infinite;
-    justify-content: center;
-    
-}
+        .carousel__track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            justify-content: center;
+        }
 
-.carousel__slide {
-    flex: 0 0 auto;
-    width: 200px; 
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .carousel__slide {
+            flex: 0 0 auto;
+            width: 200px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.carousel__slide img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 50%;
-}
+        .carousel__slide img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+        }
 
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
 
+            to {
+                transform: translateX(-50%);
+            }
+        }
 
+        /* Styling for services section */
+        .service-box {
+            position: relative;
+            text-align: center;
+            border-radius: 8px;
+            padding: 20px;
+            /* Padding inside the box */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Light shadow */
+            background-color: #fff;
+            /* Background color */
+        }
+
+        .service-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            /* Consistent border-radius */
+        }
+
+        .text-box {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #9db3c1;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            /* Adjust shadow */
+            width: 80%;
+            border-radius: 8px;
+            /* Border-radius for consistency */
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-md-6,
+        .col-lg-4 {
+            padding-right: 15px;
+            padding-left: 15px;
+            padding-bottom: 50px;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+            /* Space below each service box */
+        }
+
+        .text-center {
+            margin-top: 2rem;
+            /* Space above the 'View More' button */
+        }
     </style>
     <script src="loadNavbar.js"></script>
     <script src="loadFooter.js"></script>
@@ -190,10 +318,10 @@
                 <img src="images/test.jpg" alt="1" class="d-block w-100">
             </div>
             <div class="carousel-item">
-                <img src="no2.jpeg" alt="2" class="d-block w-100">
+                <img src="images/cchy.jpg" alt="2" class="d-block w-100">
             </div>
             <div class="carousel-item">
-                <img src="no3.jpeg" alt="3" class="d-block w-100">
+                <img src="images/logo.jpg" alt="3" class="d-block w-100">
             </div>
         </div>
         <!-- Left and right controls/icons -->
@@ -230,215 +358,192 @@
                 </div>
             </div>
         </div>
-        <p> At EventsCo, our numbers tell the story. We've hosted numerous events, brought together thousands of participants, and executed a wide range of successful corporate events. Trusted by esteemed clients, each statistic reflects our dedication to creating impactful and memorable experiences. Discover why EventsCo is the top choice for corporate events, team-building activities, and retreats.</p>
+        <p> At EventsCo, our numbers tell the story. We've hosted numerous events, brought together thousands of
+            participants, and executed a wide range of successful corporate events. Trusted by esteemed clients, each
+            statistic reflects our dedication to creating impactful and memorable experiences. Discover why EventsCo is
+            the top choice for corporate events, team-building activities, and retreats.</p>
     </div>
     <hr>
-    <div class="why-us-container">
-        <h2>Why Choose Us?</h2>
-        <section class="why-us-section">
-            <div class="card">
-                <h3>Expertise</h3>
-                <p>We have a team of experienced professionals who are experts in their fields, ensuring you get top-notch services.</p>
-            </div>
-            <div class="card">
-                <h3>Quality</h3>
-                <p>Our commitment to quality is unmatched. We strive to deliver the best products and services to our clients.</p>
-            </div>
-            <div class="card">
-                <h3>Customer Service</h3>
-                <p>We prioritize our customers and provide exceptional customer service to ensure your satisfaction.</p>
-            </div>
-            <div class="card">
-                <h3>Innovation</h3>
-                <p>We embrace innovation and continuously improve our processes and products to stay ahead of the curve.</p>
-            </div>
-        </section>
-    </div>
 
-    <div class="Services">
-        <section class="section-services">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-10 col-lg-8">
-                        <div class="header-section">
-                            <h2 class="title">Exclusive <span>Services</span></h2>
-                            <p class="description">There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some injected humour</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fab fa-500px"></i>
-                                <h3 class="title">Express delivery innovative Design service</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description">Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
-
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fab fa-angellist"></i>
-                                <h3 class="title">Online chat may refer to any kind communication</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description">Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fas fa-award"></i>
-                                <h3 class="title">Service provider provide organizations consulting</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description"> Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fab fa-asymmetrik"></i>
-                                <h3 class="title">Express delivery innovative Design service</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description">Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fas fa-broadcast-tower"></i>
-                                <h3 class="title">Provide solutions and services to end users</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description">Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
-                    <!-- Start Single Service -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="single-service">
-                            <div class="part-1">
-                                <i class="fab fa-canadian-maple-leaf"></i>
-                                <h3 class="title">This broad term incorporates all IT businesses</h3>
-                            </div>
-                            <div class="part-2">
-                                <p class="description">Para</p>
-                                <a href="#"><i class="fas fa-arrow-circle-right"></i>Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / End Single Service -->
+    <!-- Why Us Section -->
+    <div class="why-us-section-container">
+        <h2>Why Us</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="why-us-card" style="background-image: url('images/background1.jpg');"
+                    id="economies-of-scale">
+                    <h2>Economies of Scale</h2>
+                    <p class="description">As Singapore's leading travel agency with more than 50 years of established
+                        networks, we have the ability to reap the advantages of economies of scale and when you travel
+                        with us, you could enjoy better savings and more benefits as a result.</p>
+                    <button class="toggle-button" onclick="toggleInfo('economies-of-scale')">SHOW MORE</button>
                 </div>
             </div>
-        </section>
+            <div class="col-md-3 mb-4">
+                <div class="why-us-card" style="background-image: url('images/background2.jpg');" id="wider-diversity">
+                    <h2>Wider Diversity, More Choices</h2>
+                    <p class="description">We offer a wide range of travel options tailored to your preferences,
+                        ensuring you have more choices and a richer travel experience.</p>
+                    <button class="toggle-button" onclick="toggleInfo('wider-diversity')">SHOW MORE</button>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="why-us-card" style="background-image: url('images/background3.jpg');" id="exclusive-access">
+                    <h2>Exclusive or Special Access & Benefits</h2>
+                    <p class="description">Enjoy exclusive access and special benefits when you travel with us,
+                        including VIP services and unique experiences.</p>
+                    <button class="toggle-button" onclick="toggleInfo('exclusive-access')">SHOW MORE</button>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="why-us-card" style="background-image: url('images/background4.jpg');" id="travel-safe">
+                    <h2>Travel Safe, Travel Smart</h2>
+                    <p class="description">Our priority is your safety. We offer smart travel solutions to ensure your
+                        journeys are safe and stress-free.</p>
+                    <button class="toggle-button" onclick="toggleInfo('travel-safe')">SHOW MORE</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+    <hr>
+    <!-- Services Section -->
+
+    <div class="container my-5">
+        <h6 class="custom-h6">O U R   S E R V I C E S</h6>
+        <div class="line"></div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/service1.jpg" alt="Service 1">
+                    <div class="text-box">
+                        <h3>Service 1</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/cchy.jpg" alt="Custom Software">
+                    <div class="text-box">
+                        <h3>Custom Software</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/service3.jpg" alt="Service 3">
+                    <div class="text-box">
+                        <h3>Service 3</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/service4.jpg" alt="Service 4">
+                    <div class="text-box">
+                        <h3>Service 4</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/cchy.jpg" alt="Service 5">
+                    <div class="text-box">
+                        <h3>Service 5</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <img src="images/service6.jpg" alt="Service 6">
+                    <div class="text-box">
+                        <h3>Service 6</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn btn-custom">View More</a>
+        </div>
+    </div>
+
+
+
+    <hr>
+    <!-- Clients Section -->
+    <h2>Our Clients</h2>
     <div class="clients">
-        <section class="section-clients">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-10 col-lg-8">
-                        <div class="header-section">
-                            <h2 class="title">Our <span>Clients</span></h2>
-                        </div>
-                        <div class="carousel">
-                            <div class="carousel__track">
-                                <div class="carousel__slide"><img src="images/BNI.jpg" alt="Client 1"></div>
-                                <div class="carousel__slide"><img src="images/oppo.jpg" alt="Client 2"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 3"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 4"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 5"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 6"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 7"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 8"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 9"></div>
-                                <div class="carousel__slide"><img src="client-logo3.png" alt="Client 10"></div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="carousel">
+            <div class="carousel__track">
+                <div class="carousel__slide">
+                    <img src="images/BNI.jpg" alt="Client 1">
+                </div>
+                <div class="carousel__slide">
+                    <img src="images/oppo.jpg" alt="Client 2">
+                </div>
+                <div class="carousel__slide">
+                    <img src="images/logo3.jpg" alt="Client 3">
+                </div>
+                <div class="carousel__slide">
+                    <img src="images/logo4.jpg" alt="Client 4">
+                </div>
+                <div class="carousel__slide">
+                    <img src="images/logo5.jpg" alt="Client 5">
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-    
-    
 
-    </div>
-    <!-- Footer -->
     <div id="footer-container"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Counter animation for stats
         document.addEventListener("DOMContentLoaded", function () {
-            const counters = document.querySelectorAll('.stats-box h3');
-
-            const animateCounter = (element, endValue) => {
-                let startValue = 0;
-                const duration = 2000; // Animation duration in milliseconds
-                const stepTime = 20; // Update interval in milliseconds
-                const steps = duration / stepTime;
-                const stepValue = endValue / steps;
-
-                const interval = setInterval(() => {
-                    startValue += stepValue;
-                    if (startValue >= endValue) {
-                        clearInterval(interval);
-                        element.textContent = endValue;
-                    } else {
-                        element.textContent = Math.floor(startValue).toLocaleString();
-                    }
-                }, stepTime);
-            };
-
+            const counters = document.querySelectorAll(".stats-box h3");
             counters.forEach(counter => {
-                let endValue = counter.getAttribute('data-end-value');
-                if (endValue.includes('+')) {
-                    endValue = parseInt(endValue.replace('+', ''));
-                } else {
-                    endValue = parseInt(endValue);
-                }
-                animateCounter(counter, endValue + (endValue % 1000 ? 0 : '+'));
+                const updateCount = () => {
+                    const target = +counter.getAttribute("data-end-value");
+                    const count = +counter.innerText;
+                    const increment = target / 200;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.carousel__track');
-    const slides = Array.from(track.children);
-    
-    // Clone slides to make an infinite effect
-    slides.forEach(slide => {
-        const clone = slide.cloneNode(true);
-        track.appendChild(clone);
-    });
-});
+        // Toggle info for Why Us section
+        function toggleInfo(id) {
+            const element = document.getElementById(id);
+            const button = element.querySelector('.toggle-button');
+            const description = element.querySelector('.description');
 
-
+            if (button.innerText === 'SHOW MORE') {
+                description.style.display = 'block';
+                button.innerText = 'SHOW LESS';
+                element.classList.add('expanded'); // Add expanded class
+            } else {
+                description.style.display = 'none';
+                button.innerText = 'SHOW MORE';
+                element.classList.remove('expanded'); // Remove expanded class
+            }
+        }
     </script>
 </body>
 
