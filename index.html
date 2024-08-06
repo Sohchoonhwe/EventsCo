@@ -89,13 +89,14 @@
         }
 
         .custom-h6 {
-    font-size: 3rem; 
-    font-weight: bold;
-    text-align: center; 
-    font-family: Cormorant Garamond, serif;
-    margin-bottom: 100px;
-        }   
-        line{ width: 112px; height: 47px; border-bottom: 1px solid black; position: absolute; }
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            font-family: Cormorant Garamond, serif;
+            margin-bottom: 100px;
+        }
+
+
 
         /* Styling for the why-us section */
         .why-us-section {
@@ -241,24 +242,21 @@
             }
         }
 
-        /* Styling for services section */
+
+        /* Styles for the service boxes */
         .service-box {
             position: relative;
             text-align: center;
             border-radius: 8px;
             padding: 20px;
-            /* Padding inside the box */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            /* Light shadow */
             background-color: #fff;
-            /* Background color */
         }
 
         .service-box img {
             width: 100%;
             height: auto;
             border-radius: 8px;
-            /* Consistent border-radius */
         }
 
         .text-box {
@@ -269,10 +267,8 @@
             background-color: #9db3c1;
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            /* Adjust shadow */
             width: 80%;
             border-radius: 8px;
-            /* Border-radius for consistency */
         }
 
         .row {
@@ -289,13 +285,13 @@
 
         .mb-4 {
             margin-bottom: 1.5rem;
-            /* Space below each service box */
         }
 
         .text-center {
             margin-top: 2rem;
-            /* Space above the 'View More' button */
+            font-size: 30px;
         }
+
     </style>
     <script src="loadNavbar.js"></script>
     <script src="loadFooter.js"></script>
@@ -339,21 +335,21 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="stats-box">
-                    <h3 data-end-value="19200">0</h3>
+                    <h3 data-end-value="19200">10000</h3>
                     <p>Participants Served</p>
                 </div>
             </div>
 
             <div class="col-md-4 mb-4">
                 <div class="stats-box">
-                    <h3 data-end-value="2994">0</h3>
+                    <h3 data-end-value="2994">200</h3>
                     <p>Successful Events</p>
                 </div>
             </div>
 
             <div class="col-md-4 mb-4">
                 <div class="stats-box">
-                    <h3 data-end-value="192">0</h3>
+                    <h3 data-end-value="192">12</h3>
                     <p>Corporate Clients</p>
                 </div>
             </div>
@@ -411,43 +407,45 @@
     <!-- Services Section -->
 
     <div class="container my-5">
-        <h6 class="custom-h6">O U R   S E R V I C E S</h6>
-        <div class="line"></div>
-
+        <h6 class="custom-h6">O U R S E R V I C E S</h6>
+    
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
+                <a href="corporate/dnd.html" class="service-link"></a>
                 <div class="service-box">
-                    <img src="images/service1.jpg" alt="Service 1">
+                    <img src="images/cchy.jpg" alt="Service 1">
                     <div class="text-box">
-                        <h3>Service 1</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Dance & Dinner</h3>
+                        <p>Come and find out more about our Dance and Dinner!</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
+                    <a href="corporate/teambuilding.html" class="service-link"></a>
                     <img src="images/cchy.jpg" alt="Custom Software">
                     <div class="text-box">
-                        <h3>Custom Software</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Team Building</h3>
+                        <p>More detailed description about Team Building goes here.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <img src="images/service3.jpg" alt="Service 3">
+                    <a href="corporate/" class="service-link"></a>
+                    <img src="images/cchy.jpg" alt="Service 3">
                     <div class="text-box">
-                        <h3>Service 3</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Retreats</h3>
+                        <p>More detailed description about Retreats goes here.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <img src="images/service4.jpg" alt="Service 4">
+                    <img src="images/cchy.jpg" alt="Service 4">
                     <div class="text-box">
-                        <h3>Service 4</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Family Day Out</h3>
+                        <p>More detailed description about Family Day Out goes here.</p>
                     </div>
                 </div>
             </div>
@@ -455,17 +453,18 @@
                 <div class="service-box">
                     <img src="images/cchy.jpg" alt="Service 5">
                     <div class="text-box">
-                        <h3>Service 5</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Gala Dinner</h3>
+                        <p>More detailed description about Gala Dinner goes here.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <img src="images/service6.jpg" alt="Service 6">
+                    <a href="retreats/" class="service-link"></a>
+                    <img src="images/cchy.jpg" alt="Service 6">
                     <div class="text-box">
-                        <h3>Service 6</h3>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting...</p>
+                        <h3>Retreats</h3>
+                        <p>More detailed description about Retreats goes here.</p>
                     </div>
                 </div>
             </div>
@@ -473,6 +472,8 @@
         <div class="text-center">
             <a href="#" class="btn btn-custom">View More</a>
         </div>
+    </div>
+    
     </div>
 
 
@@ -590,6 +591,8 @@
                 element.classList.remove('expanded'); // Remove expanded class
             }
         }
+
+
     </script>
 </body>
 
