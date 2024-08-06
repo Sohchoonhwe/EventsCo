@@ -1,243 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Footer styling */
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            position: relative;
-            width: 100%;
-            bottom: 0;
-        }
-
-        .footer-social-icons {
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .footer-social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .footer-social-icons a:hover {
-            color: #007bff;
-        }
-
-        .footer-info {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        .containercontact {
-            max-width: 600px;
-            margin: 100px auto;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: lightblue;
-        }
-        .contact-info p {
-            margin: 0;
-            font-size: 1.1em;
-        }
-
-        form {
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://via.placeholder.com/1600x900.png?text=Background+Image') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .contact-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Slightly transparent background */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            /* Optional: Add blur effect */
+        }
+
+        .contact-container h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .contact-container p {
+            margin-bottom: 2rem;
+            color: #666;
         }
 
         label {
-            margin-top: 10px;
-            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-align: left;
         }
 
-        input, select, textarea {
-            margin-top: 5px;
-            padding: 8px;
-            border: 1px solid #ccc;
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
             border-radius: 4px;
+            box-sizing: border-box;
+            /* Ensure padding is included in the width */
         }
 
         button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
+            padding: 0.8rem 2rem;
             border: none;
+            background-color: #5cb85c;
+            color: white;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #4cae4c;
         }
 
-        .phone-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .phone-container select, .phone-container input {
-            margin-right: 10px;
+        #form-messages {
+            margin-top: 1rem;
+            color: #d9534f;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function showOtherEventType() {
-            var eventType = document.getElementById("event-type").value;
-            var otherEventTypeDiv = document.getElementById("other-event-type");
-            if (eventType === "other") {
-                otherEventTypeDiv.style.display = "block";
-            } else {
-                otherEventTypeDiv.style.display = "none";
-            }
-        }
-
-        function validateForm(event) {
-            event.preventDefault();
-            var isValid = true;
-            var name = document.getElementById("name");
-            var email = document.getElementById("email");
-            var phone = document.getElementById("phone");
-            var pax = document.getElementById("pax");
-            var eventType = document.getElementById("event-type");
-            var otherEventTypeInput = document.getElementById("other-event-type-input");
-            var eventDetail = document.getElementById("event");
-
-            // Reset error messages
-            document.querySelectorAll('.error').forEach(function(error) {
-                error.textContent = '';
-            });
-
-            // Name validation
-            if (name.value.trim() === "") {
-                isValid = false;
-                name.nextElementSibling.textContent = "Full Name is required.";
-            }
-
-            // Email validation
-            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(email.value)) {
-                isValid = false;
-                email.nextElementSibling.textContent = "Please enter a valid email address.";
-            }
-
-            // Phone validation
-            var phonePattern = /^[0-9]{7,15}$/;
-            if (!phonePattern.test(phone.value)) {
-                isValid = false;
-                phone.nextElementSibling.textContent = "Please enter a valid phone number.";
-            }
-
-            // Pax validation
-            var paxPattern = /^[0-9]+$/;
-            if (!paxPattern.test(pax.value)) {
-                isValid = false;
-                pax.nextElementSibling.textContent = "Please enter a valid number of pax.";
-            }
-
-            // Event type validation
-            if (eventType.value === "other" && otherEventTypeInput.value.trim() === "") {
-                isValid = false;
-                otherEventTypeInput.nextElementSibling.textContent = "Please specify the type of event.";
-            }
-
-            // If form is valid, submit it
-            if (isValid) {
-                document.getElementById("contact-form").submit();
-            }
-        }
-    </script>
-    <script src="loadNavbar.js"></script>
-    <script src="loadFooter.js"></script>
 </head>
-<body>
-    <div id="navbar-container"></div>
-    <!-- Contact Form -->
-    <div class="containercontact">
-        <h1>Contact Us</h1>
-        <p>We are here to help you unlock your event potential. Feel free to reach out to us for any inquiries or collaboration opportunities. Remember, every great event starts with a simple email or call.</p>
-        <div class="contact-info">
-            <p>Email us at: <a href="mailto:sales@eventsco.sg">sales@eventsco.sg</a></p>
-        </div>
 
-        <form action="/submit-contact-form" method="POST">
-            <label for="name">Full Name</label>
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you!</p>
+        <form id="contact-form">
+            <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="email">Email Address</label>
+            <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="phone">Phone Number</label>
-            <div class="phone-container">
-                <select id="phone-code" name="phone-code" required>
-                    <option value="+65">+65 Singapore</option>
-                    <option value="+61">+61 Australia</option>
-                    <option value="+62-36">+62-36 Bali</option>
-                    <option value="+60">+60 Malaysia</option>
-                    <option value="+81">+81 Japan</option>
-                    <option value="+86">+86 China</option>
-                    <option value="+886">+886 Taiwan</option>
-                </select>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
 
-            <label for="pax">Number Of Pax?</label>
-            <input type="text" id="pax" name="pax" required>
-
-            <label for="event-type">Type of Event? </label>
-            <select id="event-type" name="event-type" onchange="showOtherEventType()" required>
-                <option value="" disabled selected>Select an event type</option>
-                <option value="awardnight">Award Night</option>
-                <option value="companyanniversary">Company Anniversary</option>
-                <option value="clientappreciation">Client Appreciation</option>
-                <option value="dnd">D&D (Dinner and Dance)</option>
-                <option value="festiveparty">Festive Party</option>
-                <option value="retreat">Retreats (Overseas/Local)</option>
-                <option value="other">Other</option>
-            </select>
-
-            <div id="other-event-type" class="other-event-type" style="display: none;">
-                <label for="other-event-type-input">Please specify the type of event:</label>
-                <input type="text" id="other-event-type-input" name="other-event-type-input">
-            </div>
-
-            <label for="event">What are you looking for? </label>
-            <select id="event" name="event" required>
-                <option value="planning&coordination" selected>Planning & Coordination</option>
-                <option value="teambuildingactivities">Teambuilding Activities</option>
-                <option value="venue">Venue</option>
-                <option value="catering">Catering</option>
-                <option value="transport">Transport</option>
-                <option value="other">Other</option>
-            </select>
-
-            <label for="message">Any other information do you want us to know?</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-
-            <button type="submit">Let Us Know!</button>
+            <button type="submit">Send Message</button>
         </form>
-    </div>  
-    <!-- Footer -->
-
-    <div id="footer-container"></div>
+        <div id="form-messages"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
-</html>
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const formMessages = document.getElementById('form-messages');
+
+        if (name === '' || email === '' || message === '') {
+            formMessages.textContent = 'Please fill out all fields.';
+            return;
+        }
+
+        formMessages.textContent = 'Thank you for your message! We will get back to you soon.';
+
+        document.getElementById('contact-form').reset();
+    });
+
+</html >

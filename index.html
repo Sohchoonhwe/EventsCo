@@ -26,17 +26,8 @@
             object-fit: cover;
         }
 
-        /* Custom button styling */
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            border-radius: 50px;
-            padding: 10px 20px;
-        }
 
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
+
 
         /* Custom styling for stats boxes */
         .stats-box {
@@ -292,6 +283,54 @@
             font-size: 30px;
         }
 
+        .btn-custom {
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            /* Increase padding for a larger button */
+            text-decoration: none;
+            color: black;
+            border-radius: 8px !important;
+            /* Slightly larger border-radius */
+            font-size: 30px !important;
+            /* Increase font size */
+            font-weight: bold;
+            background-color: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-custom span::after {
+            height: 3px;
+            /* Increase height of the underline */
+        }
+
+        .btn-custom:hover span::after {
+            transform: scaleX(1);
+        }
+
+        .btn-custom span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-custom span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            /* Position the line below the text */
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            /* Color of the underline */
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            
+        }
+
+        .btn-custom:hover span::after {
+            transform: scaleX(1);
+        }
     </style>
     <script src="loadNavbar.js"></script>
     <script src="loadFooter.js"></script>
@@ -335,7 +374,7 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="stats-box">
-                    <h3 data-end-value="19200">10000</h3>
+                    <h3 data-end-value="19200">1000</h3>
                     <p>Participants Served</p>
                 </div>
             </div>
@@ -363,40 +402,34 @@
 
     <!-- Why Us Section -->
     <div class="why-us-section-container">
-        <h2>Why Us</h2>
+        <h2>Why Choose Us?</h2>
         <div class="row justify-content-center">
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/background1.jpg');"
-                    id="economies-of-scale">
-                    <h2>Economies of Scale</h2>
-                    <p class="description">As Singapore's leading travel agency with more than 50 years of established
-                        networks, we have the ability to reap the advantages of economies of scale and when you travel
-                        with us, you could enjoy better savings and more benefits as a result.</p>
-                    <button class="toggle-button" onclick="toggleInfo('economies-of-scale')">SHOW MORE</button>
+                <div class="why-us-card" style="background-image: url('images/background1.jpg');" id="1">
+                    <h2>1</h2>
+                    <p class="description">description</p>
+                    <button class="toggle-button" onclick="toggleInfo('1')">SHOW MORE</button>
                 </div>
             </div>
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/background2.jpg');" id="wider-diversity">
-                    <h2>Wider Diversity, More Choices</h2>
-                    <p class="description">We offer a wide range of travel options tailored to your preferences,
-                        ensuring you have more choices and a richer travel experience.</p>
-                    <button class="toggle-button" onclick="toggleInfo('wider-diversity')">SHOW MORE</button>
+                <div class="why-us-card" style="background-image: url('images/background2.jpg');" id="2">
+                    <h2>2</h2>
+                    <p class="description">description</p>
+                    <button class="toggle-button" onclick="toggleInfo('2')">SHOW MORE</button>
                 </div>
             </div>
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/background3.jpg');" id="exclusive-access">
-                    <h2>Exclusive or Special Access & Benefits</h2>
-                    <p class="description">Enjoy exclusive access and special benefits when you travel with us,
-                        including VIP services and unique experiences.</p>
-                    <button class="toggle-button" onclick="toggleInfo('exclusive-access')">SHOW MORE</button>
+                <div class="why-us-card" style="background-image: url('images/background3.jpg');" id="3">
+                    <h2>3</h2>
+                    <p class="description">description</p>
+                    <button class="toggle-button" onclick="toggleInfo('3')">SHOW MORE</button>
                 </div>
             </div>
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/background4.jpg');" id="travel-safe">
-                    <h2>Travel Safe, Travel Smart</h2>
-                    <p class="description">Our priority is your safety. We offer smart travel solutions to ensure your
-                        journeys are safe and stress-free.</p>
-                    <button class="toggle-button" onclick="toggleInfo('travel-safe')">SHOW MORE</button>
+                <div class="why-us-card" style="background-image: url('images/background4.jpg');" id="4">
+                    <h2>4</h2>
+                    <p class="description">description</p>
+                    <button class="toggle-button" onclick="toggleInfo('4')">SHOW MORE</button>
                 </div>
             </div>
         </div>
@@ -408,7 +441,7 @@
 
     <div class="container my-5">
         <h6 class="custom-h6">O U R S E R V I C E S</h6>
-    
+
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
                 <a href="corporate/dnd.html" class="service-link"></a>
@@ -470,10 +503,11 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="#" class="btn btn-custom">View More</a>
+            <a href="#" class="btn btn-custom"><span>View More</span></a>
         </div>
+
     </div>
-    
+
     </div>
 
 
