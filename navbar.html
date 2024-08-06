@@ -1,61 +1,150 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
 
-</style>
-    <nav class="navbar navbar-expand-lg navbar-custom navbar-light">
-        <a class="navbar-brand" href="index.html"><img  src="images/logo.jpg" height="85px" width="85px"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Responsive dropdown menu - Bedimcode</title>
+</head>
+
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+        <nav class="nav container navbar-">
+            <div class="nav__data">
+                <a href="index.html" class="nav__logo">
+                    <img src="images/logo.jpg" height="85px" width="85px"/>
+                </a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+
+
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Corporate <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="corporate/galadinner.html" class="dropdown__link">
+                                    Gala Dinner
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="corporate/familydayout.html" class="dropdown__link">
+                                    Family Day Out
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="corporate/graduation.html" class="dropdown__link">
+                                    Graduation
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="corporate/teambuilding.html" class="dropdown__link">
+                                    Team Building
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="corporate/conferences.html" class="dropdown__link">
+                                    Conferences
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="corporate/dnd.html" class="dropdown__link">
+                                    DnD
+                                </a>
+                            </li>
+
+                        
+                    </li>
+                </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Corporate Page
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="corporate/galadinner.html">Gala Dinner</a>
-                        <a class="dropdown-item" href="corporate/familydayout.html">Family Day Out</a>
-                        <a class="dropdown-item" href="corporate/graduation.html">Graduation</a>
-                        <a class="dropdown-item" href="corporate/teambuilding.html">Team Building</a>
-                        <a class="dropdown-item" href="corporate/conferences.html">Conferences</a>
-                        <a class="dropdown-item" href="corporate/dnd.html">D & D</a>
 
+
+                <!--=============== DROPDOWN 2 ===============-->
+                <li class="dropdown__item">
+                    <div class="nav__link">
+                        Retreats <i class="ri-arrow-down-s-line dropdown__arrow"></i>
                     </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="retreatsDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Retreats
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="retreatsDropdown">
-                        <a class="dropdown-item" href="retreats/singapore.html">Singapore</a>
-                        <a class="dropdown-item" href="retreats/australia.html">Australia</a>
-                        <a class="dropdown-item" href="retreats/bali.html">Bali</a>
-                        <a class="dropdown-item" href="retrereats/china.html">China</a>
-                        <a class="dropdown-item" href="retreats/japan.html">Japan</a>
-                        <a class="dropdown-item" href="retreats/malaysia.html">Malaysia</a>
-                        <a class="dropdown-item" href="retreats/taiwan.html">Taiwan</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacts.html">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About Us</a>
-                </li>
-            </ul>
-                <!-- <ul class="navbar-nav ml-auto">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </ul>  -->
-        </div>
-    </nav>
 
+                    <ul class="dropdown__menu">
+                        <li>
+                            <a href="retreats/singapore.html" class="dropdown__link">
+                                <i class="ri-user-line"></i> Singapore
+                            </a>
+                        </li>
 
+                        <li>
+                            <a href="retreats/australia.html" class="dropdown__link">
+                                <i class="ri-lock-line"></i> Australia
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="retreats/bali.html" class="dropdown__link">
+                                <i class="ri-message-3-line"></i> Bali
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="retreats/china.html" class="dropdown__link">
+                                <i class="ri-message-3-line"></i> China
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="retreats/japan.html" class="dropdown__link">
+                                <i class="ri-message-3-line"></i> Japan
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="retreats/malaysia.html" class="dropdown__link">
+                                <i class="ri-message-3-line"></i> Malaysia
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="retreats/taiwan.html" class="dropdown__link">
+                                <i class="ri-message-3-line"></i> Taiwan
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a href="contacts.html" class="nav__link">Contact Us</a></li>
+
+                <li><a href="about.html" class="nav__link">About Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
