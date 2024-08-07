@@ -205,13 +205,14 @@
         .carousel__track {
             display: flex;
             animation: scroll 30s linear infinite;
+            animation-play-state: running;
             justify-content: center;
         }
 
         .carousel__slide {
             flex: 0 0 auto;
             width: 200px;
-            height: auto;
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -405,7 +406,7 @@
         <h2>Why Choose Us?</h2>
         <div class="row justify-content-center">
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/background1.jpg');" id="1">
+                <div class="why-us-card" style="background-image: url('images/pic');" id="1">
                     <h2>1</h2>
                     <p class="description">description</p>
                     <button class="toggle-button" onclick="toggleInfo('1')">SHOW MORE</button>

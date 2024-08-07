@@ -4,7 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            position: relative;
+            display: inline-block;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            bottom: -5px;
+            left: 25%;
+            background-color: black;
+        }
+
+        .search-container {
+            margin: 20px 0;
+            width: 80%;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: #5eacff;
+            box-shadow: 0 0 5px rgba(94, 172, 255, 0.5);
+        }
+
+        .search-container .clear-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #ccc;
+            outline: none;
+        }
+
+        .search-container .clear-button:hover {
+            color: #666;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            border-radius: 8px;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .card-description {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .card-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: rgb(121, 198, 211);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: #5eacff;
+        }
+
+        .card-button:active {
+            transform: scale(0.95);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+
+        .no-results p {
+            font-size: 3rem;
+            color: #666;
+        }
+
+    </style>
 </head>
 <body>
-    this is the conferences
+    <h1>All Services Just For You!</h1>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search for services...">
+        <button class="clear-button" onclick="clearSearch()">&times;</button>   
+            
+        </button>
+    </div>
+
+    <div class="no-results" id="noResults">
+        <iclass="bi bi-x-circle-fill"></i>
+        <p>No services found. Perhaps try finding our staff?</p>
+    </div>
+
+    <div class="card-container" id="cardContainer">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 1">
+            <div class="card-title">Service 1</div>
+            <div class="card-description">Description of Service 1. It includes all the features you need.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now!</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 2">
+            <div class="card-title">Service 2</div>
+            <div class="card-description">Description of Service 2. It offers great value and reliability.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now!</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 3">
+            <div class="card-title">Service 3</div>
+            <div class="card-description">Description of Service 3. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 4">
+            <div class="card-title">Service 4</div>
+            <div class="card-description">Description of Service 4. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 5">
+            <div class="card-title">Service 5</div>
+            <div class="card-description">Description of Service 5. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 6">
+            <div class="card-title">Service 6</div>
+            <div class="card-description">Description of Service 6. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 7">
+            <div class="card-title">Service 7</div>
+            <div class="card-description">Description of Service 7. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x150" alt="Service 8">
+            <div class="card-title">Service 8</div>
+            <div class="card-description">Description of Service 8. Perfect for your needs and budget.</div>
+            <a href="contacts.html" class="card-button">Contact Us Now</a>
+        </div>
+    </div>
+
+    <script>
+        function filterCards() {
+            var input, filter, cardContainer, cards, cardTitle, i, txtValue, noResults;
+            input = document.getElementById('searchInput');
+            filter = input.value.toLowerCase();
+            cardContainer = document.getElementById('cardContainer');
+            cards = cardContainer.getElementsByClassName('card');
+            noResults = document.getElementById('noResults');
+
+            let hasVisibleCard = false;
+
+            for (i = 0; i < cards.length; i++) {
+                cardTitle = cards[i].getElementsByClassName('card-title')[0];
+                txtValue = cardTitle.textContent || cardTitle.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                    hasVisibleCard = true;
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+
+            if (hasVisibleCard) {
+                noResults.style.display = "none";
+            } else {
+                noResults.style.display = "block";
+            }
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterCards();
+        }
+    </script>
+</body>
 </html>
