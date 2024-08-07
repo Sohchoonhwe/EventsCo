@@ -3,13 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - EventsCo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+h1, h2 {
+    color: #007BFF;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.about-us {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    margin-top: 60px; /* Push down the content to avoid overlap with navbar */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
     <script src="loadNavbar.js"></script>
     <script src="loadFooter.js"></script>
 </head>
 <body>
     <div id="navbar-container"></div>
-    <p>This is the about page, need to ask kx </p>
+
+    <section class="about-us">
+        <div class="container">
+            <h1>About EventsCo</h1>
+            <p>Welcome to EventsCo, your premier destination for planning and managing corporate events. Our mission is to provide exceptional service and create memorable experiences tailored to your company's needs.</p>
+            
+            <h2>Our Mission</h2>
+            <p>At EventsCo, we strive to deliver outstanding corporate event planning services that exceed our clients' expectations. We focus on understanding your objectives and working closely with you to achieve your goals.</p>
+            
+            <h2>Our Services</h2>
+            <p>We offer a comprehensive range of services to ensure your corporate events are successful and impactful:</p>
+            <ul>
+                <li>Event Planning and Coordination</li>
+                <li>Venue Selection and Management</li>
+                <li>Catering and Hospitality</li>
+                <li>Audio-Visual and Technical Support</li>
+                <li>On-site Event Management</li>
+            </ul>
+            
+            <h2>Why Choose Us</h2>
+            <p>With years of experience in the event management industry, our team of professionals is dedicated to making your event a success. We pride ourselves on our attention to detail, creativity, and commitment to excellence.</p>
+            
+            <h2>Contact Us</h2>
+            <p>Ready to plan your next corporate event? <a href="contact.html">Get in touch</a> with us today to learn more about how we can help you create an unforgettable experience.</p>
+        </div>
+    </section>
+
     <div id="footer-container"></div>
 </body>
-</html>    
+</html>
