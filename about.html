@@ -3,89 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - EventsCo</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* styles.css */
-body {
+        body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-h1, h2 {
-    color: #007BFF;
+/* Assuming navbar styles are already included */
+
+/* About Section Styles */
+.about-section {
+    background-color: #fff;
+    padding: 2em 0;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: left;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.about-us {
-    padding: 40px 20px;
-    background-color: #f8f9fa;
-    margin-top: 60px; /* Push down the content to avoid overlap with navbar */
+h1, h2, h3 {
+    color: #0044cc;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+p {
+    line-height: 1.6;
 }
 
-ul li {
-    background-color: #e9ecef;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
 }
 
-a {
-    color: #007BFF;
-    text-decoration: none;
+.column {
+    flex: 1;
+    margin: 0 1em;
 }
 
-a:hover {
-    text-decoration: underline;
+.team {
+    text-align: center;
+}
+
+.team-member {
+    display: inline-block;
+    margin: 1em;
+    text-align: center;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+footer {
+    background-color: #0044cc;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
     </style>
-    <script src="loadNavbar.js"></script>
-    <script src="loadFooter.js"></script>
 </head>
 <body>
-    <div id="navbar-container"></div>
+    <!-- Navbar inclusion assumed here -->
+    
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Welcome to our company! We are dedicated to providing the best services to our customers. Our team of experts are here to help you with all your needs.</p>
+                <div class="row">
+                    <div class="column">
+                        <h2>Our Mission</h2>
+                        <p>Our mission is to deliver high-quality products and services that improve the lives of our customers.</p>
+                    </div>
+                    <div class="column">
+                        <h2>Our Vision</h2>
+                        <p>We aim to be a leading company in our industry, known for our commitment to excellence and customer satisfaction.</p>
+                    </div>
+                </div>
+                <div class="team">
+                    <h2>Meet Our Team</h2>
+                    <div class="team-member">
+                        <img src="team1.jpg" alt="Team Member 1">
+                        <h3>John Doe</h3>
+                        <p>CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team2.jpg" alt="Team Member 2">
+                        <h3>Jane Smith</h3>
+                        <p>CTO</p>
+                    </div>
+                    <!-- Add more team members as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section class="about-us">
-        <div class="container">
-            <h1>About EventsCo</h1>
-            <p>Welcome to EventsCo, your premier destination for planning and managing corporate events. Our mission is to provide exceptional service and create memorable experiences tailored to your company's needs.</p>
-            
-            <h2>Our Mission</h2>
-            <p>At EventsCo, we strive to deliver outstanding corporate event planning services that exceed our clients' expectations. We focus on understanding your objectives and working closely with you to achieve your goals.</p>
-            
-            <h2>Our Services</h2>
-            <p>We offer a comprehensive range of services to ensure your corporate events are successful and impactful:</p>
-            <ul>
-                <li>Event Planning and Coordination</li>
-                <li>Venue Selection and Management</li>
-                <li>Catering and Hospitality</li>
-                <li>Audio-Visual and Technical Support</li>
-                <li>On-site Event Management</li>
-            </ul>
-            
-            <h2>Why Choose Us</h2>
-            <p>With years of experience in the event management industry, our team of professionals is dedicated to making your event a success. We pride ourselves on our attention to detail, creativity, and commitment to excellence.</p>
-            
-            <h2>Contact Us</h2>
-            <p>Ready to plan your next corporate event? <a href="contact.html">Get in touch</a> with us today to learn more about how we can help you create an unforgettable experience.</p>
-        </div>
-    </section>
-
-    <div id="footer-container"></div>
 </body>
 </html>
