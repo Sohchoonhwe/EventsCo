@@ -3,248 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retreats Overview</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/4.1.6/css/flag-icons.min.css">
+    <title>Corporate Retreat</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #333;
             background-color: #f5f5f5;
         }
 
-
-
-        .hero {
-            background: url('images/BNI pic.jpg') no-repeat center center/cover;
-            color: white;
+        .retreat {
             text-align: center;
-            padding: 100px 20px;
-            position: relative;
+            padding: 50px 0;
+            background: linear-gradient(to bottom, #e6f0ff, #ffffff);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+        .retreat h1 {
+            font-size: 3rem;
+            color: #0056b3;
+            margin-bottom: 10px;
         }
 
-        .hero h1, .hero p {
-            position: relative;
-            z-index: 1;
+        .subheading {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 30px;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 24px;
-            margin-top: 10px;
-        }
-
-        .retreats {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .retreats h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .retreats-container {
+        .retreat-slider {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            overflow-x: scroll;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
         }
 
-        .retreat-card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            width: 300px;
-            text-align: center;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .retreat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .retreat-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .retreat-card h3 {
-            font-size: 24px;
-            margin: 10px 0;
-        }
-
-        .retreat-card p {
-            font-size: 16px;
-            padding: 0 10px;
-            margin: 0;
-        }
-
-        .retreat-card button {
-            background-color: #3399FF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .retreat-card button:hover {
-            background-color: #287bb5;
-        }
-
-        .retreat-card .flag {
-            margin-top: 10px;
-            font-size: 36px;
-        }
-
-        .testimonials {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #3399FF;
-            color: white;
-        }
-
-        .testimonials h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .testimonials-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-        }
-
-        .testimonial {
-            background: white;
-            color: #333;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+        .retreat-destination {
+            flex: none;
+            width: 200px;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
             margin: 0 10px;
-            min-width: 250px;
-            flex: 0 0 auto;
-            text-align: left;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            scroll-snap-align: center;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .testimonial p {
-            font-size: 16px;
-            margin: 0;
+        .retreat-destination span {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
-        .testimonial span {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
+        .retreat-destination:hover {
+            transform: scale(1.1);
         }
 
-        
+        .drag-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #0056b3;
+        }
+
+        .drag-hint img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .retreat-destination {
+                width: 150px;
+                height: 250px;
+            }
+        }
     </style>
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
 </head>
 <body>
-
-
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Discover Our World-Class Retreats</h1>
-        <p>Join us in one of our beautiful locations around the globe for an unforgettable experience.</p>
-    </section>
-
-    <!-- Retreats Section -->
-    <section class="retreats">
-        <h2>Our Retreats</h2>
-        <div class="retreats-container">
-            <div class="retreat-card">
-                <img src="path-to-image1.jpg" alt="Australia">
-                <h3>Australia</h3>
-                <div class="flag">
-                    <span class="fi fi-au"></span>
-                </div>
-                <p>Experience the stunning landscapes and vibrant culture of Australia.</p>
-                <button>Learn More</button>
+    <div id="navbar-container"></div>
+    <section class="retreat">
+        <h1>Corporate Retreat</h1>
+        <p class="subheading">Inspiring locations for your next team retreat.</p>
+        <div class="retreat-slider">
+            <div class="retreat-destination" style="background-image: url('images/logo.jpg');">
+                <span>Australia</span>
             </div>
-            <div class="retreat-card">
-                <img src="path-to-image2.jpg" alt="Bali">
-                <h3>Bali</h3>
-                <div class="flag">
-                    <span class="fi fi-id"></span>
-                </div>
-                <p>Relax and rejuvenate in the serene landscapes of Bali.</p>
-                <button>Learn More</button>
+            <div class="retreat-destination" style="background-image: url('images/test.jpg');">
+                <span>Bali</span>
             </div>
-            <div class="retreat-card">
-                <img src="path-to-image3.jpg" alt="China">
-                <h3>China</h3>
-                <div class="flag">
-                    <span class="fi fi-cn"></span>
-                </div>
-                <p>Indulge in the rich history and cuisine of China.</p>
-                <button>Learn More</button>
+            <div class="retreat-destination" style="background-image: url('images/china.jpg');">
+                <span>China</span>
             </div>
-            <div class="retreat-card">
-                <img src="path-to-image4.jpg" alt="Japan">
-                <h3>Japan</h3>
-                <div class="flag">
-                    <span class="fi fi-jp"></span>
-                </div>
-                <p>Explore the unique culture and beautiful scenery of Japan.</p>
-                <button>Learn More</button>
+            <div class="retreat-destination" style="background-image: url('images/japan.jpg');">
+                <span>Japan</span>
             </div>
-            <div class="retreat-card">
-                <img src="path-to-image5.jpg" alt="Singapore">
-                <h3>Singapore</h3>
-                <div class="flag">
-                    <span class="fi fi-sg"></span>
-                </div>
-                <p>Discover the modern cityscape and diverse food culture of Singapore.</p>
-                <button>Learn More</button>
+            <div class="retreat-destination" style="background-image: url('images/singapore.jpg');">
+                <span>Singapore</span>
+            </div>
+            <div class="retreat-destination" style="background-image: url('images/taiwan.jpg');">
+                <span>Taiwan</span>
             </div>
         </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>What Our Guests Say</h2>
-        <div class="testimonials-slider">
-            <div class="testimonial">
-                <p>"The retreat in Bali was life-changing. The serene environment and expert guidance made for an unforgettable experience."</p>
-                <span>- Jane Doe</span>
-            </div>
-            <div class="testimonial">
-                <p>"I loved the retreat in Japan. The cultural immersion and the beauty of the place were beyond words."</p>
-                <span>- John Smith</span>
-            </div>
-            <!-- Add more testimonials here -->
+        <div class="drag-hint">
+            <img src="images/plane-icon.png" alt="Icon">
+            <span>Drag to see more</span>
         </div>
     </section>
-
-
-
+    <script src="script.js"></script>
 </body>
 </html>
