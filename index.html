@@ -324,6 +324,19 @@
         .btn-custom:hover span::after {
             transform: scaleX(1);
         }
+
+        .parallax { /*Transparency scrolling*/
+        background-image: url('/images/test2.jpg');
+        height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+        .content {
+        height: 800px; /* Example content height */
+        padding: 20px;
+        }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -361,7 +374,7 @@
         </a>
     </div>
 
-
+    <hr style="margin-top: 50px;"/>
     <!-- Why Us Section -->
     <div class="why-us-section-container">
         <h2>Why Choose Us?</h2>
@@ -552,8 +565,12 @@
             </div>
         </div>
     </div>
+    <div class="parallax"></div>
 
     <div id="footer-container"></div>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

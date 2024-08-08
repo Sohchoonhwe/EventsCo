@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Scrolling</title>
+  <style>
+    .parallax {
+      background-image: url('/images/ceo.jpg');
+      height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .content {
+      height: 800px; /* Example content height */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parallax"></div>
+  <div class="content">
+    <h1>Scroll Down</h1>
+    <p>This is an example of content below the parallax background.</p>
+  </div>
+</body>
+</html>
