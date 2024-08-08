@@ -26,38 +26,6 @@
             object-fit: cover;
         }
 
-
-
-
-        /* Custom styling for stats boxes */
-        .stats-box {
-            text-align: center;
-            padding: 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .stats-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .stats-box h3 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .stats-box p {
-            font-size: 1.25rem;
-            color: #666;
-            margin: 0;
-        }
-
         .container {
             max-width: 1200px;
         }
@@ -393,37 +361,6 @@
         </a>
     </div>
 
-    <!-- Stats Boxes
-    <div class="container my-5">
-        <h2>About Us</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="stats-box">
-                    <h3 data-end-value="19200">1000</h3>
-                    <p>Participants Served</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="stats-box">
-                    <h3 data-end-value="2994">200</h3>
-                    <p>Successful Events</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="stats-box">
-                    <h3 data-end-value="192">12</h3>
-                    <p>Corporate Clients</p>
-                </div>
-            </div>
-        </div>
-        <p> At EventsCo, our numbers tell the story. We've hosted numerous events, brought together thousands of
-            participants, and executed a wide range of successful corporate events. Trusted by esteemed clients, each
-            statistic reflects our dedication to creating impactful and memorable experiences. Discover why EventsCo is
-            the top choice for corporate events, team-building activities, and retreats.</p>
-    </div>
-    <hr> -->
 
     <!-- Why Us Section -->
     <div class="why-us-section-container">
@@ -622,25 +559,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Counter animation for stats
-        document.addEventListener("DOMContentLoaded", function () {
-            const counters = document.querySelectorAll(".stats-box h3");
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute("data-end-value");
-                    const count = +counter.innerText;
-                    const increment = target / 200;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(updateCount, 10);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        });
+        
 
         // Toggle info for Why Us section
         function toggleInfo(id) {
