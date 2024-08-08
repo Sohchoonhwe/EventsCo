@@ -251,6 +251,30 @@
             border-radius: 8px;
         }
 
+        .service-link {
+            color: #0151dc;
+            /* Default color for the link */
+            text-decoration: none;
+            /* Removes the underline from the link */
+            font-weight: bold;
+            /* Makes the text bold */
+        }
+
+        .service-link:hover {
+            color: #4497f0;
+            /* Color when the link is hovered */
+            text-decoration: underline;
+            /* Adds underline on hover */
+        }
+
+        .service-link .text-box h3 {
+            color: #000;
+            /* Black color for the heading */
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+
         .text-box {
             position: absolute;
             bottom: -40px;
@@ -326,14 +350,12 @@
             /* Color of the underline */
             transform: scaleX(0);
             transition: transform 0.3s ease;
-            
+
         }
 
         .btn-custom:hover span::after {
             transform: scaleX(1);
         }
-
-        
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -447,61 +469,69 @@
 
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
-                <a href="corporate/dnd.html" class="service-link"></a>
-                <div class="service-box">
-                    <img src="images/cchy.jpg" alt="Service 1">
-                    <div class="text-box">
-                        <h3>Dance & Dinner</h3>
-                        <p>Come and find out more about our Dance and Dinner!</p>
+                <a href="corporate/dnd.html" class="service-link">
+                    <div class="service-box">
+                        <img src="images/cchy.jpg" alt="Service 1">
+                        <div class="text-box">
+                            <h3>Dance & Dinner</h3>
+                            <p>Come and find out more about our Dance and Dinner!</p>
+                        </div>
                     </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="service-box">
+                    <a href="corporate/teambuilding.html" class="service-link">
+                        <img src="images/cchy.jpg" alt="Custom Software">
+                        <div class="text-box">
+                            <h3>Team Building</h3>
+                            <p>More detailed description about Team Building goes here.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <a href="corporate/teambuilding.html" class="service-link"></a>
-                    <img src="images/cchy.jpg" alt="Custom Software">
-                    <div class="text-box">
-                        <h3>Team Building</h3>
-                        <p>More detailed description about Team Building goes here.</p>
-                    </div>
+                    <a href="corporate/" class="service-link">
+                        <img src="images/cchy.jpg" alt="Service 3">
+                        <div class="text-box">
+                            <h3>Retreats</h3>
+                            <p>More detailed description about Retreats goes here.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <a href="corporate/" class="service-link"></a>
-                    <img src="images/cchy.jpg" alt="Service 3">
-                    <div class="text-box">
-                        <h3>Retreats</h3>
-                        <p>More detailed description about Retreats goes here.</p>
-                    </div>
+                    <a href="corporate/" class="service-link">
+                        <img src="images/cchy.jpg" alt="Service 5">
+                        <div class="text-box">
+                            <h3>Family Day Out</h3>
+                            <p>More detailed description about Family Day Out goes here.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <img src="images/cchy.jpg" alt="Service 4">
-                    <div class="text-box">
-                        <h3>Family Day Out</h3>
-                        <p>More detailed description about Family Day Out goes here.</p>
-                    </div>
+                    <a href="corporate/" class="service-link">
+                        <img src="images/cchy.jpg" alt="Service 5">
+                        <div class="text-box">
+                            <h3>Gala Dinner</h3>
+                            <p>More detailed description about Gala Dinner goes here.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4">
                 <div class="service-box">
-                    <img src="images/cchy.jpg" alt="Service 5">
-                    <div class="text-box">
-                        <h3>Gala Dinner</h3>
-                        <p>More detailed description about Gala Dinner goes here.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="retreats/" class="service-link"></a>
-                    <img src="images/cchy.jpg" alt="Service 6">
-                    <div class="text-box">
-                        <h3>Retreats</h3>
-                        <p>More detailed description about Retreats goes here.</p>
-                    </div>
+                    <a href="retreats/overview.html" class="service-link">
+                        <img src="images/cchy.jpg" alt="Service 6">
+                        <div class="text-box">
+                            <h3>Retreats</h3>
+                            <p>More detailed description about Retreats goes here.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
