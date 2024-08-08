@@ -3,113 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>About Us - Corporate Event Management</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f7;
+            color: #333;
+        }
 
-/* Assuming navbar styles are already included */
+        h2, h3, h4 {
+            color: #003366;
+            font-weight: bold;
+        }
 
-/* About Section Styles */
-.about-section {
-    background-color: #fff;
-    padding: 2em 0;
-}
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
+        .about-us {
+            text-align: center;
+            padding: 100px 20px;
+            background-image: url('images/BNI pic.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 500px; 
+            color: #fff; 
+        }
 
-h1, h2, h3 {
-    color: #0044cc;
-}
+        .about-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
 
-p {
-    line-height: 1.6;
-}
+        .about-us h1 {
+            position: relative;
+            z-index: 4;
+            font-size: 3em;
+            margin: 0;
+            padding: 0 30px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    margin: 2em 0;
-}
+        .about-content {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
 
-.column {
-    flex: 1;
-    margin: 0 1em;
-}
+        .column {
+            width: 45%;
+            padding: 20px;
+            background-color: #eaf4fc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
 
-.team {
-    text-align: center;
-}
+        .column:hover {
+            transform: translateY(-10px);
+        }
 
-.team-member {
-    display: inline-block;
-    margin: 1em;
-    text-align: center;
-}
+        .team {
+            padding: 40px 20px;
+            background-color: #cce0ff;
+            color: #003366;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+        }
 
-.team-member img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
+        .team h4 {
+            font-size: 3em; /* Increase font size */
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+        }
 
-footer {
-    background-color: #0044cc;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+        .team h4::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 4px;
+            background: #003366;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
 
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+            gap: 20px;
+            justify-content: center;
+            margin: 20px auto;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            background-color: #81daec;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 300px; /* Set a fixed height for uniformity */
+            text-align: left; /* Align text to the left */
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 100px; /* Adjust size to fit within the team-member box */
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .team-info h3, .team-info p {
+            margin: 5px 0;
+        }
+
+        h4 {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 4em;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
     </style>
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
 </head>
 <body>
-    <!-- Navbar inclusion assumed here -->
+    <div id="navbar-container"></div>
     
-    <main>
-        <section class="about-section">
-            <div class="container">
-                <h1>About Us</h1>
-                <p>Welcome to our company! We are dedicated to providing the best services to our customers. Our team of experts are here to help you with all your needs.</p>
-                <div class="row">
-                    <div class="column">
-                        <h2>Our Mission</h2>
-                        <p>Our mission is to deliver high-quality products and services that improve the lives of our customers.</p>
-                    </div>
-                    <div class="column">
-                        <h2>Our Vision</h2>
-                        <p>We aim to be a leading company in our industry, known for our commitment to excellence and customer satisfaction.</p>
-                    </div>
-                </div>
-                <div class="team">
-                    <h2>Meet Our Team</h2>
-                    <div class="team-member">
-                        <img src="team1.jpg" alt="Team Member 1">
-                        <h3>John Doe</h3>
-                        <p>CEO</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="team2.jpg" alt="Team Member 2">
-                        <h3>Jane Smith</h3>
-                        <p>CTO</p>
-                    </div>
-                    <!-- Add more team members as needed -->
+    <section class="about-us">
+        <h1>About Us</h1>
+    </section>
+    
+    <section class="about-content">
+        <div class="column">
+            <h2>Our Mission</h2>
+            <p>We deliver exceptional corporate events that make a lasting impact and drive success. Our goal is to innovate and surpass client expectations in every aspect of event management.</p>
+            <p>We embrace new challenges and seek innovative solutions. Partnering with us means staying ahead and achieving your goals with cutting-edge approaches.</p>
+        </div>
+        <div class="column">
+            <h2>What We Do</h2>
+            <p>We offer complex solutions and tools to help you achieve your goals, blending aesthetics with efficiency.</p>
+            <p>Our designs create memorable brand interactions and impactful user experiences, ensuring a lasting impression on your audience.</p>
+        </div>
+    </section>
+    
+    <section class="team">
+        <h4>Meet Our Team</h4>
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="images/ceo.jpg" alt="CEO">
+                <div class="team-info">
+                    <h3>Mah Kai Xing</h3>
+                    <p>CEO & Event Management Specialist</p>
+                    <p>She crafts memorable events and explores new industry possibilities with a focus on innovation and cost-effectiveness.</p>
                 </div>
             </div>
-        </section>
-    </main>
-
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="images/member2.jpg" alt="Team Member 2">
+                <div class="team-info">
+                    <h3>Jane Doe</h3>
+                    <p>Event Coordinator</p>
+                    <p>Jane ensures every event runs smoothly with attention to detail and exceptional organizational skills.</p>
+                </div>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="images/member3.jpg" alt="Team Member 3">
+                <div class="team-info">
+                    <h3>John Smith</h3>
+                    <p>Creative Director</p>
+                    <p>John brings creativity to our events, designing unique experiences that captivate audiences.</p>
+                </div>
+            </div>
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img src="images/member4.jpg" alt="Team Member 4">
+                <div class="team-info">
+                    <h3>Alice Johnson</h3>
+                    <p>Marketing Specialist</p>
+                    <p>Alice handles marketing strategies to ensure our events reach the right audience and achieve high visibility.</p>
+                </div>
+            </div>
+            <!-- Team Member 5 -->
+            <div class="team-member">
+                <img src="images/member5.jpg" alt="Team Member 5">
+                <div class="team-info">
+                    <h3>Bob Lee</h3>
+                    <p>Technical Support</p>
+                    <p>Bob provides technical support and ensures all event technologies run seamlessly.</p>
+                </div>
+            </div>
+            <!-- Team Member 6 -->
+            <div class="team-member">
+                <img src="images/member6.jpg" alt="Team Member 6">
+                <div class="team-info">
+                    <h3>Emily Davis</h3>
+                    <p>Client Relations</p>
+                    <p>Emily manages client relationships, ensuring their needs are met and expectations exceeded.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="footer-container"></div>
 </body>
 </html>
