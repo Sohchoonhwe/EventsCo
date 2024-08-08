@@ -4,86 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Retreat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         .retreat {
             text-align: center;
-            padding: 50px 0;
+            padding: 70px 20px;
             background: linear-gradient(to bottom, #e6f0ff, #ffffff);
         }
 
         .retreat h1 {
-            font-size: 3rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
             color: #0056b3;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .subheading {
-            font-size: 1.2rem;
-            color: #666666;
-            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        .retreat-slider {
-            display: flex;
-            overflow-x: scroll;
-            padding-bottom: 20px;
-            scroll-snap-type: x mandatory;
+        .retreat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            padding: 0 10px;
         }
 
         .retreat-destination {
-            flex: none;
-            width: 200px;
-            height: 350px;
+            width: 100%;
+            height: 300px;
             background-size: cover;
             background-position: center;
             border-radius: 20px;
-            margin: 0 10px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            scroll-snap-align: center;
+            overflow: hidden;
+            position: relative;
             transition: transform 0.3s ease-in-out;
         }
 
+        .retreat-destination::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+            border-radius: 20px;
+            z-index: 1;
+        }
+
         .retreat-destination span {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #0056b3;
             padding: 10px 20px;
             border-radius: 20px;
-            margin-bottom: 20px;
             font-size: 1.2rem;
+            text-transform: uppercase;
         }
 
         .retreat-destination:hover {
-            transform: scale(1.1);
-        }
-
-        .drag-hint {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #0056b3;
-        }
-
-        .drag-hint img {
-            width: 20px;
-            margin-right: 10px;
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
             .retreat-destination {
-                width: 150px;
-                height: 250px;
+                height: 200px;
             }
         }
     </style>
@@ -91,35 +101,37 @@
     <script src="/assets/js/loadFooter.js"></script>
 </head>
 <body>
-    <div id="navbar-container"></div>
+    <div id="container"></div>
     <section class="retreat">
         <h1>Corporate Retreat</h1>
         <p class="subheading">Inspiring locations for your next team retreat.</p>
-        <div class="retreat-slider">
-            <div class="retreat-destination" style="background-image: url('/images/logo.jpg');">
-                <span>Australia</span>
-            </div>
-            <div class="retreat-destination" style="background-image: url('/images/test.jpg');">
-                <span>Bali</span>
-            </div>
-            <div class="retreat-destination" style="background-image: url('/images/china.jpg');">
-                <span>China</span>
-            </div>
-            <div class="retreat-destination" style="background-image: url('/images/japan.jpg');">
-                <span>Japan</span>
-            </div>
-            <div class="retreat-destination" style="background-image: url('/images/singapore.jpg');">
-                <span>Singapore</span>
-            </div>
-            <div class="retreat-destination" style="background-image: url('/images/taiwan.jpg');">
-                <span>Taiwan</span>
-            </div>
-        </div>
-        <div class="drag-hint">
-            <img src=/images/plane-icon.png" alt="Icon">
-            <span>Drag to see more</span>
-        </div>
+        <div class="retreat-grid" id="retreatGrid"></div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('loaded');
+
+            const destinations = [
+                { name: 'Australia', image: '/images/australia.jpg', link: 'australia.html' },
+                { name: 'Bali', image: '/images/bali.jpg', link: 'bali.html' },
+                { name: 'China', image: '/images/china.jpg', link: 'china.html' },
+                { name: 'Japan', image: '/images/japan.jpg', link: 'japan.html' },
+                { name: 'Singapore', image: '/images/singapore.jpg', link: 'singapore.html' },
+                { name: 'Taiwan', image: '/images/taiwan.jpg', link: 'taiwan.html' },
+            ];
+
+            // Load destinations dynamically
+            const grid = document.getElementById('retreatGrid');
+            destinations.forEach(dest => {
+                const destinationLink = document.createElement('a');
+                destinationLink.href = dest.link;
+                destinationLink.classList.add('retreat-destination');
+                destinationLink.style.backgroundImage = `url(${dest.image})`;
+                destinationLink.innerHTML = `<span>${dest.name}</span>`;
+                grid.appendChild(destinationLink);
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
