@@ -1,9 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singapore</title>
+    <title>Singapore Corporate Retreats</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        /* Fade-in effect */
+        body {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('/images/singapore-flag.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        .flag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: auto;
+        }
+
+        /* About Singapore Section */
+        .about-singapore h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-align: center;
+        }
+
+        .about-singapore p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Retreat Highlights Section */
+        .retreat-highlights h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .highlight {
+            text-align: center;
+            flex: 1 1 300px;
+            max-width: 350px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .highlight img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .highlight h3 {
+            font-size: 1.8em;
+            margin-top: 15px;
+            color: #0056b3;
+        }
+
+        .highlight p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Call-to-Action Section */
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .btn-book-now {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #0056b3;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-book-now:hover {
+            background-color: #003d7a;
+        }
+
+        /* Testimonials Section */
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonials blockquote {
+            font-style: italic;
+            color: #555;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #eee;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+        }
+
+        .testimonials cite {
+            display: block;
+            text-align: right;
+            color: #333;
+            margin-top: 10px;
+            font-size: 1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .about-singapore h2,
+            .retreat-highlights h2,
+            .testimonials h2 {
+                font-size: 2em;
+            }
+
+            .flag {
+                width: 40px;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Apply fade-in effect once the DOM is fully loaded
+            document.body.classList.add('fade-in');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add hover effect on the highlight elements
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                highlight.addEventListener('mouseover', () => {
+                    highlight.style.transform = 'scale(1.05)';
+                });
+                highlight.addEventListener('mouseout', () => {
+                    highlight.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
 </head>
@@ -11,7 +225,59 @@
 <body>
     <div id="navbar-container"></div>
 
+    <section class="hero">
+        <h1>Planning a Corporate Retreat in Singapore?</h1>
+
+        <p>Look no further! Discover the perfect venues and activities to create a memorable experience for your team.</p>
+    </section>
+
+    <section class="about-singapore">
+        <h2>Why Choose Singapore?</h2>
+        <p>Singapore offers a unique blend of modernity and tradition, making it an ideal destination for corporate retreats. With world-class facilities, diverse culture, and vibrant city life, Singapore provides endless possibilities for team-building activities and relaxation.</p>
+    </section>
+<hr>
+    <section class="retreat-highlights">
+        <h2>Retreat Highlights</h2>
+        <div class="highlight-container">
+            <div class="highlight">
+                <img src="/images/skyline.jpg" alt="Singapore Skyline">
+                <h3>Stunning Venues</h3>
+                <p>Host your events at some of the most iconic locations in Singapore, from rooftop venues with panoramic views to luxurious hotels.</p>
+            </div>
+            <div class="highlight">
+                <img src="/images/singapore-teambuilding.jpg" alt="Team Building Activity">
+                <h3>Team Building Activities</h3>
+                <p>Engage your team with a variety of activities designed to promote collaboration, creativity, and camaraderie.</p>
+            </div>
+            <div class="highlight">
+                <img src="/images/singapore-food.jpg" alt="Culinary Experience">
+                <h3>Culinary Experiences</h3>
+                <p>Enjoy Singapore's diverse food scene with culinary tours, cooking classes, and gourmet dining experiences.</p>
+            </div>
+        </div>
+    </section>
+<hr>    
+    <section class="cta">
+        <h2>What Are You Waiting For?</h2>
+        <p>Make your next corporate retreat unforgettable.</p>
+        <a href="#booking" class="btn-book-now">Book Now</a>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-container">
+            <blockquote>
+                "Our retreat in Singapore was a huge success! The venue, activities, and overall organization exceeded our expectations."
+                <cite>– Jane Doe, CEO of XYZ Corp</cite>
+            </blockquote>
+            <blockquote>
+                "The team-building exercises were fantastic and really brought our group closer together. We can't wait to do it again!"
+                <cite>– John Smith, HR Manager of ABC Ltd</cite>
+            </blockquote>
+        </div>
+    </section>
 
     <div id="footer-container"></div>
 </body>
+
 </html>
