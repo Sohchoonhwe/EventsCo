@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             background-color: #f5f5f5;
             opacity: 0;
             transition: opacity 1s ease-in-out;
+            scroll-behavior: smooth;
         }
 
         body.loaded {
@@ -85,10 +87,15 @@
             border-radius: 20px;
             font-size: 1.2rem;
             text-transform: uppercase;
+            transition: background-color 0.3s ease-in-out;
         }
 
         .retreat-destination:hover {
             transform: scale(1.05);
+        }
+
+        .retreat-destination:hover span {
+            background-color: rgba(255, 255, 255, 1);
         }
 
         @media (max-width: 768px) {
@@ -96,19 +103,34 @@
                 height: 200px;
             }
         }
+        .dontwait {
+            font-size: 1.2rem;
+            color: #0056b3;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: color 0.3s ease-in-out;
+            padding: 10px 20px;
+        }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
 </head>
+
 <body>
+    <div id="navbar-container"></div>
     <div id="container"></div>
     <section class="retreat">
         <h1>Corporate Retreat</h1>
-        <p class="subheading">Inspiring locations for your next team retreat.</p>
+        <p class="subheading">Looking for a unique team-building experience? Consider taking your activity overseas for a brief escape from work, projects, and deadlines. Enjoy a serene retreat or exciting games, activities, and programs. If you’re uncertain about the best fit for your organization, talk to us, and we’ll customize a plan specifically for your needs.
+        We understand that everyone is unique and different! </p>
+        <p><a href="contacts.html" class = "dontwait">Don’t wait any longer — let us start planning for you today!</a></p>
         <div class="retreat-grid" id="retreatGrid"></div>
     </section>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             document.body.classList.add('loaded');
 
             const destinations = [
@@ -128,10 +150,12 @@
                 destinationLink.classList.add('retreat-destination');
                 destinationLink.style.backgroundImage = `url(${dest.image})`;
                 destinationLink.innerHTML = `<span>${dest.name}</span>`;
+                destinationLink.setAttribute('aria-label', dest.name);
                 grid.appendChild(destinationLink);
             });
         });
     </script>
     <script src="script.js"></script>
 </body>
+
 </html>
