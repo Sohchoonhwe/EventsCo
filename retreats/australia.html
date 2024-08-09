@@ -303,8 +303,8 @@
                     <div class="user">
                         <img src="/images/user.jpg" alt="Client Photo" class="user-image">
                         <div class="user-details">
-                            <p class="username">John Doe</p>
-                            <p class="role">CEO, Acme Corp</p>
+                            <p class="username"></p>
+                            <p class="role"></p>
                         </div>
                     </div>
 
@@ -334,67 +334,56 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnPrev = document.querySelector('#btn-prev');
-            const btnNext = document.querySelector('#btn-next');
-            const testimonial = document.querySelector('#testimonial');
-            const progressDots = document.querySelectorAll('.progress-dot');
-            const testimonials = [
-                {
-                    quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
-                    author: "John Doe",
-                    role: "CEO, Acme Corp"
-                },
-                {
-                    quote: "Another testimonial about our amazing retreats in Australia.",
-                    author: "Jane Smith",
-                    role: "COO, Beta Ltd"
-                },
-                // Add more testimonials here
-            ];
-            let currentIndex = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnPrev = document.querySelector('#btn-prev');
+        const btnNext = document.querySelector('#btn-next');
+        const testimonial = document.querySelector('#testimonial');
+        const progressDots = document.querySelectorAll('.progress-dot');
+        const testimonials = [
+            {
+                quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
+                author: "John Doe",
+                role: "CEO, Acme Corp"
+            },
+            {
+                quote: "Another testimonial about our amazing retreats in Australia.",
+                author: "Jane Smith",
+                role: "COO, Beta Ltd"
+            },
+            // Add more testimonials here
+        ];
+        let currentIndex = 0;
 
-            function updateTestimonial() {
-                const currentTestimonial = testimonials[currentIndex];
-                testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
-                testimonial.querySelector('.username').innerText = currentTestimonial.author;
-                testimonial.querySelector('.role').innerText = currentTestimonial.role;
+        function updateTestimonial() {
+            const currentTestimonial = testimonials[currentIndex];
+            console.log('Updating testimonial to index:', currentIndex);
+            console.log('Current Testimonial:', currentTestimonial);
 
-                // Update progress dots
-                progressDots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
+            testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
+            testimonial.querySelector('.username').innerText = currentTestimonial.author;
+            testimonial.querySelector('.role').innerText = currentTestimonial.role;
 
-            btnPrev.addEventListener('click', () => {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
-                updateTestimonial();
+            // Update progress dots
+            progressDots.forEach((dot, index) => {
+                console.log('Dot index:', index, 'isActive:', index === currentIndex);
+                dot.classList.toggle('active', index === currentIndex);
             });
+        }
 
-            btnNext.addEventListener('click', () => {
-                currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
-                updateTestimonial();
-            });
-            function updateTestimonial() {
-    const currentTestimonial = testimonials[currentIndex];
-    console.log('Updating testimonial to index:', currentIndex);
-    console.log('Current Testimonial:', currentTestimonial);
-
-    testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
-    testimonial.querySelector('.username').innerText = currentTestimonial.author;
-    testimonial.querySelector('.role').innerText = currentTestimonial.role;
-
-    // Update progress dots
-    progressDots.forEach((dot, index) => {
-        console.log('Dot index:', index, 'isActive:', index === currentIndex);
-        dot.classList.toggle('active', index === currentIndex);
-    });
-}
-
-
-            updateTestimonial(); // Initialize
+        btnPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+            updateTestimonial();
         });
-    </script>
+
+        btnNext.addEventListener('click', () => {
+            currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+            updateTestimonial();
+        });
+
+        updateTestimonial(); // Initialize with the first testimonial
+    });
+</script>
+
 </body>
 
 </html>
