@@ -7,6 +7,8 @@
     <title>EventsCo</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+
     <style>
         /* Global styles */
         *,
@@ -26,33 +28,11 @@
             object-fit: cover;
         }
 
-      
-
-        /* Footer styling */
-        #footer-container {
-            padding: 20px;
-            background-color: #f8f9fa;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
         h2 {
             text-align: center;
             margin-top: 50px;
             text-underline-offset: 10px;
         }
-
-        .custom-h6 {
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            font-family: Cormorant Garamond, serif;
-            margin-bottom: 100px;
-        }
-
 
 
         /* Styling for the why-us section */
@@ -200,6 +180,10 @@
             }
         }
 
+        /*Heading Format*/
+        .heading {
+            color:var(--secondary-700)
+        }
 
         /* Styles for the service boxes */
         .service-box {
@@ -208,7 +192,12 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
+            background-color: var(--accent-800);
+        }
+
+        .service-title{
+            color:var(--accent-800);
+            text-decoration: none;
         }
 
         .service-box img {
@@ -218,7 +207,7 @@
         }
 
         .service-link {
-            color: #0151dc;
+            color: var(--text-950);
             /* Default color for the link */
             text-decoration: none;
             /* Removes the underline from the link */
@@ -234,10 +223,9 @@
         }
 
         .service-link .text-box h3 {
-            color: #000;
             /* Black color for the heading */
             font-weight: bold;
-            text-decoration: underline;
+            
         }
 
 
@@ -246,7 +234,8 @@
             bottom: -40px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #9db3c1;
+            background-color: var(--accent-100);
+            color: var(--text-950);
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             width: 80%;
@@ -403,7 +392,7 @@
     <hr style="margin-top: 50px;"/>
     <!-- Why Us Section -->
     <div class="why-us-section-container">
-        <h2>Why Choose Us?</h2>
+        <h2 class="heading">Why Choose Us?</h2>
         <div class="row justify-content-center">
             <div class="col-md-3 mb-4">
                 <div class="why-us-card" style="background-image: url('images/pic');" id="1">
@@ -441,7 +430,7 @@
     <!-- Services Section -->
 
     <div class="container my-5">
-        <h6 class="custom-h6">O U R S E R V I C E S</h6>
+        <h5 class="text-center">O U R S E R V I C E S</h5>
 
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4">
@@ -449,7 +438,7 @@
                     <div class="service-box">
                         <img src="images/cchy.jpg" alt="Service 1">
                         <div class="text-box">
-                            <h3>Dance & Dinner</h3>
+                            <h3 class="service-title">Dance & Dinner</h3>
                             <p>Come and find out more about our Dance and Dinner!</p>
                         </div>
                     </div>
@@ -460,7 +449,7 @@
                     <a href="corporate/teambuilding.html" class="service-link">
                         <img src="images/cchy.jpg" alt="Custom Software">
                         <div class="text-box">
-                            <h3>Team Building</h3>
+                            <h3 class="service-title">Team Building</h3>
                             <p>More detailed description about Team Building goes here.</p>
                         </div>
                     </a>
@@ -471,7 +460,7 @@
                     <a href="corporate/" class="service-link">
                         <img src="images/cchy.jpg" alt="Service 3">
                         <div class="text-box">
-                            <h3>Retreats</h3>
+                            <h3 class="service-title">Retreats</h3>
                             <p>More detailed description about Retreats goes here.</p>
                         </div>
                     </a>
@@ -482,7 +471,7 @@
                     <a href="corporate/" class="service-link">
                         <img src="images/cchy.jpg" alt="Service 5">
                         <div class="text-box">
-                            <h3>Family Day Out</h3>
+                            <h3 class="service-title">Family Day Out</h3>
                             <p>More detailed description about Family Day Out goes here.</p>
                         </div>
                     </a>
@@ -493,7 +482,7 @@
                     <a href="corporate/" class="service-link">
                         <img src="images/cchy.jpg" alt="Service 5">
                         <div class="text-box">
-                            <h3>Gala Dinner</h3>
+                            <h3 class="service-title">Gala Dinner</h3>
                             <p>More detailed description about Gala Dinner goes here.</p>
                         </div>
                     </a>
@@ -504,7 +493,7 @@
                     <a href="retreats/overview.html" class="service-link">
                         <img src="images/cchy.jpg" alt="Service 6">
                         <div class="text-box">
-                            <h3>Retreats</h3>
+                            <h3 class="service-title">Retreats</h3>
                             <p>More detailed description about Retreats goes here.</p>
                         </div>
                     </a>
@@ -512,13 +501,20 @@
             </div>
         </div>
         <div class="text-center">
-            <a href="#" class="btn btn-custom"><span>View More</span></a>
+            <a href="#" class="btn btn-custom"><p>View More</p></a>
         </div>
 
     </div>
 
     </div>
 
+    <div class="staggered-container">
+        <div class="staggered-rectangle"></div>
+        <div class="staggered-rectangle"></div>
+        <div class="staggered-rectangle"></div>
+        <div class="staggered-rectangle"></div>
+        <div class="staggered-rectangle"></div>
+    </div>
 
 
     <hr>
@@ -592,14 +588,7 @@
         </div>
     </div>
 
-    <div class="staggered-container">
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-    </div>
-
+   
     <div class="parallax"></div>
 
     <div id="footer-container"></div>
