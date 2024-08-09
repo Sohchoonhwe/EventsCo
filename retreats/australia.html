@@ -3,16 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australia</title>
+    <title>Australia Corporate Retreats</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+
+
+.retreats-section,
+.testimonials-section,
+.contact-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.retreat {
+    margin-bottom: 40px;
+}
+
+.retreat img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.retreat h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.retreat p {
+    margin-top: 10px;
+    color: #666;
+}
+
+.retreat .btn {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+blockquote {
+    font-style: italic;
+    color: #333;
+    margin: 20px 0;
+}
+
+blockquote footer {
+    margin-top: 10px;
+    background-color: #f4f4f4;
+    color: #000;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+    </style>
 </head>
 
 <body>
     <div id="navbar-container"></div>
 
+    <main>
+        <section class="hero-section" style="background-image: url('/images/australia-flag.jpg');">
+            <div class="hero-content fade-in">
+                <h1>Corporate Retreats in Australia</h1>
+                <p>Experience the perfect blend of work and relaxation in Australia’s most stunning locations.</p>
+
+            </div>
+        </section>
+
+        <section id="retreats" class="retreats-section fade-in">
+            <div class="container">
+                <h2>Our Featured Retreats</h2>
+
+                <div class="retreat">
+                    <img src="/assets/images/sydney-retreat.jpg" alt="Sydney Retreat">
+                    <h3>Sydney</h3>
+                    <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                    <a href="/retreats/sydney.html" class="btn">Learn More</a>
+                </div>
+
+                <div class="retreat">
+                    <img src="/assets/images/great-barrier-reef-retreat.jpg" alt="Great Barrier Reef Retreat">
+                    <h3>Great Barrier Reef</h3>
+                    <p>Dive into a unique retreat experience near the Great Barrier Reef, combining work with breathtaking nature.</p>
+                    <a href="/retreats/great-barrier-reef.html" class="btn">Learn More</a>
+                </div>
+
+                <div class="retreat">
+                    <img src="/assets/images/melbourne-retreat.jpg" alt="Melbourne Retreat">
+                    <h3>Melbourne</h3>
+                    <p>Host your corporate event in Melbourne, known for its vibrant culture and world-class venues.</p>
+                    <a href="/retreats/melbourne.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section fade-in">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <blockquote>
+                    <p>"Our retreat in Sydney was a game-changer for our team. The planning and execution were flawless."</p>
+                    <footer>- Jane Doe, CEO of XYZ Corp</footer>
+                </blockquote>
+
+                <blockquote>
+                    <p>"The Great Barrier Reef retreat was a perfect mix of work and relaxation. Highly recommend!"</p>
+                    <footer>- John Smith, Marketing Director at ABC Inc.</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="contact-section fade-in">
+            <div class="container">
+                <h2>Book Your Retreat</h2>
+                <p>Ready to plan your corporate retreat in Australia? Contact us today to discuss your requirements and get a custom quote.</p>
+                <a href="/contact.html" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
 
     <div id="footer-container"></div>
-    
 </body>
 </html>
