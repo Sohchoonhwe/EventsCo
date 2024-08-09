@@ -1,41 +1,88 @@
 @import url('https://fonts.googleapis.com/css?family=Courier%20New:700|Nunito:400');
 
-body {
-  font-family: 'Nunito';
-  font-weight: 400;
+body, p {
+  font-family: 'Nunito'!important;
+  font-weight: 400!important;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Courier New';
-  font-weight: 700;
+h1, h2, h3, h4, h5 ,h6{
+  font-family: 'Courier New'!important;
+  font-weight: 700!important;
 }
 
-html {font-size: 100%;} /* 16px */
+html {font-size: 100%!important;} /* 16px */
 
-h1 {font-size: 4.210rem; /* 67.36px */}
+h1 {font-size: 4.210rem!important; /* 67.36px */}
 
-h2 {font-size: 3.158rem; /* 50.56px */}
+h2 {font-size: 3.158rem!important; /* 50.56px */}
 
-h3 {font-size: 2.369rem; /* 37.92px */}
+h3 {font-size: 2.369rem!important; /* 37.92px */}
 
-h4 {font-size: 1.777rem; /* 28.48px */}
+h4 {font-size: 1.777rem!important; /* 28.48px */}
 
-h5 {font-size: 1.333rem; /* 21.28px */}
+h5 {font-size: 1.333rem!important; /* 21.28px */}
 
-small {font-size: 0.750rem; /* 12px */}
+small {font-size: 0.750rem!important; /* 12px */}
 
-:root[data-theme="light"] {
-    --text: #050316;
-    --background: #fbfbfe;
-    --primary: #9fb4c1;
-    --secondary: #83b9e2;
-    --accent: #0f4662;
-  }
-  :root[data-theme="dark"] {
-    --text: #eae9fc;
-    --background: #010104;
-    --primary: #3e5360;
-    --secondary: #1d537c;
-    --accent: #9ed5f0;
-  }
-  
+:root{
+  --text-50: #eae9fc!important;
+  --text-100: #d6d2f9!important;
+  --text-200: #ada5f3!important;
+  --text-300: #8478ed!important;
+  --text-400: #5b4be7!important;
+  --text-500: #321fe0!important;
+  --text-600: #2818b4!important;
+  --text-700: #1e1287!important;
+  --text-800: #140c5a!important;
+  --text-900: #0a062d!important;
+  --text-950: #050316!important;
+
+  --background-50: #ebebfa!important;
+  --background-100: #d6d6f5!important;
+  --background-200: #adadeb!important;
+  --background-300: #8585e0!important;
+  --background-400: #5c5cd6!important;
+  --background-500: #3333cc!important;
+  --background-600: #2929a3!important;
+  --background-700: #1f1f7a!important;
+  --background-800: #141452!important;
+  --background-900: #0a0a29!important;
+  --background-950: #050514!important;
+
+  --primary-50: #eff3f5!important;
+  --primary-100: #e0e7eb!important;
+  --primary-200: #c1cfd7!important;
+  --primary-300: #a2b6c3!important;
+  --primary-400: #839eaf!important;
+  --primary-500: #63869c!important;
+  --primary-600: #506b7c!important;
+  --primary-700: #3c505d!important;
+  --primary-800: #28363e!important;
+  --primary-900: #141b1f!important;
+  --primary-950: #0a0d10!important;
+
+  --secondary-50: #eaf3fa!important;
+  --secondary-100: #d6e8f5!important;
+  --secondary-200: #acd0ec!important;
+  --secondary-300: #83b9e2!important;
+  --secondary-400: #5aa1d8!important;
+  --secondary-500: #308acf!important;
+  --secondary-600: #276ea5!important;
+  --secondary-700: #1d537c!important;
+  --secondary-800: #133753!important;
+  --secondary-900: #0a1c29!important;
+  --secondary-950: #050e15!important;
+
+  --accent-50: #e9f5fc!important;
+  --accent-100: #d3ecf8!important;
+  --accent-200: #a7d8f1!important;
+  --accent-300: #7bc5ea!important;
+  --accent-400: #4fb2e3!important;
+  --accent-500: #229fdd!important;
+  --accent-600: #1c7fb0!important;
+  --accent-700: #155f84!important;
+  --accent-800: #0e3f58!important;
+  --accent-900: #07202c!important;
+  --accent-950: #031016!important;
+
+}
