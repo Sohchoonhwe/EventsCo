@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Courier%20New:700|Nunito:400');
 
 body, p {
-  font-family: 'Nunito'!important;
-  font-weight: 400!important;
+  font-family: 'Nunito';
+  font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 ,h6{
-  font-family: 'Courier New'!important;
-  font-weight: 700!important;
+  font-family: 'Courier New';
+  font-weight: 700;
 }
 
 html {font-size: 100%!important;} /* 16px */
