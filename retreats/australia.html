@@ -5,100 +5,251 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australia Corporate Retreats</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <script src="/assets/js/loadNavbar.js"></script>
-    <script src="/assets/js/loadFooter.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            background-color: #eee;
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            overflow-x: hidden; /* Adjust for better responsiveness */
+        }
 
-.hero-section {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
+        .testimonial-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            gap: 2rem;
+            background-color: #fff;
+            color: #333;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 50px 80px;
+            width: 800px;
+            min-height: 430px;
+            position: relative;
+        }
 
-.hero-content {
-    max-width: 600px;
-}
+        .stars {
+            font-size: 14px;
+        }
 
+        .testimonial {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-weight: 900;
+            height: 100%;
+            line-height: 28px;
+            margin: 0;
+        }
 
+        .user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
-.retreats-section,
-.testimonials-section,
-.contact-section {
-    padding: 60px 20px;
-    text-align: center;
-}
+        .user .user-image {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .user .user-details {
+            text-align: center;
+        }
 
-.retreat {
-    margin-bottom: 40px;
-}
+        .user .username {
+            margin: 0;
+            font-size: 14px;
+        }
 
-.retreat img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+        .user .role {
+            margin: 0;
+            font-size: 12px;
+        }
 
-.retreat h3 {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #333;
-}
+        .progress-dots {
+            display: flex;
+            gap: 5px;
+        }
 
-.retreat p {
-    margin-top: 10px;
-    color: #666;
-}
+        .progress-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
 
-.retreat .btn {
-    background-color: #0066cc;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: inline-block;
-}
+        .progress-dot.active {
+            background-color: #555;
+        }
 
-blockquote {
-    font-style: italic;
-    color: #333;
-    margin: 20px 0;
-}
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+            font-size: 10px;
+            cursor: pointer;
+            transition: 0.1s ease;
+        }
 
-blockquote footer {
-    margin-top: 10px;
-    background-color: #f4f4f4;
-    color: #000;
-}
+        .btn:hover {
+            background-color: #eee;
+        }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
-}
+        #btn-prev {
+            left: 25px;
+        }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
+        #btn-next {
+            right: 25px;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .retreats-section,
+        .testimonials-section,
+        .contact-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .retreats-header {
+            margin-bottom: 40px;
+        }
+
+        .retreats-header h2 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .retreats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .retreat {
+            flex: 1 1 calc(33.333% - 40px);
+            box-sizing: border-box;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .retreat img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 10px;
+            display: block;
+        }
+
+        .retreat h3 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .retreat p {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .retreat .btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: auto; 
+            width: 200px; 
+            text-align: center; 
+            display: block; 
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        blockquote footer {
+            margin-top: 10px;
+            background-color: #f4f4f4;
+            color: #000;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .cta-button {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #005bb5;
+        }
 
     </style>
+    
 </head>
 
 <body>
@@ -109,61 +260,161 @@ blockquote footer {
             <div class="hero-content fade-in">
                 <h1>Corporate Retreats in Australia</h1>
                 <p>Experience the perfect blend of work and relaxation in Australia’s most stunning locations.</p>
-
             </div>
         </section>
 
         <section id="retreats" class="retreats-section fade-in">
             <div class="container">
-                <h2>Our Featured Retreats</h2>
-
-                <div class="retreat">
-                    <img src="/assets/images/sydney-retreat.jpg" alt="Sydney Retreat">
-                    <h3>Sydney</h3>
-                    <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                    <a href="/retreats/sydney.html" class="btn">Learn More</a>
+                <div class="retreats-header">
+                    <h2>Our Featured Retreats</h2>
                 </div>
+                <div class="retreats-grid">
+                    <!-- Ensure each retreat is unique -->
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        <a href="contacts.html" class="btn">Enquire Now!</a>
+                    </div>
 
-                <div class="retreat">
-                    <img src="/assets/images/great-barrier-reef-retreat.jpg" alt="Great Barrier Reef Retreat">
-                    <h3>Great Barrier Reef</h3>
-                    <p>Dive into a unique retreat experience near the Great Barrier Reef, combining work with breathtaking nature.</p>
-                    <a href="/retreats/great-barrier-reef.html" class="btn">Learn More</a>
-                </div>
+                    <div class="retreat">
+                        <img src="/images/australia-greatbarrier.jpg" alt="Great Barrier Reef Retreat">
+                        <h3>Great Barrier Reef</h3>
+                        <p>Dive into a unique retreat experience near the Great Barrier Reef, combining work with breathtaking nature.</p>
+                        <a href="/retreats/great-barrier-reef.html" class="btn">Enquire Now!</a>
+                    </div>
 
-                <div class="retreat">
-                    <img src="/assets/images/melbourne-retreat.jpg" alt="Melbourne Retreat">
-                    <h3>Melbourne</h3>
-                    <p>Host your corporate event in Melbourne, known for its vibrant culture and world-class venues.</p>
-                    <a href="/retreats/melbourne.html" class="btn">Learn More</a>
+                    <div class="retreat">
+                        <img src="/images/australia-melbourne.jpg" alt="Melbourne Retreat">
+                        <h3>Melbourne</h3>
+                        <p>Join us in Melbourne for a retreat filled with arts, culture, and world-class facilities.</p>
+                        <a href="contacts.html" class="btn">Enquire Now!</a>
+                    </div>
+
+                    <div class="retreat">
+                        <img src="/images/australia-bondibeach.jpg" alt="Bondi Beach Retreat">
+                        <h3>Bondi Beach</h3>
+                        <p>Unwind with your team at the iconic Bondi Beach, where relaxation meets adventure.</p>
+                        <a href="contacts.html" class="btn">Enquire Now!</a>
+                    </div>
+
+                    <div class="retreat">
+                        <img src="/images/australia-melbourne.jpg" alt="Melbourne Retreat">
+                        <h3>Melbourne</h3>
+                        <p>Explore Melbourne's vibrant culture and excellent retreat facilities in this urban escape.</p>
+                        <a href="contacts.html" class="btn">Enquire Now!</a>
+                    </div>
+
+                    <div class="retreat">
+                        <img src="/images/australia-surfers.jpg" alt="Surfers Paradise Retreat">
+                        <h3>Surfers Paradise</h3>
+                        <p>Experience a retreat like no other at Surfers Paradise, where sun, sea, and sand await.</p>
+                        <a href="contacts.html" class="btn">Enquire Now!</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials-section fade-in">
-            <div class="container">
-                <h2>What Our Clients Say</h2>
-                <blockquote>
-                    <p>"Our retreat in Sydney was a game-changer for our team. The planning and execution were flawless."</p>
-                    <footer>- Jane Doe, CEO of XYZ Corp</footer>
-                </blockquote>
+        <section id="testimonials" class="testimonials-section fade-in">
+            <div class="testimonial-container">
+                <div class="stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
 
-                <blockquote>
-                    <p>"The Great Barrier Reef retreat was a perfect mix of work and relaxation. Highly recommend!"</p>
-                    <footer>- John Smith, Marketing Director at ABC Inc.</footer>
-                </blockquote>
+                <p class="testimonial"></p>
+
+                <div class="user">
+                    <img class="user-image" src="" alt="User Photo">
+                    <div class="user-details">
+                        <p class="username"></p>
+                        <p class="role"></p>
+                    </div>
+                </div>
+
+                <div class="progress-dots">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                </div>
+
+                <div id="btn-prev" class="btn">PREV</div>
+                <div id="btn-next" class="btn">NEXT</div>
             </div>
         </section>
 
-        <section class="contact-section fade-in">
+        <section id="contact" class="contact-section fade-in">
             <div class="container">
-                <h2>Book Your Retreat</h2>
-                <p>Ready to plan your corporate retreat in Australia? Contact us today to discuss your requirements and get a custom quote.</p>
-                <a href="/contact.html" class="cta-button">Contact Us</a>
+                <h2>Contact Us</h2>
+                <p>Ready to plan your corporate retreat in Australia? Get in touch with us today!</p>
+                <a href="contacts.html" class="cta-button">Contact Us</a>
             </div>
         </section>
     </main>
 
     <div id="footer-container"></div>
+
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
+    <script>
+        const testimonials = [
+            {
+                text: "Our retreat in Sydney was an incredible experience. The team came back rejuvenated and more focused.",
+                name: "John Doe",
+                role: "CEO",
+                image: "/images/person-1.jpg"
+            },
+            {
+                text: "The facilities in Melbourne were top-notch. We got a lot of productive work done, and had fun too!",
+                name: "Jane Smith",
+                role: "CTO",
+                image: "/images/person-2.jpg"
+            },
+            {
+                text: "Bondi Beach was a perfect location for our corporate retreat. We combined work with relaxation effortlessly.",
+                name: "Sam Brown",
+                role: "HR Manager",
+                image: "/images/person-3.jpg"
+            }
+        ];
+
+        let idx = 0;
+
+        function displayTestimonial() {
+            const { text, name, role, image } = testimonials[idx];
+            document.querySelector('.testimonial').textContent = text;
+            document.querySelector('.username').textContent = name;
+            document.querySelector('.role').textContent = role;
+            document.querySelector('.user-image').src = image;
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.progress-dot');
+            dots.forEach((dot, index) => {
+                if (index === idx) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        document.getElementById('btn-next').addEventListener('click', () => {
+            idx = (idx + 1) % testimonials.length;
+            displayTestimonial();
+        });
+
+        document.getElementById('btn-prev').addEventListener('click', () => {
+            idx = (idx - 1 + testimonials.length) % testimonials.length;
+            displayTestimonial();
+        });
+
+        // Initialize the first testimonial on page load
+        displayTestimonial();
+    </script>
 </body>
 </html>
