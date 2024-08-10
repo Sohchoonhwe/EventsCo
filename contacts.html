@@ -82,8 +82,7 @@
     <p>All information provided is for estimation purposes and can be changed once a staff member contacts you.
         Our staff will contact you within <b>2 - 4 business days! DO Keep an eye on your email and phone!</b>
     </p>
-    <a href="mailto:sohchoonhwe2912@gmail.com">info@eventsco.com</a>
-    <form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
+    <form id="contactForm" action="mailto:sohchoonhwe2912@gmail.com" method="post" enctype="text/plain">
         <label for="name"><i class="fas fa-user icon"></i>Name</label>
         <input type="text" id="name" name="name" required>
         <div class="error" id="nameError"></div>
@@ -127,7 +126,10 @@
     </form>
 </div>
 
+</body>
 <script>
+</script>
+    <script>
     function validateForm() {
         let valid = true;
 
@@ -209,6 +211,4 @@
         return valid;
     }
 </script>
-
-</body>
 </html>
