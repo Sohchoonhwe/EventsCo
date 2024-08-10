@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Courier%20New:700|Nunito:400');
-
-body, p {
+body, p , blockquote{
   font-family: 'Montserrat';
   font-weight: 400;
 }
