@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australia Corporate Retreats</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+
     <style>
         @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
@@ -122,6 +124,53 @@
             transform: translateX(0);
         }
 
+        /*Enquire button*/
+        /* CSS */
+        .enquire-button {
+            align-items: center;
+            appearance: none;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono", monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s, transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow, transform;
+            font-size: 18px;
+        }
+
+        .enquire-button:focus {
+            box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        }
+
+        .enquire-button:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        .enquire-button:active {
+            box-shadow: #3c4fe0 0 3px 7px inset;
+            transform: translateY(2px);
+        }
+
         .testimonial-container {
             display: flex;
             flex-direction: column;
@@ -184,6 +233,8 @@
             background-color: #eee;
             border-radius: 50%;
             cursor: pointer;
+            font-family: 'Montserrat';
+            text-decoration: none;
         }
 
         .progress-dot.active {
@@ -223,6 +274,7 @@
         blockquote {
             font-style: italic;
             color: #333;
+            text-decoration: none;
             margin: 20px 0;
         }
 
@@ -243,19 +295,7 @@
             }
         }
 
-        .cta-button {
-            background-color: #0066cc;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: #005bb5;
-        }
+        
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -284,7 +324,6 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
                     <div class="retreat">
@@ -292,7 +331,6 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
                     <div class="retreat">
@@ -300,7 +338,6 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
                     <div class="retreat">
@@ -308,7 +345,6 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
                     <div class="retreat">
@@ -316,7 +352,6 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
                     <div class="retreat">
@@ -324,14 +359,15 @@
                         <h3>Sydney</h3>
                         <div class="retreat-content">
                             <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
-                            <a href="contacts.html" class="btn">Enquire Now!</a>
                         </div>
                     </div>
 
                 </div>
             </div>
         </section>
-
+        <section class="text-center">
+            <a href="contacts.html" class="enquire-button">Enquire Now!</a>
+        </section>
         <section class="testimonials-section fade-in">
             <div class="container">
                 <h2>What Our Clients Say</h2>
@@ -369,7 +405,7 @@
             <div class="container">
                 <h2>Contact Us</h2>
                 <p>Ready to plan your corporate retreat in Australia? Get in touch with us today!</p>
-                <a href="contacts.html" class="cta-button">Contact Us</a>
+                <a href="contacts.html" class="enquire-button">Contact Us</a>
             </div>
         </section>
     </main>
