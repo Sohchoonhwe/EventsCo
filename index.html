@@ -17,8 +17,14 @@
             box-sizing: border-box;
         }
 
+
+
         body {
             font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #e4eefa, #ffffff);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
 
         /* Styling for carousel images */
@@ -145,6 +151,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100%;
         }
 
         .carousel__track {
@@ -181,76 +188,255 @@
 
         /*Heading Format*/
         .heading {
-            color:var(--secondary-700)
+            color: var(--secondary-700)
         }
 
         /* Styles for the service boxes */
-        .service-box {
+        #services {
+            padding-top: 20px;
+            /* Optional: Add some space at the top of the section */
+            text-align: center;
+        }
+
+        #services h1 {
+            font-size: 60px;
+            color: #bac0e3;
+            margin: 0 auto 40px;
+            /* Center the heading and add space below it */
+        }
+
+        .services-content {
+            display: flex;
+            justify-content: center;
+            /* Center the services content horizontally */
+            flex-wrap: wrap;
+            /* Optional: Allow services to wrap to the next line if necessary */
+            gap: 20px;
+            /* Optional: Add space between service items */
+        }
+
+
+        .cards-list {
+            z-index: 0;
+            width: 100%;
+            /* Full width */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: auto;
+        }
+
+        .card-list .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+            text-align: center;
+            /* Ensure text is centered */
+            height: 100%;
+        }
+
+        .cards-list .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+
+        }
+
+        .card_title {
+            padding: 20px;
+        }
+
+        .heading {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            padding-top: 10px;
+        }
+
+        .btn-read {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin: 15px;
+            width: calc(33.333% - 30px);
+            height: 260px;
+            border-radius: 50px 0;
+            box-shadow: 0px 0px 15px rgb(0 0 0 / 30%);
+            cursor: pointer;
+            transition: 0.4s;
+            background-color: #97A9BD;
+        }
+
+        .card_image {
+            background: #fff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+
+        .card_image i {
+            margin: 17px;
+            font-size: 37px;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .card_title .heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        .card_title p {
+            margin: 10px auto;
+            line-height: normal;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cards-list .card:nth-child(1) {
+            background-image: url('images/test2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(1):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-list .card:nth-child(2) {
+            background-image: url('images/test2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(2):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-list .card:nth-child(3) {
+            background-image: url('images/test2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(3):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-list .card:nth-child(4) {
+            background-image: url('images/test2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(4):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-list .card:nth-child(5) {
+            background-image: url('images/test2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(5):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cards-list .card:nth-child(6) {
+            background-image: url('/images/retreatlandingpage.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cards-list .card:nth-child(6):hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .btn-flip {
+            opacity: 1;
+            outline: 0;
+            color: #fff;
+            line-height: 40px;
             position: relative;
             text-align: center;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: var(--accent-800);
-        }
-
-        .service-title{
-            color:var(--accent-800);
+            letter-spacing: 1px;
+            display: inline-block;
             text-decoration: none;
+            font-family: "Open Sans";
+            text-transform: uppercase;
         }
 
-        .service-box img {
+        .btn-flip:hover:after {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        .btn-flip:hover:before {
+            opacity: 0;
+            transform: translateY(50%) rotateX(90deg);
+        }
+
+        .btn-flip:after {
+            top: 0;
+            left: 0;
+            opacity: 0;
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .service-link {
-            color: var(--text-950);
-            /* Default color for the link */
-            text-decoration: none;
-            /* Removes the underline from the link */
-            font-weight: bold;
-            /* Makes the text bold */
-        }
-
-        .service-link:hover {
-            color: #4497f0;
-            /* Color when the link is hovered */
-            text-decoration: underline;
-            /* Adds underline on hover */
-        }
-
-        .service-link .text-box h3 {
-            /* Black color for the heading */
-            font-weight: bold;
-            
-        }
-
-
-        .text-box {
+            color: #ababb4;
+            display: block;
+            transition: 0.5s;
             position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--accent-100);
-            color: var(--text-950);
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            width: 80%;
-            border-radius: 8px;
+            background: #fcfcfc;
+            content: attr(data-back);
+            transform: translateY(-50%) rotateX(90deg);
         }
 
-        .row {
-            margin-right: -15px;
-            margin-left: -15px;
+        .btn-flip:before {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: #f9f9ff;
+            display: block;
+            padding: 0 30px;
+            line-height: 40px;
+            transition: 0.5s;
+            position: relative;
+            /* background: #fbfbfd; */
+            content: attr(data-front);
+            transform: translateY(0) rotateX(0);
+            border: 1px solid #fbfbfb;
         }
 
-        .col-md-6,
-        .col-lg-4 {
-            padding-right: 15px;
-            padding-left: 15px;
-            padding-bottom: 50px;
+        .btn-read {
+            justify-content: center;
+            align-content: center;
+            display: flex;
+            margin: 31px;
         }
 
         .mb-4 {
@@ -311,46 +497,74 @@
             transform: scaleX(1);
         }
 
-        .parallax { /*Transparency scrolling*/
-        background-image: url('/images/test2.jpg');
-        height: 500px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        .parallax {
+            /*Transparency scrolling*/
+            background-image: url('/images/test2.jpg');
+            height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
         .content {
-        height: 800px; /* Example content height */
-        padding: 20px;
+            height: 800px;
+            /* Example content height */
+            padding: 20px;
         }
 
-        
 
-        .staggered-container { /*rectangle*/
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin:0;
-            gap: 50px; /* Increased space between the rectangles */
-        }
 
-        .staggered-rectangle {
-            width: 400px; /* Adjusted width */
-            height: 150px; /* Increased height */
-            background-color: cyan;
-        }
+
 
         /* Create the staggered effect */
         .staggered-rectangle:nth-child(odd) {
-            margin-left: -150px; /* Push odd-numbered rectangles to the left */
+            margin-left: -150px;
+            /* Push odd-numbered rectangles to the left */
         }
 
         .staggered-rectangle:nth-child(even) {
-            margin-left: 150px; /* Push even-numbered rectangles to the right */
+            margin-left: 150px;
+            /* Push even-numbered rectangles to the right */
         }
-    </style>
+
+        /* Custom styling for stats boxes */
+        .stats-box {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .stats-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .stats-box h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .stats-box p {
+            font-size: 1.25rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Center the about us second text */
+        h2 {
+            text-align: center;
+        }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -388,13 +602,121 @@
         </a>
     </div>
 
-    <hr style="margin-top: 50px;"/>
-    <!-- Why Us Section -->
+    <hr style="margin-top: 50px;" />
+
+    <!-- Stats Boxes-->
+    <div class="container my-5">
+        <h2>About Us</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="19200">1000</h3>
+                    <p>Participants Served</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="2994">200</h3>
+                    <p>Successful Events</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="stats-box">
+                    <h3 data-end-value="192">12</h3>
+                    <p>Corporate Clients</p>
+                </div>
+            </div>
+        </div>
+        <p> At EventsCo, our numbers tell the story. We've hosted numerous events, brought together thousands of
+            participants, and executed a wide range of successful corporate events. Trusted by esteemed clients, each
+            statistic reflects our dedication to creating impactful and memorable experiences. Discover why EventsCo is
+            the top choice for corporate events, team-building activities, and retreats.</p>
+    </div>
+    <hr>
+
+
+    <!-- Services Section -->
+    <div class="container my-5">
+        <h1>Our Services</h1>
+        <div class="cards-list">
+            <!-- Card 1 -->
+            <div class="card card1">
+                <div class="card_title title-white">
+                    <h6 class="heading">Dinner & Dance</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Let's Go!" data-front="Enquire Now!"></a>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card card2">
+                <div class="card_title title-white">
+                    <h6 class="heading">Mauris placerat</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Let's Go!" data-front="Enquire Now!"></a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card card3">
+                <div class="card_title title-white">
+                    <h6 class="heading">Mauris placerat</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Let's Go!" data-front="Enquire Now!"></a>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card card1">
+
+                <div class="card_title title-white">
+                    <h6 class="heading">Mauris placerat</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card card2">
+
+                <div class="card_title title-white">
+                    <h6 class="heading">Mauris placerat</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card card3">
+                <div class="card_title title-white">
+                    <h6 class="heading">Retreat</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="#" class="btn-flip" data-back="Back" data-front="read more"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn btn-custom">
+                <p>View More</p>
+            </a>
+        </div>
+    </div>
+    <hr>
     <div class="why-us-section-container">
         <h2 class="heading">Why Choose Us?</h2>
         <div class="row justify-content-center">
             <div class="col-md-3 mb-4">
-                <div class="why-us-card" style="background-image: url('images/pic');" id="1">
+                <div class="why-us-card" style="background-image: url('images/test2.jpg');" id="1">
                     <h2>1</h2>
                     <p class="description">description</p>
                     <button class="toggle-button" onclick="toggleInfo('1')">SHOW MORE</button>
@@ -423,99 +745,6 @@
             </div>
         </div>
     </div>
-
-
-    <hr>
-    <!-- Services Section -->
-
-    <div class="container my-5">
-        <h5 class="text-center">O U R S E R V I C E S</h5>
-
-        <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4">
-                <a href="corporate/dnd.html" class="service-link">
-                    <div class="service-box">
-                        <img src="images/cchy.jpg" alt="Service 1">
-                        <div class="text-box">
-                            <h3 class="service-title">Dance & Dinner</h3>
-                            <p>Come and find out more about our Dance and Dinner!</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="corporate/teambuilding.html" class="service-link">
-                        <img src="images/cchy.jpg" alt="Custom Software">
-                        <div class="text-box">
-                            <h3 class="service-title">Team Building</h3>
-                            <p>More detailed description about Team Building goes here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="corporate/" class="service-link">
-                        <img src="images/cchy.jpg" alt="Service 3">
-                        <div class="text-box">
-                            <h3 class="service-title">Retreats</h3>
-                            <p>More detailed description about Retreats goes here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="corporate/" class="service-link">
-                        <img src="images/cchy.jpg" alt="Service 5">
-                        <div class="text-box">
-                            <h3 class="service-title">Family Day Out</h3>
-                            <p>More detailed description about Family Day Out goes here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="corporate/" class="service-link">
-                        <img src="images/cchy.jpg" alt="Service 5">
-                        <div class="text-box">
-                            <h3 class="service-title">Gala Dinner</h3>
-                            <p>More detailed description about Gala Dinner goes here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="service-box">
-                    <a href="retreats/overview.html" class="service-link">
-                        <img src="images/cchy.jpg" alt="Service 6">
-                        <div class="text-box">
-                            <h3 class="service-title">Retreats</h3>
-                            <p>More detailed description about Retreats goes here.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center">
-            <a href="#" class="btn btn-custom"><p>View More</p></a>
-        </div>
-
-    </div>
-
-    </div>
-
-    <div class="staggered-container">
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-        <div class="staggered-rectangle"></div>
-    </div>
-
-
     <hr>
     <!-- Clients Section -->
     <h2>Our Clients</h2>
@@ -587,7 +816,7 @@
         </div>
     </div>
 
-   
+
     <div class="parallax"></div>
 
     <div id="footer-container"></div>
@@ -599,7 +828,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        
+
 
         // Toggle info for Why Us section
         function toggleInfo(id) {
@@ -617,6 +846,26 @@
                 element.classList.remove('expanded'); // Remove expanded class
             }
         }
+
+        // Counter animation for stats
+        document.addEventListener("DOMContentLoaded", function () {
+            const counters = document.querySelectorAll(".stats-box h3");
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute("data-end-value");
+                    const count = +counter.innerText;
+                    const increment = target / 200;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        });
 
 
     </script>
