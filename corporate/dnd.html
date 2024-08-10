@@ -5,33 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dinner & Dance</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
-        h1, h2 {
-            text-align: center;
-        }
+h1, h2 {
+    text-align: center;
+}
 
-        .card {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #fff;
+.card {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Center text inside card */
+    position: relative; /* Needed for absolute positioning of overlay */
+    z-index: 1; /* Ensure overlay is above other content */
+    display:block;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Darker shadow on hover */
+    
+}
+
+.card h3, .card p {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px; /* Match card border radius */
+    position: relative; /* Make sure text is above the overlay */
+    z-index: 2; /* Ensure text is above any potential overlay */
+}
+
+.card h3 {
+    margin-top: 20px;
+}
+
+.card p {
+    margin-top: 10px;
+}
+
+
+        .card.card1 {
             background-image: url('/images/test.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-            color: #fff; 
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center; /* Center text inside card */
+
+        }
+
+        .card.card2 {
+            background-image: url('/images/test2.jpg');
+        }
+
+        .card.card3 {
+            background-image: url('/images/test3.jpg');
+        }
+
+        .card.card4 {
+            background-image: url('/images/test4.jpg');
+        }
+
+        .card.card5 {
+            background-image: url('/images/test5.jpg');
+        }
+
+        .card.card6 {
+            background-image: url('/images/test6.jpg');
         }
 
         .card:hover {
@@ -41,7 +90,6 @@
         .card h3, .card p {
             margin: 0;
             padding: 20px;
-
             border-radius: 8px; /* Match card border radius */
         }
 
@@ -59,12 +107,32 @@
 
     <hr>
     <h2>Themes</h2>
-
-    <div class="card">
-        <h3>Theme 1</h3>
-        <p>Theme 1 description</p>
+    <div class="Themes-section">
+        <div class="card card1">
+            <h3>Theme 1</h3>
+            <p>Theme 1 description</p>
+        </div>
+        <div class="card card2">
+            <h3>Theme 2</h3>
+            <p>Theme 2 description</p>
+        </div>
+        <div class="card card3">
+            <h3>Theme 3</h3>
+            <p>Theme 3 description</p>
+        </div>
+        <div class="card card4">
+            <h3>Theme 4</h3>
+            <p>Theme 4 description</p>
+        </div>
+        <div class="card card5">
+            <h3>Theme 5</h3>
+            <p>Theme 5 description</p>
+        </div>
+        <div class="card card6">
+            <h3>Theme 6</h3>
+            <p>Theme 6 description</p>
+        </div>        
     </div>
 
-    
 </body>
 </html>
