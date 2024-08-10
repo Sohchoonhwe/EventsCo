@@ -1,17 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>China</title>
+    <title>Australia Corporate Retreats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
 
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eee;
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            background-color: #0066cc;
+            background-image: url('/images/australia-flag.jpg');
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .retreats-section,
+        .testimonials-section,
+        .contact-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .retreats-header {
+            margin-bottom: 40px;
+        }
+
+        .retreats-header h2 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .retreats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .retreat {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .retreat img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .retreat h3 {
+            margin: 20px 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .retreat p {
+            color: #666;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .btn {
+            position: relative;
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateX(0);
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            color: #333;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 50px;
+            width: 800px;
+            min-height: 430px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial {
+            text-align: center;
+            font-weight: 900;
+            margin: 0;
+            line-height: 28px;
+        }
+
+        .user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .user .user-image {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+        }
+
+        .user .user-details {
+            text-align: center;
+        }
+
+        .user .username {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .user .role {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: 'Montserrat';
+            text-decoration: none;
+        }
+
+        .progress-dot.active {
+            background-color: #555;
+        }
+
+        #btn-prev,
+        #btn-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.1s ease;
+            background-color: #fff;
+        }
+
+        #btn-prev:hover,
+        #btn-next:hover {
+            background-color: #f4f4f4;
+        }
+
+        #btn-prev {
+            left: 25px;
+        }
+
+        #btn-next {
+            right: 25px;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #333;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+
+        blockquote footer {
+            margin-top: 10px;
+            background-color: #f4f4f4;
+            color: #000;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        
+    </style>
     <script src="/assets/js/loadNavbar.js"></script>
-        <script src="/assets/js/loadFooter.js"></script>
-    </head>
-    
-    <body>
-        <div id="navbar-container"></div>
-    
+    <script src="/assets/js/loadFooter.js"></script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content fade-in">
+                <h1>Corporate Retreats in Australia</h1>
+                <p>Experience the perfect blend of work and relaxation in Australia’s most stunning locations.</p>
+            </div>
+        </section>
+
+        <section id="retreats" class="retreats-section fade-in">
+            <div class="container">
+                <div class="retreats-header">
+                    <h2>Our Featured Retreats</h2>
+                </div>
+                <div class="retreats-grid">
+
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia1.html" class="btn-1">Find out more</a>
+                    </div>
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia2.html" class="btn-1">Find out more</a>
+                    </div>
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia13.html" class="btn-1">Find out more</a>
+                    </div>
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia4.html" class="btn-1">Find out more</a>
+                    </div>
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia5.html" class="btn-1">Find out more</a>
+                    </div>
+                    <div class="retreat">
+                        <img src="/images/sydney.jpg" alt="Sydney Retreat">
+                        <h3>Sydney</h3>
+                        <div class="retreat-content">
+                            <p>Enjoy a retreat in the heart of Sydney, featuring luxury accommodations and top-notch facilities.</p>
+                        </div>
+                        <a href="australia6.html" class="btn-1">Find out more</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section class="testimonials-section fade-in">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial" id="testimonial">
+                        <blockquote>
+                            "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure."
+                        </blockquote>
+                        <div class="user">
+                            <img src="/images/user.jpg" alt="Client Photo" class="user-image">
+                            <div class="user-details">
+                                <p class="username">John Doe</p>
+                                <p class="role">CEO, Acme Corp</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="progress-dots">
+                        <!-- Create a dot for each testimonial -->
+                        <span class="progress-dot active"></span>
+                        <span class="progress-dot"></span>
+                        <!-- Add more dots if there are more testimonials -->
+                    </div>
+                    <div id="btn-prev" class="btn-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div id="btn-next" class="btn-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section fade-in">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Ready to plan your corporate retreat in Australia? Get in touch with us today!</p>
+                <a href="contacts.html" class="btn-1">Contact Us</a>
+            </div>
+        </section>
+    </main>
 
     <div id="footer-container"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnPrev = document.querySelector('#btn-prev');
+        const btnNext = document.querySelector('#btn-next');
+        const testimonial = document.querySelector('#testimonial');
+        const progressDots = document.querySelectorAll('.progress-dot');
+        const testimonials = [
+            {
+                quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
+                author: "John Doe",
+                role: "CEO, Acme Corp"
+            },
+            {
+                quote: "Another testimonial about our amazing retreats in Australia.",
+                author: "Jane Smith",
+                role: "COO, Beta Ltd"
+            },
+            // Add more testimonials here
+        ];
+        let currentIndex = 0;
+
+        function updateTestimonial() {
+            const currentTestimonial = testimonials[currentIndex];
+            console.log('Updating testimonial to index:', currentIndex);
+            console.log('Current Testimonial:', currentTestimonial);
+
+            testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
+            testimonial.querySelector('.username').innerText = currentTestimonial.author;
+            testimonial.querySelector('.role').innerText = currentTestimonial.role;
+
+            // Update progress dots
+            progressDots.forEach((dot, index) => {
+                console.log('Dot index:', index, 'isActive:', index === currentIndex);
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        btnPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+            updateTestimonial();
+        });
+
+        btnNext.addEventListener('click', () => {
+            currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+            updateTestimonial();
+        });
+
+        updateTestimonial(); // Initialize with the first testimonial
+    });
+</script>
+
+</body>
+
 </html>
