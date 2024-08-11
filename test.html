@@ -1,123 +1,628 @@
-<!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/overall.css">
 
-      <!--=============== REMIXICONS ===============-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+   /* Global styles */
+   *,
+   *::before,
+   *::after {
+       box-sizing: border-box;
+   }
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css">
+   h1 {
+       text-align: center;
+   }
 
-      <title>Responsive dropdown menu - Bedimcode</title>
-   </head>
-   <body>
-      <!--=============== HEADER ===============-->
-      <header class="header">
-         <nav class="nav container">
-            <div class="nav__data">
-               <a href="#" class="nav__logo">
-                  <i class="ri-planet-line"></i> Company
-               </a>
-               
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line nav__burger"></i>
-                  <i class="ri-close-line nav__close"></i>
-               </div>
-            </div>
+   body {
+       font-family: Arial, sans-serif;
+       background: linear-gradient(to bottom, #e4eefa, #ffffff);
+       margin: 0;
+       padding: 0;
+       min-height: 100vh;
+   }
+   /* Styling for carousel */
 
-            <!--=============== NAV MENU ===============-->
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li><a href="#" class="nav__link">Home</a></li>
+   .carousel {
+       height: 100% !important;;
+       width: 100% !important;;
+   }
 
-                  <li><a href="#" class="nav__link">Company</a></li>
+   /* Styling for carousel images */
+   .carousel-inner img {
+       width: 100%;
+       height: 90vh;
+       object-fit: cover;
+   }
 
-                  <!--=============== DROPDOWN 1 ===============-->
-                  <li class="dropdown__item">
-                     <div class="nav__link">
-                        Analytics <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                     </div>
+   h2 {
+       text-align: center;
+       text-underline-offset: 10px;
+   }
 
-                     <ul class="dropdown__menu">
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-pie-chart-line"></i> Overview
-                           </a>                          
-                        </li>
 
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-arrow-up-down-line"></i> Transactions
-                           </a>
-                        </li>
+   /* Styling for the why-us section */
+   .why-us-section {
+       margin: 50px 0;
+   }
 
-                        <!--=============== DROPDOWN SUBMENU ===============-->
-                        <li class="dropdown__subitem">
-                           <div class="dropdown__link">
-                              <i class="ri-bar-chart-line"></i> Reports <i class="ri-add-line dropdown__add"></i>
-                           </div>
+   .why-us-card {
+       position: relative;
+       padding: 20px;
+       margin: 20px;
+       /* Added margin to create space between cards */
+       border-radius: 10px;
+       background-size: cover;
+       background-position: center;
+       width: 300px;
+       /* Initial width */
+       height: 350px;
+       /* Initial height */
+       color: white;
+       overflow: hidden;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+       /* Transition for width and height */
+   }
 
-                           <ul class="dropdown__submenu">
-                              <li>
-                                 <a href="#" class="dropdown__sublink">
-                                    <i class="ri-file-list-line"></i> Documents
-                                 </a>
-                              </li>
-      
-                              <li>
-                                 <a href="#" class="dropdown__sublink">
-                                    <i class="ri-cash-line"></i> Payments
-                                 </a>
-                              </li>
-      
-                              <li>
-                                 <a href="#" class="dropdown__sublink">
-                                    <i class="ri-refund-2-line"></i> Refunds
-                                 </a>
-                              </li>
-                           </ul>
-                        </li>
-                     </ul>
-                  </li>
-                  
-                  <li><a href="#" class="nav__link">Products</a></li>
+   .row {
+       margin-left: -15px;
+       /* Adjust for Bootstrap's row padding */
+       margin-right: -15px;
+       /* Adjust for Bootstrap's row padding */
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+   }
 
-                  <!--=============== DROPDOWN 2 ===============-->
-                  <li class="dropdown__item">
-                     <div class="nav__link">
-                        Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                     </div>
+   
 
-                     <ul class="dropdown__menu">
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-user-line"></i> Profiles
-                           </a>                          
-                        </li>
 
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-lock-line"></i> Accounts
-                           </a>
-                        </li>
 
-                        <li>
-                           <a href="#" class="dropdown__link">
-                              <i class="ri-message-3-line"></i> Messages
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
+   .why-us-card.expanded {
+       width: 400px;
+       /* Width when expanded */
+       height: 450px;
+       /* Height when expanded */
+   }
 
-                  <li><a href="#" class="nav__link">Contact</a></li>
-               </ul>
-            </div>
-         </nav>
-      </header>
+   .why-us-card::before {
+       content: "";
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%);
+       z-index: 1;
+       justify-content: center;
+   }
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-   </body>
-</html>
+   .why-us-card h2,
+   .why-us-card p,
+   .why-us-card .toggle-button {
+       position: relative;
+       z-index: 2;
+   }
+
+   .why-us-card .description {
+       display: none;
+   }
+
+   .toggle-button {
+       background-color: #74787e;
+       text-decoration: underline;
+       cursor: hand;
+       cursor: pointer;
+       color: white;
+       border: none;
+       border-radius: 5px;
+
+       cursor: pointer;
+   }
+
+   .toggle-button:hover {
+       color: #9db3c1;
+   }
+
+   @media (max-width: 768px) {
+       .why-us-card {
+           width: 100%;
+           /* Full width on smaller screens */
+           height: auto;
+           /* Auto height on smaller screens */
+       }
+   }
+
+   /* Styling for the clients section */
+   .clients {
+       position: relative;
+       overflow: hidden;
+   }
+
+   .carousel {
+       position: relative;
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100%;
+   }
+
+   .carousel__track {
+       display: flex;
+       animation: scroll 30s linear infinite;
+       animation-play-state: running;
+       justify-content: center;
+   }
+
+   .carousel__slide {
+       flex: 0 0 auto;
+       width: 200px;
+       height: 100px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   .carousel__slide img {
+       max-width: 100%;
+       max-height: 100%;
+       border-radius: 50%;
+   }
+
+   @keyframes scroll {
+       from {
+           transform: translateX(0);
+       }
+
+       to {
+           transform: translateX(-50%);
+       }
+   }
+
+   /*Heading Format*/
+   .heading {
+       color: var(--secondary-700)
+   }
+
+   /* Styles for the service boxes */
+   #services {
+       padding-top: 20px;
+       /* Optional: Add some space at the top of the section */
+       text-align: center;
+   }
+
+   #services h1 {
+       font-size: 60px;
+       color: #bac0e3;
+       margin: 0 auto 40px;
+       /* Center the heading and add space below it */
+   }
+
+   .services-content {
+       display: flex;
+       justify-content: center;
+       /* Center the services content horizontally */
+       flex-wrap: wrap;
+       /* Optional: Allow services to wrap to the next line if necessary */
+       gap: 20px;
+       /* Optional: Add space between service items */
+   }
+
+
+   .cards-list {
+       z-index: 0;
+       width: 100%;
+       /* Full width */
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+       margin: auto;
+   }
+
+   .card-list .card {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       /* Center vertically */
+       align-items: center;
+       /* Center horizontally */
+       text-align: center;
+       /* Ensure text is centered */
+       height: 100%;
+   }
+
+   .cards-list .card {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       text-align: center;
+       height: 100%;
+
+   }
+
+   .card_title {
+       padding: 20px;
+   }
+
+   .heading {
+       margin: 0;
+   }
+
+   p {
+       margin: 0;
+       padding-top: 10px;
+   }
+
+   .btn-read {
+       margin-top: 20px;
+   }
+
+   .card {
+       margin: 15px;
+       width: calc(33.333% - 30px);
+       height: 260px;
+       border-radius: 50px 0;
+       box-shadow: 0px 0px 15px rgb(0 0 0 / 30%);
+       cursor: pointer;
+       transition: 0.4s;
+       background-color: #97A9BD;
+   }
+
+   .card_image {
+       background: #fff;
+       width: 70px;
+       height: 70px;
+       border-radius: 50%;
+       margin: 10px auto;
+   }
+
+   .card_image i {
+       margin: 17px;
+       font-size: 37px;
+       animation: spin 4s linear infinite;
+   }
+
+   @keyframes spin {
+       100% {
+           transform: rotate(360deg);
+       }
+   }
+
+   .card_title .heading {
+       font-size: 1.2rem;
+       font-weight: 700;
+       margin: auto;
+       text-align: center;
+       color: #fff;
+   }
+
+   .card_title p {
+       margin: 10px auto;
+       line-height: normal;
+       text-align: center;
+       color: #fff;
+   }
+
+   .cards-list .card:nth-child(1) {
+       background-image: url('images/test2.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(1):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+   .cards-list .card:nth-child(2) {
+       background-image: url('images/test2.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(2):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+   .cards-list .card:nth-child(3) {
+       background-image: url('images/test2.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(3):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+   .cards-list .card:nth-child(4) {
+       background-image: url('images/test2.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(4):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+   .cards-list .card:nth-child(5) {
+       background-image: url('images/familydayout.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(5):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+   .cards-list .card:nth-child(6) {
+       background-image: url('/images/retreatlandingpage.jpg');
+       background-size: cover;
+       background-position: center;
+       height:240px;
+       width:340px;
+   }
+
+   .cards-list .card:nth-child(6):hover {
+       transform: scale(1.05);
+       transition: transform 0.3s ease-in-out;
+   }
+
+
+   .btn-flip {
+       opacity: 1;
+       outline: 0;
+       color: #fff;
+       line-height: 40px;
+       position: relative;
+       text-align: center;
+       letter-spacing: 1px;
+       display: inline-block;
+       text-decoration: none;
+       font-family: "Open Sans";
+       text-transform: uppercase;
+   }
+
+   .btn-flip:hover:after {
+       opacity: 1;
+       transform: translateY(0) rotateX(0);
+   }
+
+   .btn-flip:hover:before {
+       opacity: 0;
+       transform: translateY(50%) rotateX(90deg);
+   }
+
+   .btn-flip:after {
+       top: 0;
+       left: 0;
+       opacity: 0;
+       width: 100%;
+       color: #ababb4;
+       display: block;
+       transition: 0.5s;
+       position: absolute;
+       background: #fcfcfc;
+       content: attr(data-back);
+       transform: translateY(-50%) rotateX(90deg);
+   }
+
+   .btn-flip:before {
+       top: 0;
+       left: 0;
+       opacity: 1;
+       color: #f9f9ff;
+       display: block;
+       padding: 0 30px;
+       line-height: 40px;
+       transition: 0.5s;
+       position: relative;
+       /* background: #fbfbfd; */
+       content: attr(data-front);
+       transform: translateY(0) rotateX(0);
+       border: 1px solid #fbfbfb;
+   }
+
+   .btn-read {
+       justify-content: center;
+       align-content: center;
+       display: flex;
+       margin: 31px;
+   }
+
+   .text-center {
+       margin-top: 2rem;
+       font-size: 30px;
+   }
+
+   .btn-custom {
+       position: relative;
+       display: inline-block;
+       padding: 15px 30px;
+       /* Increase padding for a larger button */
+       text-decoration: none;
+       color: black;
+       border-radius: 8px !important;
+       /* Slightly larger border-radius */
+       font-size: 30px !important;
+       /* Increase font size */
+       font-weight: bold;
+       background-color: transparent;
+       transition: background-color 0.3s ease, color 0.3s ease;
+   }
+
+   .btn-custom span::after {
+       height: 3px;
+       /* Increase height of the underline */
+   }
+
+   .btn-custom:hover span::after {
+       transform: scaleX(1);
+   }
+
+   .btn-custom span {
+       position: relative;
+       display: inline-block;
+   }
+
+   .btn-custom span::after {
+       content: "";
+       position: absolute;
+       left: 0;
+       bottom: -2px;
+       /* Position the line below the text */
+       width: 100%;
+       height: 2px;
+       background-color: black;
+       /* Color of the underline */
+       transform: scaleX(0);
+       transition: transform 0.3s ease;
+
+   }
+
+   .btn-custom:hover span::after {
+       transform: scaleX(1);
+   }
+
+   .parallax {
+       /*Transparency scrolling*/
+       background-image: url('/images/test2.jpg');
+       height: 500px;
+       background-attachment: fixed;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+   }
+
+   .content {
+       height: 800px;
+       /* Example content height */
+       padding: 20px;
+   }
+
+
+
+
+
+   /* Create the staggered effect */
+   .staggered-rectangle:nth-child(odd) {
+       margin-left: -150px;
+       /* Push odd-numbered rectangles to the left */
+   }
+
+   .staggered-rectangle:nth-child(even) {
+       margin-left: 150px;
+       /* Push even-numbered rectangles to the right */
+   }
+
+   /* Custom styling for stats boxes */
+   .stats-box {
+       text-align: center;
+       padding: 30px;
+       border: 1px solid #e0e0e0;
+       border-radius: 8px;
+       background-color: #ffffff;
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+       transition: transform 0.5s ease, box-shadow 0.5s ease;
+   }
+
+   .stats-box:hover {
+       transform: scale(1.05);
+       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+   }
+
+   .stats-box h3 {
+       font-size: 3rem;
+       margin-bottom: 10px;
+       font-weight: 600;
+       color: #333;
+   }
+
+   .stats-box p {
+       font-size: 1.25rem;
+       color: #666;
+       margin: 0;
+   }
+
+   .container {
+       max-width: 1200px;
+   }
+
+   /* Center the about us second text */
+   h2 {
+       text-align: center;
+   }
+</style>
+<div class="why-us-section-container">
+   <h2 class="heading">Why Choose Us?</h2>
+   <div class="row justify-content-center">
+       <div class="col-md-3 mb-4">
+           <div class="why-us-card" style="background-image: url('images/test2.jpg');" id="1">
+               <h2>1</h2>
+               <p class="description">description</p>
+               <button class="toggle-button" onclick="toggleInfo('1')">SHOW MORE</button>
+           </div>
+       </div>
+       <div class="col-md-3 mb-4">
+           <div class="why-us-card" style="background-image: url('images/background2.jpg');" id="2">
+               <h2>2</h2>
+               <p class="description">description</p>
+               <button class="toggle-button" onclick="toggleInfo('2')">SHOW MORE</button>
+           </div>
+       </div>
+       <div class="col-md-3 mb-4">
+           <div class="why-us-card" style="background-image: url('images/background3.jpg');" id="3">
+               <h2>3</h2>
+               <p class="description">description</p>
+               <button class="toggle-button" onclick="toggleInfo('3')">SHOW MORE</button>
+           </div>
+       </div>
+       <div class="col-md-3 mb-4">
+           <div class="why-us-card" style="background-image: url('images/background4.jpg');" id="4">
+               <h2>4</h2>
+               <p class="description">description</p>
+               <button class="toggle-button" onclick="toggleInfo('4')">SHOW MORE</button>
+           </div>
+       </div>
+   </div>
+</div>
+
+<script>
+
+
+   // Toggle info for Why Us section
+   function toggleInfo(id) {
+       const element = document.getElementById(id);
+       const button = element.querySelector('.toggle-button');
+       const description = element.querySelector('.description');
+
+       if (button.innerText === 'SHOW MORE') {
+           description.style.display = 'block';
+           button.innerText = 'SHOW LESS';
+           element.classList.add('expanded'); // Add expanded class
+       } else {
+           description.style.display = 'none';
+           button.innerText = 'SHOW MORE';
+           element.classList.remove('expanded'); // Remove expanded class
+       }
+   }
+
+</script>
