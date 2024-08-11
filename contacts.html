@@ -97,7 +97,8 @@
         }
 
         .form-input,
-        textarea {
+        textarea,
+        select {
             width: 100%;
             border: 1px solid #bdbdbd;
             border-radius: 5px;
@@ -186,7 +187,6 @@
 </head>
 <body>
 
-<div class="navbar-container"></div>
 <div class="contain">
 
     <div class="wrapper">
@@ -223,70 +223,73 @@
             </form>
         </div>
 
-        <div class="contacts contact-wrapper">
-
-            <ul>
-                <li>Come and contact our friendly staff to ready to know
-                    how we can help you?</li>
-                <span class="hightlight-contact-info">
-                    <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> email</li>
-                    <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">number</span></li>
-                </span>
-            </ul>
+            <div class="contacts contact-wrapper">
+                <ul>
+                    <li>Come and contact our friendly staff to know how we can help you?</li>
+                    <span class="hightlight-contact-info">
+                        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> email</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">number</span></li>
+                    </span>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-<script>
-    const nameEl = document.querySelector("#name");
-    const emailEl = document.querySelector("#email");
-    const companyNameEl = document.querySelector("#company-name");
-    const messageEl = document.querySelector("#message");
+    <script>
+    const startDateEl = document.querySelector("#start-date");
 
-    const form = document.querySelector("#submit-form");
+// Add to checkValidations function
+function checkValidations() {
+    let letters = /^[a-zA-Z\s]*$/;
+    const name = nameEl.value.trim();
+    const email = emailEl.value.trim();
+    const eventType = eventTypeEl.value.trim();
+    const message = messageEl.value.trim();
+    const startDate = startDateEl.value.trim();
 
-    function checkValidations() {
-        let letters = /^[a-zA-Z\s]*$/;
-        const name = nameEl.value.trim();
-        const email = emailEl.value.trim();
-        const companyName = companyNameEl.value.trim();
-        const message = messageEl.value.trim();
-        if (name === "") {
+    if (name === "") {
+        document.querySelector(".name-error").classList.add("error");
+        document.querySelector(".name-error").innerText = "Please fill out this field!";
+    } else {
+        if (!letters.test(name)) {
             document.querySelector(".name-error").classList.add("error");
-            document.querySelector(".name-error").innerText =
-                "Please fill out this field!";
+            document.querySelector(".name-error").innerText = "Please enter only characters!";
         } else {
-            if (!letters.test(name)) {
-                document.querySelector(".name-error").classList.add("error");
-                document.querySelector(".name-error").innerText =
-                    "Please enter only characters!";
-            } else {
-
-            }
-        }
-        if (email === "") {
-            document.querySelector(".name-error").classList.add("error");
-            document.querySelector(".name-error").innerText =
-                "Please fill out this field!";
-        } else {
-            if (!letters.test(name)) {
-                document.querySelector(".name-error").classList.add("error");
-                document.querySelector(".name-error").innerText =
-                    "Please enter only characters!";
-            } else {
-
-            }
+            document.querySelector(".name-error").innerText = "";
         }
     }
 
-    function reset() {
-        nameEl = "";
-        emailEl = "";
-        companyNameEl = "";
-        messageEl = "";
-        document.querySelector(".name-error").innerText = "";
+    if (email === "") {
+        document.querySelector(".name-error").classList.add("error");
+        document.querySelector(".name-error").innerText = "Please fill out this field!";
+    } else {
+        if (!letters.test(email)) {
+            document.querySelector(".name-error").classList.add("error");
+            document.querySelector(".name-error").innerText = "Please enter only characters!";
+        } else {
+            document.querySelector(".name-error").innerText = "";
+        }
     }
 
+    if (startDate === "") {
+        document.querySelector(".start-date-error").classList.add("error");
+        document.querySelector(".start-date-error").innerText = "Please select a start date!";
+    } else {
+        document.querySelector(".start-date-error").innerText = "";
+    }
+}
+
+// Add to reset function
+function reset() {
+    nameEl.value = "";
+    emailEl.value = "";
+    eventTypeEl.value = "";
+    startDateEl.value = "";
+    messageEl.value = "";
+    document.querySelector(".name-error").innerText = "";
+    document.querySelector(".start-date-error").innerText = "";
+}
 </script>
 </body>
+<div id="footer-container"></div>
 
 </html>

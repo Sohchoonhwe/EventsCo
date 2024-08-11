@@ -17,83 +17,123 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom,#ffffff, #004a87); /* Static gradient background */
-            background-size: 100% 100%; /* Ensure background covers the entire area */
+            background: linear-gradient(to bottom, #ffffff, #004a87);
+            /* Static gradient background */
+            background-size: 100% 100%;
+            /* Ensure background covers the entire area */
         }
 
         /* Main header styling */
         h1 {
-            color: #2c3e50; /* Dark Blue */
-            font-size: 2.5em; /* Larger font size for the main header */
+            color: #2c3e50;
+            /* Dark Blue */
+            font-size: 2.5em;
+            /* Larger font size for the main header */
             margin: 20px 0;
             text-align: center;
         }
 
-        
+
         .cards-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
-            gap: 30px; /* Increased gap for better separation */
+            gap: 30px;
+            /* Increased gap for better separation */
         }
 
         .card {
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            height: 400px; /* Fixed height for uniformity */
+            width: 320px;
+            height: 500px;
+            /* Fixed height for uniformity */
             display: flex;
-            flex-direction: column; /* Aligns children vertically */
-            overflow: hidden; /* Ensures content doesn't overflow */
-            opacity: 0; /* Start hidden */
-            transition: opacity 2s ease-in-out; /* Fade-in effect */
+            flex-direction: column;
+            /* Aligns children vertically */
+            overflow: hidden;
+            /* Ensures content doesn't overflow */
+            opacity: 0;
+            /* Start hidden */
+            transition: opacity 2s ease-in-out;
+            /* Fade-in effect */
         }
 
         .card.fade-in {
-            opacity: 1; /* End visible */
+            opacity: 1;
+            /* End visible */
         }
 
         .card-image {
             width: 100%;
-            height: 200px; /* Fixed height for image */
-            object-fit: cover; /* Ensures the image covers the container */
+            height: 200px;
+            /* Fixed height for image */
+            object-fit: cover;
+            /* Ensures the image covers the container */
         }
 
         .card-content {
-            padding: 20px; /* Increased padding */
+            padding: 20px;
+            /* Increased padding */
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Allows the content area to grow and fill space */
-            justify-content: space-between; /* Pushes button to the bottom */
+            flex-grow: 1;
+            /* Allows the content area to grow and fill space */
+            justify-content: space-between;
+            /* Pushes button to the bottom */
+        }
+
+        .card-content button {
+            background-color: #004a87;
+            /* Matching the card color scheme */
+            color: #fff;
+            /* White text */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card-content button:hover {
+            background-color: #003366;
+            /* Slightly darker shade on hover */
         }
 
         h2 {
             color: #333;
             margin-top: 0;
-            font-weight: 600; /* Bold for headings */
-            font-size: 1.8em; /* Slightly larger font size for card headings */
+            font-weight: 600;
+            /* Bold for headings */
+            font-size: 1.8em;
+            /* Slightly larger font size for card headings */
         }
 
-    
-        
+
+
 
         /* Steps section styling */
         .steps-section {
-            background-color: #ffffff; /* White background for contrast */
+            background-color: #ffffff;
+            /* White background for contrast */
             padding: 40px 20px;
-            margin: 30px auto; /* Increased margin */
+            margin: 30px auto;
+            /* Increased margin */
             max-width: 1200px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for card effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for card effect */
         }
 
         .steps-section h2 {
             color: #333;
             margin-bottom: 30px;
-            font-size: 2.2em; /* Larger font size for section headings */
+            font-size: 2.2em;
+            /* Larger font size for section headings */
             text-align: center;
         }
 
@@ -101,11 +141,13 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 30px; /* Increased gap for better separation */
+            gap: 30px;
+            /* Increased gap for better separation */
         }
 
         .step-card {
-            background-color: #f9f9f9; /* Light gray background for steps */
+            background-color: #f9f9f9;
+            /* Light gray background for steps */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 250px;
@@ -117,21 +159,32 @@
         }
 
         .step-card i {
-            font-size: 60px; /* Larger icons */
-            color: #004a87; /* Icon color */
+            font-size: 60px;
+            /* Larger icons */
+            color: #004a87;
+            /* Icon color */
             margin-bottom: 15px;
         }
 
         .step-card h3 {
             color: #333;
             margin: 10px 0;
-            font-size: 1.4em; /* Larger font size for step headings */
+            font-size: 1.4em;
         }
 
         .step-card p {
             color: #666;
-            font-size: 1.1em; /* Slightly larger font size for readability */
+            font-size: 1.1em;
             line-height: 1.6;
+        }
+
+        .text-p {
+            text-align: center;
+            color: #004a87;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 1.2em;
+            line-height: 1.5;
         }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
@@ -143,10 +196,11 @@
 <body>
     <div id="navbar-container"></div>
     <h1>Family Day Out Themes</h1>
-    <p class="text-center">We offer multiple solutions for your family day out! Come and talk to our friendly staff to know more!</p>
+    <p class="text-p">We offer multiple solutions for your family day out! Come and talk to our friendly staff to
+        know more!</p>
     <div class="cards-container">
         <div class="card">
-            <img src="images/beach-day.jpg" alt="Beach Day" class="card-image">
+            <img src="/images/test.jpg" alt="Beach Day" class="card-image">
             <div class="card-content">
                 <h2>Beach Day</h2>
                 <p>Enjoy a day of sun, sand, and sea with beach games, BBQ, and a treasure hunt at East Coast Park.</p>
@@ -154,15 +208,16 @@
             </div>
         </div>
         <div class="card">
-            <img src="images/adventure-park.jpg" alt="Adventure Park" class="card-image">
+            <img src="/images/test.jpg" alt="Adventure Park" class="card-image">
             <div class="card-content">
                 <h2>Adventure Park</h2>
-                <p>Thrill-seekers can enjoy a day at Adventure Park with zip lines, obstacle courses, and rock climbing.</p>
+                <p>Thrill-seekers can enjoy a day at Adventure Park with zip lines, obstacle courses, and rock climbing.
+                </p>
                 <button class="btn-1">Enquire Now!</button>
             </div>
         </div>
         <div class="card">
-            <img src="images/nature-hike.jpg" alt="Nature Hike" class="card-image">
+            <img src="/images/test.jpg" alt="Nature Hike" class="card-image">
             <div class="card-content">
                 <h2>Nature Hike</h2>
                 <p>Reconnect with nature on a guided hike through lush greenery, with activities for all ages.</p>
@@ -193,7 +248,7 @@
         </div>
     </div>
 
-    <div id="footer-container"></div>    
+    <div id="footer-container"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
