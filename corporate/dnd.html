@@ -58,7 +58,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 30px; /* Increase gap between cards */
             width: 100%;
-            max-width: 1400px; /* Increased max width for larger screens */
+            max-width: 1400px; 
             margin: 0 auto;
         }
 
@@ -78,8 +78,8 @@
             opacity: 0;
             transform: scale(0.95);
             cursor: pointer;
-            height: 300px; /* Increased height of the cards */
-            width: 100%; /* Adjust width for smaller screens */
+            height: 300px; 
+            width: 100%; 
         }
 
         .theme-card:hover {
@@ -149,6 +149,26 @@
                 height: 120px;
             }
         }
+
+        p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    text-align: center;
+    color: #555;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+p a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -157,37 +177,39 @@
 <body>
     <div id="navbar-container"></div>
     <h1>Our Dinner & Dance Themes</h1>
+    <p>If none of our themes catch your eye, <a href="/contacts.html">TALK TO US </a> and we'll create something special just for you!</p>
+
     <section class="theme-section">
         <div class="theme-container">
-            <div class="theme-card" style="background-image: url('/images/superhero.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('/images/superhero.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Superhero</span>
             </div>
-            <div class="theme-card" style="background-image: url('moulin-rouge.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('moulin-rouge.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Moulin Rouge</span>
             </div>
-            <div class="theme-card" style="background-image: url('gatsby.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('gatsby.jpg');" data-url="/ontacts.html">
                 <div class="theme-overlay"></div>
                 <span>The Great Gatsby</span>
             </div>
-            <div class="theme-card" style="background-image: url('black-and-white.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('black-and-white.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Black & White</span>
             </div>
-            <div class="theme-card" style="background-image: url('casino.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('casino.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Casino</span>
             </div>
-            <div class="theme-card" style="background-image: url('hollywood.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('hollywood.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Hollywood</span>
             </div>
-            <div class="theme-card" style="background-image: url('masquerade.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('masquerade.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Masquerade</span>
             </div>
-            <div class="theme-card" style="background-image: url('tropical.jpg');" data-url="contact.html">
+            <div class="theme-card" style="background-image: url('tropical.jpg');" data-url="/contacts.html">
                 <div class="theme-overlay"></div>
                 <span>Tropical</span>
             </div>
