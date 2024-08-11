@@ -97,7 +97,8 @@
         }
 
         .form-input,
-        textarea {
+        textarea,
+        select {
             width: 100%;
             border: 1px solid #bdbdbd;
             border-radius: 5px;
@@ -185,106 +186,121 @@
 
 </head>
 
-<div class="contain">
+<body>
+    <div id="navbar-container"></div>
+    <div class="contain">
+        <div class="wrapper">
+            <div class="form">
+                <h4>GET IN TOUCH</h4>
+                <h2 class="form-headline">Send us a message</h2>
+                <form id="submit-form" action="">
+                    <p>
+                        <input id="name" class="form-input" type="text" placeholder="Your Name*" required>
+                        <small class="name-error"></small>
+                    </p>
+                    <p>
+                        <input id="email" class="form-input" type="text" placeholder="Phone Number*" required>
+                        <small class="name-error"></small>
+                    </p>
+                    <p class="full-width">
+                        <label for="start-date">Event Start Date*</label>
+                        <input id="start-date" class="form-input" type="date" name="start-date" required>
+                        <small></small>
+                    </p>
+                    <p class="full-width">
+                        <label for="event-type">Type of Event*</label>
+                        <select id="event-type" class="form-input" name="event-type" required>
+                            <option value="" disabled selected>Select an event type</option>
+                            <option value="familyDayOut">Family Day Out</option>
+                            <option value="teamBuilding">Team Building</option>
+                            <option value="galaDinner">Gala Dinner</option>
+                            <option value="graduation">Graduation</option>
+                            <option value="conferences">Conferences</option>
+                        </select>
+                        <small></small>
+                    </p>
+                    <p class="full-width">
+                        <textarea minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
+                        <small></small>
+                    </p>
+                    <p class="full-width">
+                        <input type="checkbox" id="checkbox" name="checkbox" checked>I agree to allow EventsCo. to know my phone number and other personal information we need.
+                    </p>
+                    <p class="full-width">
+                        <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
+                        <button type="button" class="reset-btn" onclick="reset()">Reset</button>
+                    </p>
+                </form>
+                
+            </div>
 
-    <div class="wrapper">
-
-        <div class="form">
-            <h4>GET IN TOUCH</h4>
-            <h2 class="form-headline">Send us a message</h2>
-            <form id="submit-form" action="">
-                <p>
-                    <input id="name" class="form-input" type="text" placeholder="Your Name*">
-                    <small class="name-error"></small>
-                </p>
-                <p>
-                    <input id="email" class="form-input" type="Phone" placeholder="Phone Number*">
-                    <small class="name-error"></small>
-                </p>
-                <p class="full-width">
-                    <input id="company-name" class="form-input" type="text" placeholder="Type of Event*" required>
-                    <small></small>
-                </p>
-                <p class="full-width">
-                    <textarea minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*"
-                        required></textarea>
-                    <small></small>
-                </p>
-                <p class="full-width">
-                    <input type="checkbox" id="checkbox" name="checkbox" checked> Yes, I would like to receive
-                    communications by call / email about Company's services.
-                </p>
-                <p class="full-width">
-                    <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
-                    <button class="reset-btn" onclick="reset()">Reset</button>
-                </p>
-            </form>
-        </div>
-
-        <div class="contacts contact-wrapper">
-
-            <ul>
-                <li>Come and contact our friendly staff to ready to know
-                    how we can help you?</li>
-                <span class="hightlight-contact-info">
-                    <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> email</li>
-                    <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">number</span></li>
-                </span>
-            </ul>
+            <div class="contacts contact-wrapper">
+                <ul>
+                    <li>Come and contact our friendly staff to know how we can help you?</li>
+                    <span class="hightlight-contact-info">
+                        <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> email</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">number</span></li>
+                    </span>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
-<script>
-    const nameEl = document.querySelector("#name");
-    const emailEl = document.querySelector("#email");
-    const companyNameEl = document.querySelector("#company-name");
-    const messageEl = document.querySelector("#message");
+    <script>
+    const startDateEl = document.querySelector("#start-date");
 
-    const form = document.querySelector("#submit-form");
+// Add to checkValidations function
+function checkValidations() {
+    let letters = /^[a-zA-Z\s]*$/;
+    const name = nameEl.value.trim();
+    const email = emailEl.value.trim();
+    const eventType = eventTypeEl.value.trim();
+    const message = messageEl.value.trim();
+    const startDate = startDateEl.value.trim();
 
-    function checkValidations() {
-        let letters = /^[a-zA-Z\s]*$/;
-        const name = nameEl.value.trim();
-        const email = emailEl.value.trim();
-        const companyName = companyNameEl.value.trim();
-        const message = messageEl.value.trim();
-        if (name === "") {
+    if (name === "") {
+        document.querySelector(".name-error").classList.add("error");
+        document.querySelector(".name-error").innerText = "Please fill out this field!";
+    } else {
+        if (!letters.test(name)) {
             document.querySelector(".name-error").classList.add("error");
-            document.querySelector(".name-error").innerText =
-                "Please fill out this field!";
+            document.querySelector(".name-error").innerText = "Please enter only characters!";
         } else {
-            if (!letters.test(name)) {
-                document.querySelector(".name-error").classList.add("error");
-                document.querySelector(".name-error").innerText =
-                    "Please enter only characters!";
-            } else {
-
-            }
-        }
-        if (email === "") {
-            document.querySelector(".name-error").classList.add("error");
-            document.querySelector(".name-error").innerText =
-                "Please fill out this field!";
-        } else {
-            if (!letters.test(name)) {
-                document.querySelector(".name-error").classList.add("error");
-                document.querySelector(".name-error").innerText =
-                    "Please enter only characters!";
-            } else {
-
-            }
+            document.querySelector(".name-error").innerText = "";
         }
     }
 
-    function reset() {
-        nameEl = "";
-        emailEl = "";
-        companyNameEl = "";
-        messageEl = "";
-        document.querySelector(".name-error").innerText = "";
+    if (email === "") {
+        document.querySelector(".name-error").classList.add("error");
+        document.querySelector(".name-error").innerText = "Please fill out this field!";
+    } else {
+        if (!letters.test(email)) {
+            document.querySelector(".name-error").classList.add("error");
+            document.querySelector(".name-error").innerText = "Please enter only characters!";
+        } else {
+            document.querySelector(".name-error").innerText = "";
+        }
     }
 
+    if (startDate === "") {
+        document.querySelector(".start-date-error").classList.add("error");
+        document.querySelector(".start-date-error").innerText = "Please select a start date!";
+    } else {
+        document.querySelector(".start-date-error").innerText = "";
+    }
+}
+
+// Add to reset function
+function reset() {
+    nameEl.value = "";
+    emailEl.value = "";
+    eventTypeEl.value = "";
+    startDateEl.value = "";
+    messageEl.value = "";
+    document.querySelector(".name-error").innerText = "";
+    document.querySelector(".start-date-error").innerText = "";
+}
 </script>
 </body>
+<div id="footer-container"></div>
 
 </html>
