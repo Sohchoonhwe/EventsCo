@@ -184,7 +184,6 @@
     <script src="/assets/js/loadFooter.js"></script>
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-
 <body>
     <div id="navbar-container"></div>
     <div class="contain">
@@ -192,19 +191,19 @@
             <div class="form">
                 <h4>GET IN TOUCH</h4>
                 <h2 class="form-headline">Send us a message</h2>
-                <form id="submit-form" action="#">
+                <form id="submit-form" action="">
                     <p>
                         <input id="name" class="form-input" type="text" placeholder="Your Name*" required>
                         <small class="name-error"></small>
                     </p>
                     <p>
                         <input id="email" class="form-input" type="text" placeholder="Phone Number*" required>
-                        <small class="phone-error"></small>
+                        <small class="name-error"></small>
                     </p>
                     <p class="full-width">
                         <label for="start-date">Event Start Date*</label>
                         <input id="start-date" class="form-input" type="date" name="start-date" required>
-                        <small class="start-date-error"></small>
+                        <small></small>
                     </p>
                     <p class="full-width">
                         <label for="event-type">Type of Event*</label>
@@ -216,17 +215,17 @@
                             <option value="graduation">Graduation</option>
                             <option value="conferences">Conferences</option>
                         </select>
-                        <small class="event-type-error"></small>
+                        <small></small>
                     </p>
                     <p class="full-width">
                         <textarea minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
-                        <small class="message-error"></small>
+                        <small></small>
                     </p>
                     <p class="full-width">
                         <input type="checkbox" id="checkbox" name="checkbox" checked>I agree to allow EventsCo. to know my phone number and other personal information we need.
                     </p>
                     <p class="full-width">
-                        <input type="submit" class="submit-btn" value="Submit">
+                        <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
                         <button type="button" class="reset-btn" onclick="reset()">Reset</button>
                     </p>
                 </form>
