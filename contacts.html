@@ -183,7 +183,6 @@
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
     <link rel="stylesheet" href="/assets/css/styles.css">
-
 </head>
 
 <body>
@@ -193,19 +192,19 @@
             <div class="form">
                 <h4>GET IN TOUCH</h4>
                 <h2 class="form-headline">Send us a message</h2>
-                <form id="submit-form" action="">
+                <form id="submit-form" action="#">
                     <p>
                         <input id="name" class="form-input" type="text" placeholder="Your Name*" required>
                         <small class="name-error"></small>
                     </p>
                     <p>
                         <input id="email" class="form-input" type="text" placeholder="Phone Number*" required>
-                        <small class="name-error"></small>
+                        <small class="phone-error"></small>
                     </p>
                     <p class="full-width">
                         <label for="start-date">Event Start Date*</label>
                         <input id="start-date" class="form-input" type="date" name="start-date" required>
-                        <small></small>
+                        <small class="start-date-error"></small>
                     </p>
                     <p class="full-width">
                         <label for="event-type">Type of Event*</label>
@@ -217,17 +216,17 @@
                             <option value="graduation">Graduation</option>
                             <option value="conferences">Conferences</option>
                         </select>
-                        <small></small>
+                        <small class="event-type-error"></small>
                     </p>
                     <p class="full-width">
                         <textarea minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
-                        <small></small>
+                        <small class="message-error"></small>
                     </p>
                     <p class="full-width">
                         <input type="checkbox" id="checkbox" name="checkbox" checked>I agree to allow EventsCo. to know my phone number and other personal information we need.
                     </p>
                     <p class="full-width">
-                        <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
+                        <input type="submit" class="submit-btn" value="Submit">
                         <button type="button" class="reset-btn" onclick="reset()">Reset</button>
                     </p>
                 </form>
@@ -245,61 +244,110 @@
             </div>
         </div>
     </div>
-    <script>
+
+<script>
+
     const startDateEl = document.querySelector("#start-date");
+    const nameEl = document.querySelector("#name");
+    const phoneEl = document.querySelector("#email");
+    const eventTypeEl = document.querySelector("#event-type");
+    const messageEl = document.querySelector("#message");
 
-// Add to checkValidations function
-function checkValidations() {
-    let letters = /^[a-zA-Z\s]*$/;
-    const name = nameEl.value.trim();
-    const email = emailEl.value.trim();
-    const eventType = eventTypeEl.value.trim();
-    const message = messageEl.value.trim();
-    const startDate = startDateEl.value.trim();
+    function checkValidations(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-    if (name === "") {
-        document.querySelector(".name-error").classList.add("error");
-        document.querySelector(".name-error").innerText = "Please fill out this field!";
-    } else {
-        if (!letters.test(name)) {
+        let letters = /^[a-zA-Z\s]*$/;
+        const name = nameEl.value.trim();
+        const phone = phoneEl.value.trim();
+        const eventType = eventTypeEl.value.trim();
+        const message = messageEl.value.trim();
+        const startDate = startDateEl.value.trim();
+
+        let valid = true;
+
+        // Validation for Name
+        if (name === "") {
+            document.querySelector(".name-error").classList.add("error");
+            document.querySelector(".name-error").innerText = "Please fill out this field!";
+            valid = false;
+        } else if (!letters.test(name)) {
             document.querySelector(".name-error").classList.add("error");
             document.querySelector(".name-error").innerText = "Please enter only characters!";
+            valid = false;
         } else {
             document.querySelector(".name-error").innerText = "";
         }
-    }
 
-    if (email === "") {
-        document.querySelector(".name-error").classList.add("error");
-        document.querySelector(".name-error").innerText = "Please fill out this field!";
-    } else {
-        if (!letters.test(email)) {
-            document.querySelector(".name-error").classList.add("error");
-            document.querySelector(".name-error").innerText = "Please enter only characters!";
+        // Validation for Phone Number
+        if (phone === "") {
+            document.querySelector(".phone-error").classList.add("error");
+            document.querySelector(".phone-error").innerText = "Please fill out this field!";
+            valid = false;
         } else {
-            document.querySelector(".name-error").innerText = "";
+            document.querySelector(".phone-error").innerText = "";
+        }
+
+        // Validation for Start Date
+        if (startDate === "") {
+            document.querySelector(".start-date-error").classList.add("error");
+            document.querySelector(".start-date-error").innerText = "Please select a start date!";
+            valid = false;
+        } else {
+            document.querySelector(".start-date-error").innerText = "";
+        }
+
+        // Validation for Event Type
+        if (eventType === "") {
+            document.querySelector(".event-type-error").classList.add("error");
+            document.querySelector(".event-type-error").innerText = "Please select an event type!";
+            valid = false;
+        } else {
+            document.querySelector(".event-type-error").innerText = "";
+        }
+
+        // Validation for Message
+        if (message === "") {
+            document.querySelector(".message-error").classList.add("error");
+            document.querySelector(".message-error").innerText = "Please fill out this field!";
+            valid = false;
+        } else {
+            document.querySelector(".message-error").innerText = "";
+        }
+
+        // If all validations pass
+        if (valid) {
+            // Construct the message
+            const messageText = `Name: ${name}\nPhone: ${phone}\nEvent Start Date: ${startDate}\nEvent Type: ${eventType}\nMessage: ${message}`;
+            
+            // URL encode the message
+            const encodedMessage = encodeURIComponent(messageText);
+            
+            // WhatsApp URL with your phone number
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=+65 88209756&text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.location.href = whatsappUrl;
         }
     }
 
-    if (startDate === "") {
-        document.querySelector(".start-date-error").classList.add("error");
-        document.querySelector(".start-date-error").innerText = "Please select a start date!";
-    } else {
+    document.querySelector("form").addEventListener("submit", checkValidations);
+
+    function reset() {
+        // Reset form fields and error messages
+        nameEl.value = "";
+        phoneEl.value = "";
+        eventTypeEl.value = "";
+        startDateEl.value = "";
+        messageEl.value = "";
+        document.querySelector(".name-error").innerText = "";
+        document.querySelector(".phone-error").innerText = "";
+        document.querySelector(".event-type-error").innerText = "";
         document.querySelector(".start-date-error").innerText = "";
+        document.querySelector(".message-error").innerText = "";
     }
-}
-
-// Add to reset function
-function reset() {
-    nameEl.value = "";
-    emailEl.value = "";
-    eventTypeEl.value = "";
-    startDateEl.value = "";
-    messageEl.value = "";
-    document.querySelector(".name-error").innerText = "";
-    document.querySelector(".start-date-error").innerText = "";
-}
 </script>
+
+
 </body>
 <div id="footer-container"></div>
 
