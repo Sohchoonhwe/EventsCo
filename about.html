@@ -4,90 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Corporate Event Management</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Open+Sans:wght@400&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333;
+            text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #eef2f7;
-            color: #333;
-        }
-
-        h2, h3, h4 {
-            color: #003366;
-            font-weight: bold;
-        }
-
-        p {
-            color: #333;
-            line-height: 1.6;
         }
 
         .about-us {
+            margin: 50px auto;
+            width: 80%; /* Adjust width for better layout */
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #002147; /* Dark navy blue color */
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            font-weight: bold;
+            font-family: 'Roboto Slab', serif;
+            justify-content:center ;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px;
-            background-image: url('images/BNI pic.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            height: 500px; 
-            color: #fff; 
         }
 
-        .about-us::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
 
-        .about-us h1 {
-            position: relative;
-            z-index: 4;
-            font-size: 3em;
-            margin: 0;
-            padding: 0 30px;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-        }
 
-        .about-content {
+        .tabs {
             display: flex;
-            justify-content: space-around;
-            padding: 40px 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-link {
+            background-color: #e0e0e0; /* Light gray background */
+            border: 2px solid #002147; /* Border color matches the heading */
+            padding: 15px 30px;
+            cursor: pointer;
+            color: #002147;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 25px; /* Rounded corners for a modern look */
+            flex: 1;
+            margin:5px;
+        }
+
+        .tab-link:hover {
+            background-color: #b0b0b0; /* Slightly darker gray on hover */
+        }
+
+        .tab-link.active {
+            background-color: #002147; /* Dark navy blue for active tab */
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            border: 2px solid #002147;
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: #002147;
             opacity: 0;
-            animation: fadeIn 2s forwards 1s;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        .column {
-            width: 45%;
-            padding: 20px;
-            background-color: #eaf4fc;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .column:hover {
-            transform: translateY(-10px);
+        .tab-content.active {
+            display: block;
+            opacity: 1;
         }
 
         .team {
             padding: 40px 20px;
-            background-color: #cce0ff;
-            color: #003366;
+            background-color: #e0e0e0;
+            color: #002147;
             text-align: center;
             opacity: 0;
             animation: fadeIn 2s forwards 2s;
         }
 
         .team h4 {
-            font-size: 3em; /* Increase font size */
+            font-size: 2.5em; /* Adjust font size */
             margin: 0;
             padding: 20px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Roboto Slab', serif;
             position: relative;
         }
 
@@ -96,14 +103,14 @@
             display: block;
             width: 50%;
             height: 4px;
-            background: #003366;
+            background: #002147;
             margin: 10px auto 0;
             border-radius: 2px;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             justify-content: center;
             margin: 20px auto;
@@ -112,14 +119,14 @@
         .team-member {
             display: flex;
             align-items: center;
-            background-color: #81daec;
-            color: white;
+            background-color: #ffffff;
+            color: #333;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-            height: 300px; /* Set a fixed height for uniformity */
-            text-align: left; /* Align text to the left */
+            height: 300px;
+            text-align: left;
         }
 
         .team-member:hover {
@@ -127,7 +134,7 @@
         }
 
         .team-member img {
-            width: 100px; /* Adjust size to fit within the team-member box */
+            width: 100px;
             height: 100px;
             border-radius: 8px;
             margin-right: 20px;
@@ -141,8 +148,8 @@
         h4 {
             margin: 0;
             padding: 20px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 4em;
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5em;
         }
 
         @keyframes fadeIn {
@@ -151,43 +158,6 @@
             }
         }
 
-        /* Custom styling for stats boxes */
-        .stats-box {
-            text-align: center;
-            padding: 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .stats-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .stats-box h3 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .stats-box p {
-            font-size: 1.25rem;
-            color: #666;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-        }
-
-        /* Center the about us second text */
-        h2 {
-            text-align: center;
-        }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -195,25 +165,36 @@
 <body>
     <div id="navbar-container"></div>
     
-    <section class="about-us">
+    <div class="about-us">
         <h1>About Us</h1>
-    </section>
-    
-    <section class="about-content">
-        <div class="column">
-            <h2>Our Mission</h2>
-            <p>We deliver exceptional corporate events that make a lasting impact and drive success. Our goal is to innovate and surpass client expectations in every aspect of event management.</p>
-            <p>We embrace new challenges and seek innovative solutions. Partnering with us means staying ahead and achieving your goals with cutting-edge approaches.</p>
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'mission')">Mission</button>
+            <button class="tab-link" onclick="openTab(event, 'vision')">Vision</button>
+            <button class="tab-link" onclick="openTab(event, 'values')">Values</button>
+            <button class="tab-link" onclick="openTab(event, 'goal')">Goal</button>
         </div>
-        <div class="column">
-            <h2>What We Do</h2>
-            <p>We offer complex solutions and tools to help you achieve your goals, blending aesthetics with efficiency.</p>
-            <p>Our designs create memorable brand interactions and impactful user experiences, ensuring a lasting impression on your audience.</p>
+        
+        <div id="mission" class="tab-content active">
+            <h2>Mission</h2>
+            <p>Our mission is to [insert your mission statement here].</p>
         </div>
-    </section>
 
+        <div id="vision" class="tab-content">
+            <h2>Vision</h2>
+            <p>Our vision is to [insert your vision statement here].</p>
+        </div>
 
-    
+        <div id="values" class="tab-content">
+            <h2>Values</h2>
+            <p>We value [insert your core values here].</p>
+        </div>
+
+        <div id="goal" class="tab-content">
+            <h2>Goal</h2>
+            <p>Our goal is to [insert your goal here].</p>
+        </div>
+    </div>
+
     <section class="team">
         <h4>Meet Our Team</h4>
         <div class="team-grid">
@@ -276,29 +257,20 @@
     
     <div id="footer-container"></div>
 
-
     <script>
-        // Counter animation for stats
-        document.addEventListener("DOMContentLoaded", function () {
-            const counters = document.querySelectorAll(".stats-box h3");
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute("data-end-value");
-                    const count = +counter.innerText;
-                    const increment = target / 200;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(updateCount, 10);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        });
-
-
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
     </script>
 </body>
 </html>
