@@ -77,23 +77,27 @@
         }
 
         /*What to expect section*/
+        
         .expect-container {
             display: flex;
+            flex-wrap: nowrap; /* Default: no wrapping */
             padding: 20px;
             gap: 50px; /* Space between the boxes */
+            overflow-x: auto; /* Allow horizontal scrolling */
             white-space: nowrap; /* Prevent line breaks within the container */
-            flex-wrap: nowrap; /* Prevent wrapping by default */
         }
-        
+
         .box {
+            width: 300px;
             text-align: center;
-            margin: 10px;
+            margin: 0; /* Remove margin, space is controlled by gap */
+            flex-shrink: 0; /* Prevent boxes from shrinking */
         }
 
         .box img {
-            width: 100%; /* Adjust the size as needed */
+            width: 100%;
             height: auto;
-            border-radius: 15px; /* Adjust the rounding of the corners */
+            border-radius: 15px;
         }
 
         .box p {
@@ -102,12 +106,14 @@
             color: #333;
         }
 
+        /* Media Query for Mobile Screens */
         @media (max-width: 600px) {
             .container {
                 flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
                 justify-content: center; /* Center the boxes */
                 white-space: normal; /* Allow line breaks within the container */
                 gap: 20px; /* Reduce the gap between boxes on mobile */
+                overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
             }
 
             .box {
