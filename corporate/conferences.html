@@ -4,98 +4,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="/assets/js/loadNavbar.js"></script>
-    <script src="/assets/js/loadFooter.js"></script>
+    <title>Family Day Out Themes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+
+
+
     <style>
-        /* CSS */
-        .button-29 {
-            align-items: center;
-            appearance: none;
-            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
-            border: 0;
-            border-radius: 6px;
-            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
-            box-sizing: border-box;
-            color: #fff;
-            cursor: pointer;
-            display: inline-flex;
-            font-family: "JetBrains Mono", monospace;
-            height: 48px;
-            justify-content: center;
-            line-height: 1;
-            list-style: none;
-            overflow: hidden;
-            padding-left: 16px;
-            padding-right: 16px;
+        /* Basic styling with Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, #004a87);
+            /* Static gradient background */
+            background-size: 100% 100%;
+            /* Ensure background covers the entire area */
+        }
+
+        /* Main header styling */
+        h1 {
+            color: #2c3e50;
+            /* Dark Blue */
+            font-size: 2.5em;
+            /* Larger font size for the main header */
+            margin: 30px 0;
+            text-align: center;
+        }
+
+
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            /* Increased gap for better separation */
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+            font-weight: 600;
+            /* Bold for headings */
+            font-size: 1.8em;
+            /* Slightly larger font size for card headings */
+        }
+
+        /* Steps section styling */
+        .steps-section {
+            background-color: #ffffff;
+            /* White background for contrast */
+            padding: 40px 20px;
+            margin: 30px auto;
+            /* Increased margin */
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for card effect */
+        }
+
+        
+
+        .text-p {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        /*What to expect section*/
+        .expect-container {
+            display: flex;
+            padding: 20px;
+            gap: 50px; /* Space between the boxes */
+            white-space: nowrap; /* Prevent line breaks within the container */
+            flex-wrap: nowrap; /* Prevent wrapping by default */
+        }
+        
+        .box {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .box img {
+            width: 100%; /* Adjust the size as needed */
+            height: auto;
+            border-radius: 15px; /* Adjust the rounding of the corners */
+        }
+
+        .box p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-wrap: wrap; /* Allow boxes to wrap on smaller screens */
+                justify-content: center; /* Center the boxes */
+                white-space: normal; /* Allow line breaks within the container */
+                gap: 20px; /* Reduce the gap between boxes on mobile */
+            }
+
+            .box {
+                width: 100%; /* Make each box take up the full width */
+                max-width: 300px; /* Set a maximum width */
+            }
+        }
+
+        /*css for timeline*/
+        .timeline {
+            margin-top: 20px;
+        }
+        
+        .timeline-container {
             position: relative;
-            text-align: left;
-            text-decoration: none;
-            transition: box-shadow .15s, transform .15s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-            will-change: box-shadow, transform;
-            font-size: 18px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
         }
 
-        .button-29:focus {
-            box-shadow: #1c36f7 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+        .timeline-item {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
-        .button-29:hover {
-            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-            transform: translateY(-2px);
+        .timeline-dot {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            background: #007BFF;
+            border-radius: 50%;
+            z-index: 1;
         }
 
-        .button-29:active {
-            box-shadow: #3c4fe0 0 3px 7px inset;
-            transform: translateY(2px);
-        }
-
-        .card img {
+        .timeline-content {
+            width: calc(50% - 30px);
+            padding: 20px;
+            background: #ffffff;
             border-radius: 8px;
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content.left {
+            margin-right: auto;
+            text-align: right;
+        }
+
+        .timeline-content.right {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .timeline-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #007BFF;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin: 0;
+            }
+
+            .timeline-dot {
+                margin-bottom: 10px;
+            }
+
+            .timeline-container::before {
+                left: 10px;
+                transform: none;
+            }
+        }
+
+        .step-box {
+            margin: 20px 0;
+        }
+        .step-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        .step-content {
+            text-align: left;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        h1{
+            padding-top: 60px;
         }
     </style>
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
 </head>
 
 <body>
     <div id="navbar-container"></div>
-    <div class="container">
-        <hr />
-        <h2>Conferences</h2>
-        <hr />
-    </div>
-    <div class="row">
-        <div class="container md-8">
-            <img src="/images/BNI pic.jpg" style="width:100%;">
-
+    <h1>Family Day Out Themes</h1>
+    <p class="text-center" style="color: #004a87;font-size: 1.2em;">We offer multiple solutions for your family day out! Come and talk to our friendly staff to know more!</p>
+    <h2 class="text-center">What to expect?</h2>
+    <div class="expect-container">
+        <div class="box">
+            <img src="/images/ceo.jpg">
+            <p class="expect-text">Text for Image 1</p>
         </div>
-        <div class="container md-4 text-center">
-            <h3>Short description of the business you offer: </h3>
-            <p>We offer:
+        <div class="box">
+            <img src="/images/ceo.jpg">
+            <p class="expect-text">Text for Image 2</p>
+        </div>
+        <div class="box">
+            <img src="/images/ceo.jpg">
+            <p class="expect-text">Text for Image 3</p>
+        </div>
+        <div class="box">
+            <img src="/images/ceo.jpg">
+            <p class="expect-text">Text for Image 4</p>
+        </div>
+    </div>
 
-                <li>
-                    bla1
-                </li>
-                <li>
-                    bla1
-                </li>
-                <li>
-                    bla1
-                </li>
-
-
-            </p>
-            <button class="button-29" role="button">Request for a quote!</button>
+    <!-- Steps Section -->
+    <div class="steps-section">
+        <h2 class="text-center">What will we handle?</h2>
+        
+        <div class="step-box">
+            <div class="step-number">01 Registration and RSVP</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <div class="step-number">02 Venue Setup</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <div class="step-number">03 Catering</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <div class="step-number">04 Entertainment</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
         </div>
 
+        <!-- Add more step-boxes as needed -->
     </div>
-    </div>
+
+    <section id="timeline">
+        <h2 class="text-center">Event Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-content left">
+                    <h3>Arrival and Welcome Drinks</h3>
+                    <p>Guests start arriving and are greeted with a selection of fine drinks.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content right">
+                    <h3>Dinner Service</h3>
+                    <p>Gourmet dinner is served with multiple courses to enjoy.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content left">
+                    <h3>Live Entertainment</h3>
+                    <p>Enjoy live performances and entertainment throughout the evening.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content right">
+                    <h3>Dessert and Networking</h3>
+                    <p>Conclude the evening with dessert and networking opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
     <div id="footer-container"></div>
+
+</body>
 
 </html>
