@@ -66,54 +66,7 @@
             /* Box shadow for card effect */
         }
 
-        .steps-section h2 {
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-            /* Larger font size for section headings */
-            text-align: center;
-        }
-
-        .steps-cards {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            /* Increased gap for better separation */
-        }
-
-        .step-card {
-            background-color: #f9f9f9;
-            /* Light gray background for steps */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .step-card i {
-            font-size: 60px;
-            /* Larger icons */
-            color: #004a87;
-            /* Icon color */
-            margin-bottom: 15px;
-        }
-
-        .step-card h3 {
-            color: #333;
-            margin: 10px 0;
-            font-size: 1.4em;
-        }
-
-        .step-card p {
-            color: #666;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
+        
 
         .text-p {
             text-align: center;
@@ -244,6 +197,21 @@
             }
         }
 
+        .step-box {
+            margin: 20px 0;
+        }
+        .step-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        .step-content {
+            text-align: left;
+            color: #555;
+            margin-bottom: 20px;
+        }
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -277,24 +245,37 @@
 
     <!-- Steps Section -->
     <div class="steps-section">
-        <h2>How to Get Started</h2>
-        <div class="steps-cards">
-            <div class="step-card">
-                <i class="fas fa-mouse-pointer"></i>
-                <h3>1) Click on the Preferred Theme</h3>
-                <p>Choose a theme that suits your family day out preferences from our selection.</p>
-            </div>
-            <div class="step-card">
-                <i class="fas fa-edit"></i>
-                <h3>2) Fill in the Form</h3>
-                <p>Provide the necessary details to customize your experience to your preferences.</p>
-            </div>
-            <div class="step-card">
-                <i class="fas fa-handshake"></i>
-                <h3>3) Let Our Staff Help You</h3>
-                <p>Our friendly staff will assist you in finalizing the details and ensure a fantastic outing.</p>
+        <h2 class="text-center">What will we handle?</h2>
+        
+        <div class="step-box">
+            <div class="step-number">01 Registration and RSVP</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
             </div>
         </div>
+        
+        <div class="step-box">
+            <div class="step-number">02 Venue Setup</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <div class="step-number">03 Catering</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+        
+        <div class="step-box">
+            <div class="step-number">04 Entertainment</div>
+            <div class="step-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, enim ac ullamcorper bibendum, metus lacus tincidunt dolor, ac consectetur neque erat id neque.</p>
+            </div>
+        </div>
+
+        <!-- Add more step-boxes as needed -->
     </div>
 
     <section id="timeline">
