@@ -75,7 +75,7 @@
             font-size: 1.2em;
             line-height: 1.5;
         }
-        
+
         /*css for timeline*/
         .timeline {
             margin-top: 20px;
@@ -180,6 +180,7 @@
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/slider.css">
 
 </head>
 
@@ -189,6 +190,37 @@
     <p class="text-center" style="color: #004a87;font-size: 1.2em;">We offer multiple solutions for organizing seminars and conferences! Come and talk to our friendly staff to know more!</p>
     <h2 class="text-center">Services that we offer</h2>
     
+    <div class="slider">
+        <div class="list">
+            <div class="item">
+                <img src="/images/sydney.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/skyline.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/china.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/japan.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="/images/singapore.jpg" alt="">
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
     <!-- Steps Section -->
     <div class="steps-section">
         <h2 class="text-center">What will we handle?</h2>
@@ -224,6 +256,12 @@
         <!-- Add more step-boxes as needed -->
     </div>
 
+    
+
+
+
+
+
     <section id="timeline">
         <h2 class="text-center">Event Timeline</h2>
         <div class="timeline-container">
@@ -255,6 +293,7 @@
     
 
     <div id="footer-container"></div>
+    <script src="/assets/js/slider.js"></script>
 
 </body>
 
