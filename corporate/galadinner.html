@@ -6,217 +6,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gala Dinner</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #f9f9f9;
-            color: #333;
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 0;
-            padding: 0;
-        }
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffffff;
+    color: #00264d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
 
-        h1, h2, h3 {
-            text-align: center;
-            color: #004080;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+h1, h2, h3 {
+    text-align: center;
+    color: #00264d;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
 
-        h1 {
-            font-size: 2em;
-        }
+h1 {
+    font-size: 2rem; /* Use rem for consistency */
+}
 
-        h2 {
-            font-size: 1.8em;
-        }
+h2 {
+    font-size: 1.8rem;
+}
 
-        h3 {
-            font-size: 1.5em;
-        }
+h3 {
+    font-size: 1.4rem;
+}
 
-        section {
-            padding: 50px 5%;
-            background-color: #ffffff;
-            margin-bottom: 15px;
-            border: 1px solid #004080;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+section {
+    padding: 40px 5%;
+    background-color: #f7faff;
+    margin-bottom: 20px;
+    border: 1px solid #b3d1ff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
 
-        #intro {
-            background-image: url('/assets/images/gala-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            padding: 80px 5%;
-            text-align: center;
-            box-shadow: inset 0 0 0 1000px rgba(0, 64, 128, 0.6);
-            border-bottom: 4px solid #004080;
-        }
+#intro {
+    background-image: url('/assets/images/your-background.jpg'); /* Use your own image */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 100px 10%;
+    text-align: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 38, 77, 0.7);
+    border-bottom: 4px solid #00264d;
+}
 
-        #expectations {
-            padding: 50px 10px;
-            background-color: #e6f0ff;
-            color: #333;
-            border-radius: 8px;
-        }
+#intro h4 {
+    font-size: 1.3rem;
+    margin-top: 15px;
+    color: #d1e0ff;
+}
 
-        .expectation-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 60px;
-            max-width: 1600px;
-            margin: auto;
-            text-align: center;
-        }
+#expectations {
+    padding: 60px 5%;
+    background-color: #ffffff;
+    color: #00264d;
+    border-radius: 12px;
+}
 
-        .expectation-item {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            color: #004080;
-        }
+.expectation-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1600px;
+    margin: auto;
+    text-align: center;
+}
 
-        .expectation-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 2px solid #004080;
-        }
+.expectation-item {
+    background: #f7faff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .expectation-item h3 {
-            margin: 0;
-            padding: 15px 0;
-            width: 100%;
-            background-color: #004080;
-            color: #ffffff;
-            font-size: 1.2em;
-            text-align: center;
-        }
+.expectation-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 2px solid #00264d;
+    transition: transform 0.3s ease-in-out;
+}
 
-        .expectation-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
+.expectation-item h3 {
+    margin: 0;
+    padding: 15px 0;
+    width: 100%;
+    background-color: #00264d;
+    color: #ffffff;
+    font-size: 1.4rem;
+}
 
-        #timeline {
-            background-color: #f9f9f9;
-            padding: 50px 0;
-            margin-bottom: 0;
-        }
+.expectation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
 
-        .timeline-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            padding: 0 5%;
-        }
+.expectation-item:hover img {
+    transform: scale(1.05);
+}
 
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            width: 100%;
-            border: 2px solid #004080;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
+#timeline {
+    background-color: #f7faff;
+    padding: 60px 0;
+    margin-bottom: 0;
+}
 
-        .timeline-content {
-            padding: 20px;
-            width: 45%;
-            position: relative;
-            z-index: 1;
-            font-size: 16px;
-            font-weight: 500;
-            color: #004080;
-        }
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 5%;
+}
 
-        .timeline-content.left {
-            text-align: right;
-            margin-right: auto;
-            border-right: 2px solid #004080;
-        }
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+    border: 1px solid #b3d1ff;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+}
 
-        .timeline-content.right {
-            text-align: left;
-            margin-left: auto;
-            border-left: 2px solid #004080;
-        }
+.timeline-content {
+    padding: 15px 30px;
+    width: 45%;
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #00264d;
+}
 
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: #004080;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 64, 128, 0.5);
-            z-index: 2;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 2px solid #ffffff;
-        }
+.timeline-content.left {
+    text-align: right;
+    margin-right: auto;
+    border-right: 1px solid #b3d1ff;
+}
 
-        .timeline-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: #004080;
-            transform: translateX(-50%);
-            z-index: 0;
-        }
+.timeline-content.right {
+    text-align: left;
+    margin-left: auto;
+    border-left: 1px solid #b3d1ff;
+}
 
-        .timeline-item:hover .timeline-content {
-            background-color: #f9f9f9;
-        }
+.timeline-dot {
+    width: 25px;
+    height: 25px;
+    background: #00264d;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 38, 77, 0.4);
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #ffffff;
+}
 
-        @media (max-width: 768px) {
-            .timeline-item {
-                flex-direction: column;
-                text-align: center;
-            }
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: #00264d;
+    transform: translateX(-50%);
+    z-index: 0;
+}
 
-            .timeline-content {
-                width: 100%;
-                text-align: center;
-            }
+.timeline-item:hover .timeline-content {
+    background-color: #f1faff;
+}
 
-            .timeline-container::before {
-                left: 10%;
-            }
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
 
-            .timeline-dot {
-                left: 10%;
-            }
-        }
+    .timeline-content {
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+    }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
+    .timeline-container::before {
+        left: 5%;
+    }
 
-            h2 {
-                font-size: 1.6em;
-            }
+    .timeline-dot {
+        left: 5%;
+    }
+}
 
-            h3 {
-                font-size: 1.4em;
-            }
-        }
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem; /* Adjust for smaller screens */
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .expectation-item img {
+        height: 180px; /* Adjust image size for smaller screens */
+    }
+}
+
+
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -236,26 +253,26 @@
             <h2>What to Expect</h2>
             <div class="expectation-container">
                 <div class="expectation-item">
-                    <img src="/assets/images/cuisine.jpg" alt="Exquisite Cuisine">
+                    <img src="/images/gala-emcee.jpg" alt="Emcee">
                     <h3>Host & Announcer</h3>
                 </div>
                 <div class="expectation-item">
-                    <img src="/assets/images/music.jpg" alt="">
+                    <img src="/images/gala-venue.jpg" alt="Live Music">
                     <h3>Venue & Catering</h3>
                 </div>
                 <div class="expectation-item">
-                    <img src="/assets/images/networking.jpg" alt="Networking Opportunities">
-                    <h3>live    Entertainment</h3>
+                    <img src="/images/gala-liveentertainment.jpg" alt="Networking Opportunities">
+                    <h3>Live Entertainment</h3>
                 </div>
                 <div class="expectation-item">
                     <img src="/assets/images/venue.jpg" alt="Luxurious Venue">
-                    <h3>Personalised Management</h3>
+                    <h3>Personalized Management</h3>
                 </div>
             </div>
         </section>
 
         <section id="timeline">
-            <h2> steps  to plan your event!</h2>
+            <h2>Steps to Plan Your Event!</h2>
             <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-content left">

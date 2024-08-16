@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventsCo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #e6f2ff;
+            /* Light blue background */
+        }
+
+        h2,
+        h3,
+        h4 {
+            color: #003366;
+            /* Slightly darker blue for headings */
+        }
+
+        /* Carousel */
+        .carousel {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300%;
+        }
+
+        .slide {
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+        }
+
+        /* Numbers Section */
+        .numbers {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: #cce0ff;
+            /* Very light blue */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+            margin: 0 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #ffffff;
+            /* White background for contrast */
+        }
+
+        .stat h3 {
+            font-size: 3em;
+            margin: 0;
+            color: #003366;
+        }
+
+        .stat h4 {
+            margin: 10px 0;
+            color: #0066cc;
+            /* Slightly darker light blue */
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Featured Services Section */
+        .container {
+            margin: 0 auto;
+            padding: 50px 20px;
+            background: url('/path-to-your-image.jpg') no-repeat center center/cover;
+            text-align: center;
+        }
+
+        .cards-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: rgba(0, 51, 102, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            flex: 1 1 calc(33.333% - 20px);
+            max-width: calc(33.333% - 20px);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:nth-child(6) {
+            margin-bottom: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card_title {
+            margin-bottom: 15px;
+        }
+
+        .card h6 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .btn-read {
+            margin-top: auto;
+        }
+
+        .btn-read a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #0066cc;
+            transition: background-color 0.3s;
+        }
+
+        .btn-read a:hover {
+            background-color: #004080;
+        }
+
+        /* View More Link */
+        .view-more {
+            display: block;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #003366;
+            text-decoration: none;
+            background-color: #cce0ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .view-more:hover {
+            background-color: #b3d1ff;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            padding: 50px;
+            background-color: #cce0ff;
+            text-align: center;
+        }
+
+        .why-choose-us-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .why-box {
+            width: 22%;
+            background-color: #0066cc;
+            /* Medium blue */
+            color: white;
+            padding: 30px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-box.expanded {
+            width: 48%;
+        }
+
+        .why-box img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .why-box h3 {
+            margin-bottom: 20px;
+        }
+
+        .why-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .why-box.expanded img {
+            display: block;
+        }
+
+        .why-box.expanded .why-content {
+            display: none;
+        }
+
+        /* Logo Carousel */
+        .logo-carousel {
+            width: 100%;
+            overflow: hidden;
+            background-color: #003366;
+            padding: 20px 0;
+        }
+
+        .logo-track {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
+
+        .logo {
+            width: 200px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 10px;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Section 1: Carousel with 3 Pictures -->
+    <div class="carousel">
+        <div class="slides">
+            <div class="slide" style="background-image: url('/images/cchy.jpg');"></div>
+            <div class="slide" style="background-image: url('image2.jpg');"></div>
+            <div class="slide" style="background-image: url('image3.jpg');"></div>
+        </div>
+    </div>
+
+    <!-- Section 2: Event in Numbers -->
+    <div class="numbers">
+        <div class="stat">
+            <h3>100+</h3>
+            <h4>Events Held</h4>
+            <div class="description">Over 100 successful events organized.</div>
+        </div>
+        <div class="stat">
+            <h3>50+</h3>
+            <h4>Clients</h4>
+            <div class="description">Trusted by over 50 clients worldwide.</div>
+        </div>
+        <div class="stat">
+            <h3>10</h3>
+            <h4>Years Experience</h4>
+            <div class="description">A decade of industry experience.</div>
+        </div>
+    </div>
+
+    <!-- Section 3: Featured Services -->
+    <div class="container my-5">
+        <h1>Featured Services</h1>
+        <div class="cards-list">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Conferences</h6>
+                    <p>Sapien sed metus congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/conferences.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Corporate Events</h6>
+                    <p>Vivamus scelerisque ultricies varius cum sociis.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/corporate-events.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Galas &amp; Awards</h6>
+                    <p>Sed metus congue vivamus scelerisque ultricies.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/galas.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Product Launches</h6>
+                    <p>Metus congue sodales vivamus scelerisque ultricies.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/product-launches.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Weddings</h6>
+                    <p>Sapien sed congue sodales vivamus scelerisque.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/weddings.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card_title title-white">
+                    <h6 class="heading">Private Events</h6>
+                    <p>Vivamus scelerisque ultricies varius cum sociis.</p>
+                </div>
+                <div class="btn-read">
+                    <a href="/corporate/private-events.html" class="btn-flip" data-back="Let's Go!"
+                        data-front="Read More!"></a>
+                </div>
+            </div>
+        </div>
+        <a href="/corporate/services.html" class="view-more">View More Services</a>
+    </div>
+
+    <!-- Section 4: Why Choose Us -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <div class="why-choose-us-container">
+            <div class="why-box">
+                <h3>Expertise</h3>
+                <div class="why-content">
+                    <p>Our team is composed of seasoned professionals with a wealth of experience.</p>
+                </div>
+                <img src="/images/expertise.jpg" alt="Expertise">
+            </div>
+            <div class="why-box">
+                <h3>Innovation</h3>
+                <div class="why-content">
+                    <p>We bring fresh ideas and cutting-edge solutions to every event we handle.</p>
+                </div>
+                <img src="/images/innovation.jpg" alt="Innovation">
+            </div>
+            <div class="why-box">
+                <h3>Customization</h3>
+                <div class="why-content">
+                    <p>Every event is tailored to meet your unique vision and needs.</p>
+                </div>
+                <img src="/images/customization.jpg" alt="Customization">
+            </div>
+            <div class="why-box">
+                <h3>Support</h3>
+                <div class="why-content">
+                    <p>We offer 24/7 support to ensure your event is flawless.</p>
+                </div>
+                <img src="/images/support.jpg" alt="Support">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Logo Carousel -->
+    <section class="logo-carousel">
+        <div class="logo-track">
+            <div class="logo" style="background-image: url('/images/logo1.jpg');"></div>
+            <div class="logo" style="background-image: url('/images/logo2.jpg');"></div>
+            <div class="logo" style="background-image: url('/images/logo3.jpg');"></div>
+            <div class="logo" style="background-image: url('/images/logo4.jpg');"></div>
+            <div class="logo" style="background-image: url('/images/logo5.jpg');"></div>
+        </div>
+    </section>
+</body>
+
+</html>
