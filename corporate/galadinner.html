@@ -1,11 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gala Dinner</title>
+    <title>Family Day Out Themes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+
+    <style>
+        /* Basic styling with Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, #004a87);
+            /* Static gradient background */
+            background-size: 100% 100%;
+            /* Ensure background covers the entire area */
+        }
+
+        /* Main header styling */
+        h1 {
+            color: #2c3e50;
+            /* Dark Blue */
+            font-size: 2.5em;
+            /* Larger font size for the main header */
+            margin: 0;
+            text-align: center;
+        }
+
+        /* Landing page section styling */
+        .landing-page {
+            height: 100vh;
+            /* Full height of the viewport */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .landing-page-inner {
+            text-align: center;
+        }
+
+        .what-to-expect {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.what-to-expect h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.expectations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.expectation-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.expectation-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.expectation-item p {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+        /* Media Query for Mobile Screens */
+        @media (max-width: 600px) {
+            .container {
+                flex-wrap: wrap;
+                justify-content: center;
+                white-space: normal;
+                gap: 20px;
+                overflow-x: hidden;
+            }
+
+            .box {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
+
 <body>
+    <div id="navbar-container"></div>
+    <section class="landing-page">
+        <div class="landing-page-inner">
+            <h1>Gala Dinner Themes</h1>
+            <p class="text-center" style="color: #004a87;font-size: 1.2em;">We offer multiple solutions for your Gala Dinner! Come and talk to our friendly staff to know more!</p>
+        </div>
+    </section>
+
+    <!-- What to expect section -->
+    <div class="what-to-expect">
+        <h2>What to Expect?</h2>
+        <div class="expectations-grid">
+            <div class="expectation-item">
+                <img src="/images/australia.jpg" alt="Expectation 1">
+                <p>Emcee</p>
+            </div>
+            <div class="expectation-item">
+                <img src="image2.jpg" alt="Expectation 2">
+                <p>Get your participants engaged ...</p>
+            </div>
+            <div class="expectation-item">
+                <img src="image3.jpg" alt="Expectation 3">
+                <p>Entertainment</p>
+            </div>
+            <div class="expectation-item">
+                <img src="image4.jpg" alt="Expectation 4">
+                <p>Photography</p>
+            </div>
+            <div class="expectation-item">
+                <img src="image5.jpg" alt="Expectation 5">
+                <p>Logistics</p>
+            </div>
+            <div class="expectation-item">
+                <img src="image6.jpg" alt="Expectation 6">
+                <p>Transport</p>
+            </div>
+        </div>
+    </div>
     
+
+    <div id="footer-container"></div>
 </body>
+
 </html>
