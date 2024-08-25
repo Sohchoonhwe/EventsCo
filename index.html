@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <title>EventsCo.</title>
     <style>
         body {
@@ -13,11 +15,34 @@
             overflow-x: hidden;
         }
 
+        h2 {
+            position: relative;
+            display: inline-block;
+            /* Makes the underline fit the text width */
+            font-size: 2em;
+            margin: 20px 0;
+            /* Adjust margin as needed */
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 140%;
+            height: 2px;
+            /* Thickness of the underline */
+            background-color: black;
+            transform: translateX(-50%);
+            /* Center the underline */
+            transform-origin: center;
+        }
+
 
         /* Fullscreen carousel */
         .carousel-container {
             width: 100%;
-            height: 100vh;
+            height: 90vh;
             overflow: hidden;
             position: relative;
             border-radius: 0;
@@ -111,42 +136,48 @@
         }
 
         .stats-box {
-            text-align: center;
-            padding: 30px;
-            border: 1px solid #e0e0e0;
+            position: relative;
+            background: #f8f9fa;
             border-radius: 8px;
-            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transition: transform 0.3s ease;
         }
 
         .stats-box:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .stats-box h3 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #333;
+            font-size: 2.5em;
+            color: #007bff;
+            margin: 0;
         }
 
         .stats-box h4 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: 600;
+            font-size: 1.2em;
             color: #333;
+            margin-top: 5px;
+        }
+
+        .stats-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #007bff, #00c4ff);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
 
         .stat-para {
-            font-size: 1.2rem;
+            font-size: 1.7em;
             color: #333;
-            margin-top: 20px;
             line-height: 1.5;
         }
-
-
 
         /* Featured Services Section */
         .featured-services {
@@ -260,8 +291,6 @@
             width: 50%;
         }
 
-
-        /* Responsive adjustments */
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .hero-row {
@@ -298,17 +327,17 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
-                /* Single column on very small screens */
+
             }
 
             .service-box {
                 height: 220px;
-                /* Adjust height for very small screens */
+
             }
 
             .carousel-container {
                 height: 50vh;
-                /* Reduce height for very small screens */
+
             }
         }
 
@@ -354,7 +383,7 @@
 
         .box .content {
             z-index: 1;
-            max-width: 50%;
+            max-width: 55%;
             background: linear-gradient(to right, rgba(46, 59, 89, 0.9), rgba(46, 59, 89, 0.6));
             padding: 20px;
             border-radius: 10px;
@@ -371,16 +400,100 @@
         }
 
         .toggle-btn {
-            background-color: #d9e4f2;
-            color: #1e2a47;
+            background: none;
+            color: #d9e4f2;
             border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
+            font-size: large;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Center the text and icon horizontally */
+            gap: 5px;
+            padding: 0;
+            margin: 20px auto 0 auto;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            text-decoration: underline;
         }
 
         .toggle-btn:focus {
             outline: none;
+        }
+
+        .toggle-btn.active {
+            color: #f1f1f1;
+        }
+
+        .toggle-btn.active i {
+            transform: rotate(180deg);
+        }
+
+
+        @media (max-width: 768px) {
+            .why-choose-us {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .box {
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+
+            .box .content {
+                max-width: 100%;
+                padding: 15px;
+                font-size: medium;
+            }
+
+            .toggle-btn {
+                font-size: medium;
+                margin: 10px auto 0 auto;
+            }
+        }
+
+
+        /* Mobile view adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                /* Single column layout on mobile */
+                gap: 15px;
+            }
+
+            .service-box {
+                padding: 15px;
+            }
+
+            .service-box h3 {
+                font-size: 1.1em;
+            }
+
+            .services-p {
+                font-size: 0.95em;
+            }
+
+            .read-more {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-box h3 {
+                font-size: 1em;
+            }
+
+            .services-p {
+                font-size: 0.9em;
+            }
+
+            .read-more {
+                font-size: 0.9em;
+            }
         }
 
         /* Blog Post Section */
@@ -761,10 +874,9 @@
             border-radius: 10px;
         }
 
-        .text-box h2 {
+        .text-box h8 {
             font-size: 2.5em;
             color: #333;
-            /* Dark text color */
             margin-bottom: 20px;
         }
 
@@ -802,19 +914,19 @@
                 <div class="hero-col">
                     <div class="stats-box">
                         <h3 data-end-value="19200">1000</h3>
-                        <h4>Participants Served</h4>
+                        <h4>Participants Served 🧑‍🤝‍🧑</h4>
                     </div>
                 </div>
                 <div class="hero-col">
                     <div class="stats-box">
                         <h3 data-end-value="2994">200</h3>
-                        <h4>Successful Events</h4>
+                        <h4>Successful Events 🎉</h4>
                     </div>
                 </div>
                 <div class="hero-col">
                     <div class="stats-box">
                         <h3 data-end-value="93">10</h3>
-                        <h4>Industry Awards</h4>
+                        <h4>Industry Awards 🏆</h4>
                     </div>
                 </div>
             </div>
@@ -827,7 +939,7 @@
                 the top choice for corporate events, team-building activities, and retreats.</p>
         </div>
     </section>
-
+    <hr>
     <!-- Featured Services Section -->
     <section class="services">
         <section id="featured-services" class="featured-services">
@@ -844,7 +956,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="/corporate/conferences.html" class="read-more">Read More</a>
                     </div>
                     <div class="service-box">
                         <div class="service-image">
@@ -854,7 +966,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="/corporate/galadinner.html" class="read-more">Read More</a>
                     </div>
                     <div class="service-box">
                         <div class="service-image">
@@ -864,7 +976,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="/corporate/familydayout.html" class="read-more">Read More</a>
                     </div>
                     <div class="service-box">
                         <div class="service-image">
@@ -874,7 +986,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="/corporate/teambuilding.html" class="read-more">Read More</a>
                     </div>
                     <div class="service-box">
                         <div class="service-image">
@@ -884,7 +996,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="/retreats/overview.html" class="read-more">Read More</a>
                     </div>
                     <div class="service-box">
                         <div class="service-image">
@@ -894,7 +1006,7 @@
                         <div class="services-p">
                             This is for the description of the service.
                         </div>
-                        <a href="link_to_service_page" class="read-more">Read More</a>
+                        <a href="" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -911,7 +1023,10 @@
                         support
                         and personalized attention to every aspect of your event.
                     </p>
-                    <button class="toggle-btn">Show More</button>
+                    <button class="toggle-btn">
+                        Show More <i class="fas fa-chevron-down"></i>
+                    </button>
+
                 </div>
             </div>
             <div class="box" style="background-image: url('image2.jpg');">
@@ -921,7 +1036,9 @@
                         management,
                         ensuring every detail is covered.
                     </p>
-                    <button class="toggle-btn">Show More</button>
+                    <button class="toggle-btn">
+                        Show More <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
             </div>
             <div class="box" style="background-image: url('image3.jpg');">
@@ -931,7 +1048,9 @@
                         We focus on both the grand vision and the subtle details that transform an ordinary
                         event into a distinctive and memorable experience.
                     </p>
-                    <button class="toggle-btn">Show More</button>
+                    <button class="toggle-btn">
+                        Show More <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
             </div>
             <div class="box" style="background-image: url('image4.jpg');">
@@ -941,7 +1060,9 @@
                         intimate executive meetings
                         to large-scale gatherings of 3,000+ participants, we cater to all your corporate event needs.
                     </p>
-                    <button class="toggle-btn">Show More</button>
+                    <button class="toggle-btn">
+                        Show More <i class="fas fa-chevron-down"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1114,7 +1235,7 @@
     <div class="parallax">
         <div class="parallax-content">
             <div class="text-box">
-                <h2>Planning your next event?</h2>
+                <h8>Planning your next event?</h8>
                 <a href="contacts.html" class="btn-1">Let's Talk</a>
             </div>
         </div>
@@ -1165,8 +1286,15 @@
         document.querySelectorAll('.toggle-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const text = button.previousElementSibling;
-                text.style.display = text.style.display === 'none' || text.style.display === '' ? 'block' : 'none';
-                button.textContent = text.style.display === 'block' ? 'Show Less' : 'Show More';
+                const isTextVisible = text.style.display === 'block' || text.style.display === '';
+
+                text.style.display = isTextVisible ? 'none' : 'block';
+
+                if (isTextVisible) {
+                    button.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+                } else {
+                    button.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                }
             });
         });
 
@@ -1186,68 +1314,68 @@
             document.addEventListener('scroll', checkVisibility);
         });
         document.addEventListener('DOMContentLoaded', () => {
-    const btnPrev = document.querySelector('#btn-prev');
-    const btnNext = document.querySelector('#btn-next');
-    const testimonial = document.querySelector('#testimonial');
-    const progressDotsContainer = document.querySelector('.progress-dots');
-    const testimonials = [
-        {
-            quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
-            author: "John Doe",
-            role: "CEO, Acme Corp"
-        },
-        {
-            quote: "Another testimonial about our amazing retreats in Australia.",
-            author: "Jane Smith",
-            role: "COO, Beta Ltd"
-        },
-        {
-            quote: "Another testimonial about our amazing retreats in Australia.",
-            author: "Jane Smith11",
-            role: "COO, Beta Ltd"
-        },
-    ];
-    let currentIndex = 0;
+            const btnPrev = document.querySelector('#btn-prev');
+            const btnNext = document.querySelector('#btn-next');
+            const testimonial = document.querySelector('#testimonial');
+            const progressDotsContainer = document.querySelector('.progress-dots');
+            const testimonials = [
+                {
+                    quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
+                    author: "John Doe",
+                    role: "CEO, Acme Corp"
+                },
+                {
+                    quote: "Another testimonial about our amazing retreats in Australia.",
+                    author: "Jane Smith",
+                    role: "COO, Beta Ltd"
+                },
+                {
+                    quote: "Another testimonial about our amazing retreats in Australia.",
+                    author: "Jane Smith11",
+                    role: "COO, Beta Ltd"
+                },
+            ];
+            let currentIndex = 0;
 
-    // Function to generate progress dots based on the number of testimonials
-    function generateDots() {
-        progressDotsContainer.innerHTML = ''; // Clear any existing dots
-        testimonials.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('progress-dot');
-            if (index === 0) {
-                dot.classList.add('active');
+            // Function to generate progress dots based on the number of testimonials
+            function generateDots() {
+                progressDotsContainer.innerHTML = ''; // Clear any existing dots
+                testimonials.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('progress-dot');
+                    if (index === 0) {
+                        dot.classList.add('active');
+                    }
+                    progressDotsContainer.appendChild(dot);
+                });
             }
-            progressDotsContainer.appendChild(dot);
+
+            function updateTestimonial() {
+                const currentTestimonial = testimonials[currentIndex];
+
+                testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
+                testimonial.querySelector('.username').innerText = currentTestimonial.author;
+                testimonial.querySelector('.role').innerText = currentTestimonial.role;
+
+                const progressDots = document.querySelectorAll('.progress-dot');
+                progressDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            btnPrev.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+                updateTestimonial();
+            });
+
+            btnNext.addEventListener('click', () => {
+                currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+                updateTestimonial();
+            });
+
+            generateDots(); // Generate dots on page load
+            updateTestimonial(); // Update testimonial on page load
         });
-    }
-
-    function updateTestimonial() {
-        const currentTestimonial = testimonials[currentIndex];
-
-        testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
-        testimonial.querySelector('.username').innerText = currentTestimonial.author;
-        testimonial.querySelector('.role').innerText = currentTestimonial.role;
-
-        const progressDots = document.querySelectorAll('.progress-dot');
-        progressDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-    }
-
-    btnPrev.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
-        updateTestimonial();
-    });
-
-    btnNext.addEventListener('click', () => {
-        currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
-        updateTestimonial();
-    });
-
-    generateDots(); // Generate dots on page load
-    updateTestimonial(); // Update testimonial on page load
-});
 
         document.addEventListener("DOMContentLoaded", function () {
             const counters = document.querySelectorAll(".stats-box h3");
