@@ -12,7 +12,7 @@
             box-sizing: border-box;
             overflow-x: hidden;
         }
-        
+
 
         /* Fullscreen carousel */
         .carousel-container {
@@ -141,9 +141,7 @@
 
         .stat-para {
             font-size: 1.2rem;
-            /* Adjust the size as needed */
             color: #333;
-            /* Set to a visible color */
             margin-top: 20px;
             line-height: 1.5;
         }
@@ -154,6 +152,9 @@
         .featured-services {
             padding: 60px 0;
             background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            /* Center the grid container */
         }
 
         .section-title {
@@ -165,7 +166,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 50px;
-
+            justify-content: center;
         }
 
         .service-box {
@@ -174,18 +175,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 350px;
+            width: 450px;
             display: flex;
             flex-direction: column;
         }
-
 
         .services-p {
             padding: 0 10px;
             margin-bottom: 20px;
             font-size: 1rem;
-            /* Adjust the size as needed */
             color: #333;
-            /* Set to a visible color */
             line-height: 1.5;
         }
 
@@ -196,7 +195,6 @@
 
         .service-image {
             flex: 1 1 70%;
-            /* Image container takes up 70% of the box height */
             overflow: hidden;
             border-radius: 8px 8px 0 0;
         }
@@ -205,7 +203,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Image covers the entire area while maintaining aspect ratio */
         }
 
         h3 {
@@ -219,18 +216,31 @@
             display: inline-block;
             position: relative;
             padding-bottom: 6px;
-            /* Extra space for a larger underline */
             color: #007bff;
             font-weight: 600;
             font-size: 1.4rem;
-            /* Increase the font size */
             transition: color 0.3s ease;
             margin: 0 auto;
-            /* Center the button */
+            text-align: center;
         }
 
         .read-more:hover {
             color: #0056b3;
+        }
+
+        .read-more::after {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .read-more:hover::after {
+            width: 50%;
         }
 
         /* Underline effect */
@@ -457,7 +467,7 @@
         /* Icons */
         .icons {
             margin-top: 15px;
-            text-align:left ;
+            text-align: left;
         }
 
         .icons i {
@@ -521,6 +531,7 @@
             background-color: #333;
             transform: translateX(-50%);
         }
+
         .testimonials-section,
         .contact-section {
             padding: 60px 20px;
@@ -726,6 +737,7 @@
                 opacity: 1;
             }
         }
+
         .parallax {
             background-image: url('/images/test2.jpg');
             position: relative;
@@ -946,7 +958,7 @@
             <div class="blog-description">
                 <div class="icons">
                     <i class="fas fa-heart"></i>
-                    <i class ="fas fa-share-alt"></i>
+                    <i class="fas fa-share-alt"></i>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -961,7 +973,7 @@
             <div class="blog-description">
                 <div class="icons">
                     <i class="fas fa-heart"></i>
-                    <i class ="fas fa-share-alt"></i>
+                    <i class="fas fa-share-alt"></i>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -975,7 +987,7 @@
             <div class="blog-description">
                 <div class="icons">
                     <i class="fas fa-heart"></i>
-                    <i class ="fas fa-share-alt"></i>
+                    <i class="fas fa-share-alt"></i>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -990,7 +1002,7 @@
             <div class="blog-description">
                 <div class="icons">
                     <i class="fas fa-heart"></i>
-                    <i class ="fas fa-share-alt"></i>
+                    <i class="fas fa-share-alt"></i>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -1074,7 +1086,8 @@
             <div class="testimonial-container">
                 <div class="testimonial" id="testimonial">
                     <blockquote>
-                        "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure."
+                        "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and
+                        the team loved the mix of work and leisure."
                     </blockquote>
                     <div class="user">
                         <img src="/images/user.jpg" alt="Client Photo" class="user-image">
@@ -1084,7 +1097,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="progress-dots">
                     <span class="progress-dot active"></span>
                     <span class="progress-dot"></span>
@@ -1173,52 +1186,52 @@
             document.addEventListener('scroll', checkVisibility);
         });
         document.addEventListener('DOMContentLoaded', () => {
-        const btnPrev = document.querySelector('#btn-prev');
-        const btnNext = document.querySelector('#btn-next');
-        const testimonial = document.querySelector('#testimonial');
-        const progressDots = document.querySelectorAll('.progress-dot');
-        const testimonials = [
-            {
-                quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
-                author: "John Doe",
-                role: "CEO, Acme Corp"
-            },
-            {
-                quote: "Another testimonial about our amazing retreats in Australia.",
-                author: "Jane Smith",
-                role: "COO, Beta Ltd"
-            },
-        ];
-        let currentIndex = 0;
+            const btnPrev = document.querySelector('#btn-prev');
+            const btnNext = document.querySelector('#btn-next');
+            const testimonial = document.querySelector('#testimonial');
+            const progressDots = document.querySelectorAll('.progress-dot');
+            const testimonials = [
+                {
+                    quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
+                    author: "John Doe",
+                    role: "CEO, Acme Corp"
+                },
+                {
+                    quote: "Another testimonial about our amazing retreats in Australia.",
+                    author: "Jane Smith",
+                    role: "COO, Beta Ltd"
+                },
+            ];
+            let currentIndex = 0;
 
-        function updateTestimonial() {
-            const currentTestimonial = testimonials[currentIndex];
-            console.log('Updating testimonial to index:', currentIndex);
-            console.log('Current Testimonial:', currentTestimonial);
+            function updateTestimonial() {
+                const currentTestimonial = testimonials[currentIndex];
+                console.log('Updating testimonial to index:', currentIndex);
+                console.log('Current Testimonial:', currentTestimonial);
 
-            testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
-            testimonial.querySelector('.username').innerText = currentTestimonial.author;
-            testimonial.querySelector('.role').innerText = currentTestimonial.role;
+                testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
+                testimonial.querySelector('.username').innerText = currentTestimonial.author;
+                testimonial.querySelector('.role').innerText = currentTestimonial.role;
 
-            // Update progress dots
-            progressDots.forEach((dot, index) => {
-                console.log('Dot index:', index, 'isActive:', index === currentIndex);
-                dot.classList.toggle('active', index === currentIndex);
+                // Update progress dots
+                progressDots.forEach((dot, index) => {
+                    console.log('Dot index:', index, 'isActive:', index === currentIndex);
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            btnPrev.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+                updateTestimonial();
             });
-        }
 
-        btnPrev.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+            btnNext.addEventListener('click', () => {
+                currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+                updateTestimonial();
+            });
+
             updateTestimonial();
         });
-
-        btnNext.addEventListener('click', () => {
-            currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
-            updateTestimonial();
-        });
-
-        updateTestimonial(); 
-    });
 
     </script>
 </body>
