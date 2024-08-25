@@ -80,12 +80,15 @@
         
         .expect-container {
             display: flex;
-            flex-wrap: nowrap; /* Default: no wrapping */
+            flex-wrap: nowrap; /* No wrapping */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             padding: 20px;
             gap: 50px; /* Space between the boxes */
             overflow-x: auto; /* Allow horizontal scrolling */
             white-space: nowrap; /* Prevent line breaks within the container */
         }
+
 
         .box {
             width: 300px;
