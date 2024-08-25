@@ -1,10 +1,10 @@
 body, p , blockquote{
-  font-family: 'Comorant Garamond';
+  font-family: 'nunito';
   font-weight: 400;
 }
 
-h1, h2, h3, h4, h5 ,h6{
-  font-family: 'Montserrat';
+h1, h2, h3, h4, h5 ,h6, h7{
+  font-family: 'Comorant Garamond';
   font-weight: 600;
 }
 

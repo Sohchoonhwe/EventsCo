@@ -161,7 +161,7 @@ a {
   font-weight: var(--font-semi-bold);
   padding: 1.25rem 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   transition: background-color .3s;
 }
@@ -170,6 +170,15 @@ a {
   background-color: var(--black-color-light);
 }
 
+.retreats{
+  color: var(--white-color);
+  background-color: var(--black-color);
+  font-weight: var(--font-semi-bold);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: background-color .3s;
+}
 /* Show menu */
 .show-menu {
   opacity: 1;
