@@ -547,9 +547,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             /* Enhanced shadow for better depth */
             margin: 15px;
-            /* Added margin for spacing between boxes */
             box-sizing: border-box;
-            /* Ensures padding and border are included in the element's total width and height */
         }
 
         /* Blog Title within Box */
@@ -579,14 +577,63 @@
 
         /* Icons */
         .icons {
-            margin-top: 15px;
-            text-align: left;
-        }
+    display: flex;
+    align-items: center;
+    position: relative;
+}
 
-        .icons i {
-            font-size: 24px;
-            margin-right: 10px;
-        }
+.icons span {
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 5px; /* Adjust the space between the number and the next element */
+    margin-right: 10px; /* Optional: Add space after the number if needed */
+    font-size: 16px; /* Adjust the font size if necessary */
+    line-height: 20px;  
+}
+.icons i {
+    margin-right: 5px; /* Adjust the space between the icon and the number */
+}
+.icons i, .icons svg {
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#heart-icon.red {
+    color: red;
+}
+
+.share-options {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.share-options a {
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+
+.share-options.show {
+    display: block;
+    opacity: 1;
+    /* Fade in effect */
+}
+
 
         /* Clients Section Carousel */
         .clients {
@@ -930,13 +977,10 @@
                     </div>
                 </div>
             </div>
-            <p class="stat-para"> At EventsCo, our numbers tell the story. We've hosted numerous events, brought
-                together thousands of
-                participants, and executed a wide range of successful corporate events. Trusted by esteemed clients,
-                each
-                statistic reflects our dedication to creating impactful and memorable experiences. Discover why EventsCo
-                is
-                the top choice for corporate events, team-building activities, and retreats.</p>
+            <p class="stat-para"> At EventsCo, our numbers tell the story. We’ve successfully hosted numerous events,
+                 bringing together thousands of participants and executing a diverse range of corporate gatherings. Trusted by esteemed clients,
+                we master every detail from vision to execution, 
+                handling all aspects of your corporate event to achieve excellence and deliver a hassle-free experience. </p>
         </div>
     </section>
     <hr>
@@ -954,7 +998,7 @@
                         </div>
                         <h3>Seminars & Conferences</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Participate in insightful sessions and discussions led by industry experts!
                         </div>
                         <a href="/corporate/conferences.html" class="read-more">Read More</a>
                     </div>
@@ -964,7 +1008,7 @@
                         </div>
                         <h3>Gala Dinner & D&Ds</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Enjoy gourmet dining and celebrate with prestigious awards and captivating performances. 
                         </div>
                         <a href="/corporate/galadinner.html" class="read-more">Read More</a>
                     </div>
@@ -974,7 +1018,7 @@
                         </div>
                         <h3>Family Day</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Experience a day of fun activities for the entire team and their families. 
                         </div>
                         <a href="/corporate/familydayout.html" class="read-more">Read More</a>
                     </div>
@@ -984,7 +1028,7 @@
                         </div>
                         <h3>Team Building</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Engage in interactive activities designed to strengthen teamwork and collaboration. 
                         </div>
                         <a href="/corporate/teambuilding.html" class="read-more">Read More</a>
                     </div>
@@ -994,7 +1038,7 @@
                         </div>
                         <h3>Retreats</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Retreat to a tranquil location for focused planning and team growth.
                         </div>
                         <a href="/retreats/overview.html" class="read-more">Read More</a>
                     </div>
@@ -1004,7 +1048,7 @@
                         </div>
                         <h3>Special Events</h3>
                         <div class="services-p">
-                            This is for the description of the service.
+                            Enjoy unique events crafted to provide unforgettable and immersive experiences.     
                         </div>
                         <a href="" class="read-more">Read More</a>
                     </div>
@@ -1077,9 +1121,69 @@
             </div>
             <div class="blog-description">
                 <div class="icons">
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-share-alt"></i>
-                    <i class="fa fa-telegram"></i>
+                    <i id="heart-icon" class="fas fa-heart" data-post-id="1"></i>
+                    <span id="heart-count-1">0</span>
+                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <title>Share Post</title>
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                            x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
+                    <div id="share-options" class="share-options">
+                        <a href="#" class="share-option">WhatsApp</a>
+                        <a href="#" class="share-option">Telegram</a>
+                        <a href="#" class="share-option">Instagram</a>
+                        <a href="#" class="share-option">X</a>
+                    </div>
+                </div>
+
+
+                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
+                    content.</p>
+            </div>
+        </div>
+
+        <div class="blog-box">
+            <h6 class="blog-title">Blog Title</h6>
+            <div class="blog-image">
+                <img src="/images/australia-flag.jpg" alt="Blog Image">
+            </div>
+            <div class="blog-description">
+                <div class="icons">
+                    <i id="heart-icon" class="fas fa-heart" data-post-id="2"></i>
+                    <span id="heart-count-2">0</span>
+                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <title>Share Post</title>
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                            x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
+                </div>
+                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
+                    content.</p>
+            </div>
+        </div>
+        <div class="blog-box">
+            <h6 class="blog-title">Blog Title</h6>
+            <div class="blog-image">
+                <img src="/images/australia-flag.jpg" alt="Blog Image">
+            </div>
+            <div class="blog-description">
+                <div class="icons">
+                    <i id="heart-icon" class="fas fa-heart" data-post-id="3"></i>
+                    <span id="heart-count-3">0</span>
+                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <title>Share Post</title>
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                            x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -1093,37 +1197,16 @@
             </div>
             <div class="blog-description">
                 <div class="icons">
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-share-alt"></i>
-                </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
-            </div>
-        </div>
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-share-alt"></i>
-                </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
-            </div>
-        </div>
-
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-share-alt"></i>
+                    <i id="heart-icon" class="fas fa-heart" data-post-id="4"></i>
+                    <span id="heart-count-4">0</span>
+                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
+                        height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <title>Share Post</title>
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                            x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
                 </div>
                 <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
                     content.</p>
@@ -1395,6 +1478,56 @@
                 updateCount();
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const heartIcons = document.querySelectorAll('#heart-icon');
+    const shareIcons = document.querySelectorAll('#share-icon');
+
+    heartIcons.forEach(function(heartIcon) {
+        const postId = heartIcon.getAttribute('data-post-id');
+        const heartCount = document.getElementById(`heart-count-${postId}`);
+
+        heartIcon.addEventListener("click", function() {
+            heartIcon.classList.toggle("red");
+            let count = parseInt(heartCount.innerText);
+            if (heartIcon.classList.contains("red")) {
+                count += 1;
+            } else {
+                count -= 1;
+            }
+            heartCount.innerText = count;
+        });
+    });
+
+    shareIcons.forEach(function(shareIcon) {
+        shareIcon.addEventListener("click", function() {
+            const shareOptions = shareIcon.nextElementSibling;
+            if (shareOptions.style.display === "none" || !shareOptions.style.display) {
+                shareOptions.style.display = "block";
+                setTimeout(function() {
+                    shareOptions.style.opacity = "1";
+                }, 0);
+            } else {
+                shareOptions.style.opacity = "0";
+                setTimeout(function() {
+                    shareOptions.style.display = "none";
+                }, 300);
+            }
+        });
+    });
+
+    document.addEventListener("click", function(event) {
+        shareIcons.forEach(function(shareIcon) {
+            const shareOptions = shareIcon.nextElementSibling;
+            if (!shareIcon.contains(event.target) && !shareOptions.contains(event.target)) {
+                shareOptions.style.opacity = "0";
+                setTimeout(function() {
+                    shareOptions.style.display = "none";
+                }, 300);
+            }
+        });
+    });
+});
 
     </script>
 </body>
