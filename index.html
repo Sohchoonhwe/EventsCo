@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
 
     <title>EventsCo.</title>
     <style>
@@ -40,6 +42,7 @@
 
 
         /* Fullscreen carousel */
+
         .carousel-container {
             width: 100%;
             height: 90vh;
@@ -168,7 +171,6 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, #007bff, #00c4ff);
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
         }
@@ -177,114 +179,48 @@
             font-size: 1.7em;
             color: #333;
             line-height: 1.5;
+            font-family: 'Nunito' !important;
         }
 
         /* Featured Services Section */
-        .featured-services {
-            padding: 60px 0;
-            background: #f9f9f9;
-            display: flex;
-            justify-content: center;
-            /* Center the grid container */
-        }
+        .featured-service-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            justify-content: center;
-        }
+.service-details {
+    padding: 15px;
+}
 
-        .service-box {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 350px;
-            width: 450px;
-            display: flex;
-            flex-direction: column;
-        }
+.service-details h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 
-        .services-p {
-            padding: 0 10px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.5;
-        }
+.package-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d6e8a5;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
-        .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-image {
-            flex: 1 1 70%;
-            overflow: hidden;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h3 {
-            margin: 10px 0;
-            font-size: 1.2em;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .read-more {
-            display: inline-block;
-            position: relative;
-            padding-bottom: 6px;
-            color: #007bff;
-            font-weight: 600;
-            font-size: 1.4rem;
-            transition: color 0.3s ease;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .read-more:hover {
-            color: #0056b3;
-        }
-
-        .read-more::after {
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease;
-        }
-
-        .read-more:hover::after {
-            width: 50%;
-        }
-
-        /* Underline effect */
-        .read-more::after {
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease;
-        }
+.package-btn:hover {
+    background-color: #c3d98f;
+}
 
         /* Underline appears on hover */
         .read-more:hover::after {
@@ -457,30 +393,6 @@
         }
 
 
-        /* Mobile view adjustments */
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-                /* Single column layout on mobile */
-                gap: 15px;
-            }
-
-            .service-box {
-                padding: 15px;
-            }
-
-            .service-box h3 {
-                font-size: 1.1em;
-            }
-
-            .services-p {
-                font-size: 0.95em;
-            }
-
-            .read-more {
-                font-size: 0.95em;
-            }
-        }
 
         @media (max-width: 480px) {
             .service-box h3 {
@@ -577,62 +489,69 @@
 
         /* Icons */
         .icons {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
 
-.icons span {
-    font-size: 16px;
-    line-height: 20px;
-    margin-left: 5px; /* Adjust the space between the number and the next element */
-    margin-right: 10px; /* Optional: Add space after the number if needed */
-    font-size: 16px; /* Adjust the font size if necessary */
-    line-height: 20px;  
-}
-.icons i {
-    margin-right: 5px; /* Adjust the space between the icon and the number */
-}
-.icons i, .icons svg {
-    height: 20px;
-    line-height: 20px;
-    font-size: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-    text-align: left;
-}
+        .icons span {
+            font-size: 16px;
+            line-height: 20px;
+            margin-left: 5px;
+            /* Adjust the space between the number and the next element */
+            margin-right: 10px;
+            /* Optional: Add space after the number if needed */
+            font-size: 16px;
+            /* Adjust the font size if necessary */
+            line-height: 20px;
+        }
 
-#heart-icon.red {
-    color: red;
-}
+        .icons i {
+            margin-right: 5px;
+            /* Adjust the space between the icon and the number */
+        }
 
-.share-options {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
+        .icons i,
+        .icons svg {
+            height: 20px;
+            line-height: 20px;
+            font-size: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            text-align: left;
+        }
 
-.share-options a {
-    display: block;
-    margin: 5px 0;
-    text-decoration: none;
-}
+        #heart-icon.red {
+            color: red;
+        }
+
+        .share-options {
+            display: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .share-options a {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+        }
 
 
-.share-options.show {
-    display: block;
-    opacity: 1;
-    /* Fade in effect */
-}
+        .share-options.show {
+            display: block;
+            opacity: 1;
+            /* Fade in effect */
+        }
 
 
         /* Clients Section Carousel */
@@ -956,7 +875,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content my-5">
-            <h2>Event In Numbers</h2>
+            <h2>E V E N T  I N  N U M B E R S</h2>
             <div class="hero-row">
                 <div class="hero-col">
                     <div class="stats-box">
@@ -973,89 +892,52 @@
                 <div class="hero-col">
                     <div class="stats-box">
                         <h3 data-end-value="93">10</h3>
-                        <h4>Industry Awards 🏆</h4>
+                        <h4>Coperate Clients 🏆</h4>
                     </div>
                 </div>
             </div>
             <p class="stat-para"> At EventsCo, our numbers tell the story. We’ve successfully hosted numerous events,
-                 bringing together thousands of participants and executing a diverse range of corporate gatherings. Trusted by esteemed clients,
-                we master every detail from vision to execution, 
-                handling all aspects of your corporate event to achieve excellence and deliver a hassle-free experience. </p>
+                bringing together thousands of participants and executing a diverse range of corporate gatherings.
+                Trusted by esteemed clients,
+                we master every detail from vision to execution,
+                handling all aspects of your corporate event to achieve excellence and deliver a hassle-free experience.
+            </p>
         </div>
     </section>
     <hr>
+
     <!-- Featured Services Section -->
-    <section class="services">
-        <section id="featured-services" class="featured-services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Featured Services</h2>
-                </div>
-                <div class="services-grid">
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="/images/australia-flag.jpg" alt="Seminars & Conferences">
-                        </div>
-                        <h3>Seminars & Conferences</h3>
-                        <div class="services-p">
-                            Participate in insightful sessions and discussions led by industry experts!
-                        </div>
-                        <a href="/corporate/conferences.html" class="read-more">Read More</a>
-                    </div>
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="/images/cchy.jpg" alt="Gala Dinners & D&Ds">
-                        </div>
-                        <h3>Gala Dinner & D&Ds</h3>
-                        <div class="services-p">
-                            Enjoy gourmet dining and celebrate with prestigious awards and captivating performances. 
-                        </div>
-                        <a href="/corporate/galadinner.html" class="read-more">Read More</a>
-                    </div>
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="path_to_image" alt="Family Day">
-                        </div>
-                        <h3>Family Day</h3>
-                        <div class="services-p">
-                            Experience a day of fun activities for the entire team and their families. 
-                        </div>
-                        <a href="/corporate/familydayout.html" class="read-more">Read More</a>
-                    </div>
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="path_to_image" alt="Team Building">
-                        </div>
-                        <h3>Team Building</h3>
-                        <div class="services-p">
-                            Engage in interactive activities designed to strengthen teamwork and collaboration. 
-                        </div>
-                        <a href="/corporate/teambuilding.html" class="read-more">Read More</a>
-                    </div>
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="path_to_image" alt="Retreats">
-                        </div>
-                        <h3>Retreats</h3>
-                        <div class="services-p">
-                            Retreat to a tranquil location for focused planning and team growth.
-                        </div>
-                        <a href="/retreats/overview.html" class="read-more">Read More</a>
-                    </div>
-                    <div class="service-box">
-                        <div class="service-image">
-                            <img src="path_to_image" alt="Special Events">
-                        </div>
-                        <h3>Special Events</h3>
-                        <div class="services-p">
-                            Enjoy unique events crafted to provide unforgettable and immersive experiences.     
-                        </div>
-                        <a href="" class="read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
+    <div class="featured-service-card">
+        <div class="image-box">
+            <img src="/images/australia.jpg" alt="8 Days Scenic Yunnan">
+        </div>
+        <div class="service-details">
+            <h3>8 DAYS SCENIC YUNNAN KUNMING/DALI/LIJIANG/SHANGRI-LA</h3>
+            <a href="#" class="package-btn">PACKAGE TOURS</a>
+        </div>
+    </div>
+    
+    <div class="featured-service-card">
+        <div class="image-box">
+            <img src="europe.jpg" alt="11 Days Highlights of Europe">
+        </div>
+        <div class="service-details">
+            <h3>11 DAYS HIGHLIGHTS OF EUROPE</h3>
+            <a href="#" class="package-btn">PACKAGE TOURS</a>
+        </div>
+    </div>
+    
+    <div class="featured-service-card">
+        <div class="image-box">
+            <img src="lapland.jpg" alt="13 Days Lapland Northern Lights">
+        </div>
+        <div class="service-details">
+            <h3>13 DAYS LAPLAND NORTHERN LIGHTS WITH LOFOTEN ISLANDS</h3>
+            <a href="#" class="package-btn">PACKAGE TOURS</a>
+        </div>
+    </div>
+    
+
 
     <div class="why-choose-us-container">
         <h2 class="why-choose-us-heading">Why Choose Us</h2>
@@ -1479,55 +1361,55 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-    const heartIcons = document.querySelectorAll('#heart-icon');
-    const shareIcons = document.querySelectorAll('#share-icon');
+        document.addEventListener("DOMContentLoaded", function () {
+            const heartIcons = document.querySelectorAll('#heart-icon');
+            const shareIcons = document.querySelectorAll('#share-icon');
 
-    heartIcons.forEach(function(heartIcon) {
-        const postId = heartIcon.getAttribute('data-post-id');
-        const heartCount = document.getElementById(`heart-count-${postId}`);
+            heartIcons.forEach(function (heartIcon) {
+                const postId = heartIcon.getAttribute('data-post-id');
+                const heartCount = document.getElementById(`heart-count-${postId}`);
 
-        heartIcon.addEventListener("click", function() {
-            heartIcon.classList.toggle("red");
-            let count = parseInt(heartCount.innerText);
-            if (heartIcon.classList.contains("red")) {
-                count += 1;
-            } else {
-                count -= 1;
-            }
-            heartCount.innerText = count;
+                heartIcon.addEventListener("click", function () {
+                    heartIcon.classList.toggle("red");
+                    let count = parseInt(heartCount.innerText);
+                    if (heartIcon.classList.contains("red")) {
+                        count += 1;
+                    } else {
+                        count -= 1;
+                    }
+                    heartCount.innerText = count;
+                });
+            });
+
+            shareIcons.forEach(function (shareIcon) {
+                shareIcon.addEventListener("click", function () {
+                    const shareOptions = shareIcon.nextElementSibling;
+                    if (shareOptions.style.display === "none" || !shareOptions.style.display) {
+                        shareOptions.style.display = "block";
+                        setTimeout(function () {
+                            shareOptions.style.opacity = "1";
+                        }, 0);
+                    } else {
+                        shareOptions.style.opacity = "0";
+                        setTimeout(function () {
+                            shareOptions.style.display = "none";
+                        }, 300);
+                    }
+                });
+            });
+
+            document.addEventListener("click", function (event) {
+                shareIcons.forEach(function (shareIcon) {
+                    const shareOptions = shareIcon.nextElementSibling;
+                    if (!shareIcon.contains(event.target) && !shareOptions.contains(event.target)) {
+                        shareOptions.style.opacity = "0";
+                        setTimeout(function () {
+                            shareOptions.style.display = "none";
+                        }, 300);
+                    }
+                });
+            });
         });
-    });
-
-    shareIcons.forEach(function(shareIcon) {
-        shareIcon.addEventListener("click", function() {
-            const shareOptions = shareIcon.nextElementSibling;
-            if (shareOptions.style.display === "none" || !shareOptions.style.display) {
-                shareOptions.style.display = "block";
-                setTimeout(function() {
-                    shareOptions.style.opacity = "1";
-                }, 0);
-            } else {
-                shareOptions.style.opacity = "0";
-                setTimeout(function() {
-                    shareOptions.style.display = "none";
-                }, 300);
-            }
-        });
-    });
-
-    document.addEventListener("click", function(event) {
-        shareIcons.forEach(function(shareIcon) {
-            const shareOptions = shareIcon.nextElementSibling;
-            if (!shareIcon.contains(event.target) && !shareOptions.contains(event.target)) {
-                shareOptions.style.opacity = "0";
-                setTimeout(function() {
-                    shareOptions.style.display = "none";
-                }, 300);
-            }
-        });
-    });
-});
 
     </script>
 </body>
