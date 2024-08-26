@@ -20,25 +20,22 @@
         h2 {
             position: relative;
             display: inline-block;
-            /* Makes the underline fit the text width */
             font-size: 2em;
             margin: 20px 0;
-            /* Adjust margin as needed */
         }
 
         h2::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 140%;
-            height: 2px;
-            /* Thickness of the underline */
-            background-color: black;
-            transform: translateX(-50%);
-            /* Center the underline */
-            transform-origin: center;
-        }
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px; 
+    width: 80%; 
+    height: 1px; /* Thickness of the underline */
+    background-color: black;
+    transform: translateX(-50%);
+    /* Center the underline */
+    transform-origin: center;
+}
 
 
         /* Fullscreen carousel */
@@ -123,8 +120,8 @@
         }
 
         .hero-section h2 {
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-size: 1.5rem;
         }
 
         .hero-row {
@@ -183,48 +180,60 @@
         }
 
         /* Featured Services Section */
-        .featured-service-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    margin: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .packages-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px;
+            justify-content: space-between;
 
-.image-box img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-}
-
-.service-details {
-    padding: 15px;
-}
-
-.service-details h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.package-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #d6e8a5;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.package-btn:hover {
-    background-color: #c3d98f;
-}
-
-        /* Underline appears on hover */
-        .read-more:hover::after {
-            width: 50%;
+        }
+        .packages-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .package-card {
+            width: 30%;
+        }
+        .package-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(111, 141, 251, 0.8);
+            border-radius: 10px;
+            margin-bottom :17x;
+        }
+        .package-details {
+            padding: 20px;
+            min-height: 200px;
+            max-width: 500px;
+            margin-top: 10px;
+        }
+        .package-details h3 {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0 0 10px;
+            color: #1b6ec2;
+        }
+        .package-info {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .featured-read-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #f0f2f5;
+            color: #333;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
         }
 
         /* Responsive adjustments */
@@ -319,7 +328,7 @@
 
         .box .content {
             z-index: 1;
-            max-width: 55%;
+            max-width: 80%;
             background: linear-gradient(to right, rgba(46, 59, 89, 0.9), rgba(46, 59, 89, 0.6));
             padding: 20px;
             border-radius: 10px;
@@ -422,7 +431,6 @@
         /* Blog Post Title */
         .blog-heading {
             font-size: 3rem !important;
-            /* Increased font size */
             margin-bottom: 30px;
             text-align: center;
             position: relative;
@@ -875,7 +883,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content my-5">
-            <h2>E V E N T  I N  N U M B E R S</h2>
+            <h2>E V E N T &nbsp;I N&nbsp; N U M B E R</span></h2>
             <div class="hero-row">
                 <div class="hero-col">
                     <div class="stats-box">
@@ -907,511 +915,523 @@
     <hr>
 
     <!-- Featured Services Section -->
-    <div class="featured-service-card">
-        <div class="image-box">
-            <img src="/images/australia.jpg" alt="8 Days Scenic Yunnan">
-        </div>
-        <div class="service-details">
-            <h3>8 DAYS SCENIC YUNNAN KUNMING/DALI/LIJIANG/SHANGRI-LA</h3>
-            <a href="#" class="package-btn">PACKAGE TOURS</a>
-        </div>
-    </div>
-    
-    <div class="featured-service-card">
-        <div class="image-box">
-            <img src="europe.jpg" alt="11 Days Highlights of Europe">
-        </div>
-        <div class="service-details">
-            <h3>11 DAYS HIGHLIGHTS OF EUROPE</h3>
-            <a href="#" class="package-btn">PACKAGE TOURS</a>
-        </div>
-    </div>
-    
-    <div class="featured-service-card">
-        <div class="image-box">
-            <img src="lapland.jpg" alt="13 Days Lapland Northern Lights">
-        </div>
-        <div class="service-details">
-            <h3>13 DAYS LAPLAND NORTHERN LIGHTS WITH LOFOTEN ISLANDS</h3>
-            <a href="#" class="package-btn">PACKAGE TOURS</a>
-        </div>
-    </div>
-    
-
-
-    <div class="why-choose-us-container">
-        <h2 class="why-choose-us-heading">Why Choose Us</h2>
-        <div class="why-choose-us">
-            <div class="box" style="background-image: url('/images/australia-flag.jpg');">
-                <div class="content">
-                    <h3>Personalized Support</h3>
-                    <p class="toggle-text"> Benefit from a dedicated event manager and assistant who provide hands-on
-                        support
-                        and personalized attention to every aspect of your event.
-                    </p>
-                    <button class="toggle-btn">
-                        Show More <i class="fas fa-chevron-down"></i>
-                    </button>
-
-                </div>
+    <div class="packages-section">
+        <h2>Featured Services</h2>
+        <div class="package-card">
+            <img src="/images/australia-flag.jpg" alt="Seminars and Conferences">
+            <div class="package-details">
+                <h3>SEMINARS & CONFERENCES</h3>
+                <div class="package-info">Participate in insightful sessions and discussions led by industry experts. </div>
+                <a href="#" class="featured-read-btn">Read More!</a>
             </div>
-            <div class="box" style="background-image: url('image2.jpg');">
-                <div class="content">
-                    <h3>End-to-End Excellence</h3>
-                    <p class="toggle-text"> We handle all phases of your event—from planning to execution and on-site
-                        management,
-                        ensuring every detail is covered.
-                    </p>
-                    <button class="toggle-btn">
-                        Show More <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
+        </div>
+
+        <div class="package-card">
+            <img src="https://via.placeholder.com/300x200" alt="Highlights of Europe">
+            <div class="package-details">
+                <h3>11 Days Highlights of Europe</h3>
+                <div class="package-info">8 Nights | 5 Countries | 9 Cities</div>
+                <div class="package-info">Bang for the buck - score a great vacay without breaking the bank with this value-for-money trip that delivers big time.</div>
+                <a href="#" class="featured-read-btn">Read More!</a>
             </div>
-            <div class="box" style="background-image: url('image3.jpg');">
-                <div class="content">
-                    <h3>Detail-Oriented Approach</h3>
-                    <p class="toggle-text">
-                        We focus on both the grand vision and the subtle details that transform an ordinary
-                        event into a distinctive and memorable experience.
-                    </p>
-                    <button class="toggle-btn">
-                        Show More <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="box" style="background-image: url('image4.jpg');">
-                <div class="content">
-                    <h3>Versatile Expertise</h3>
-                    <p class="toggle-text">With a proven record of planning and executing events for any scale, from
-                        intimate executive meetings
-                        to large-scale gatherings of 3,000+ participants, we cater to all your corporate event needs.
-                    </p>
-                    <button class="toggle-btn">
-                        Show More <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
+        </div>
+
+        <div class="package-card">
+            <img src="https://via.placeholder.com/300x200" alt="Lapland Northern Lights">
+            <div class="package-details">
+                <h3>13 Days Lapland Northern Lights With...</h3>
+                <div class="package-info">10 Nights | 3 Countries | 7 Cities</div>
+                <div class="package-info">All-rounder - fulfil your wish list in one fell swoop with this blockbuster showcasing the destination’s myriad charms.</div>
+                <a href="#" class="featured-read-btn">Read More!</a>
             </div>
         </div>
     </div>
 
-    <div class="blog-section">
-        <h5 class="blog-heading">Blog Post</h5>
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i id="heart-icon" class="fas fa-heart" data-post-id="1"></i>
-                    <span id="heart-count-1">0</span>
-                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
-                        height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <title>Share Post</title>
-                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
-                            x2="9.218" y1="3" y2="10.083"></line>
-                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
-                    </svg>
-                    <div id="share-options" class="share-options">
-                        <a href="#" class="share-option">WhatsApp</a>
-                        <a href="#" class="share-option">Telegram</a>
-                        <a href="#" class="share-option">Instagram</a>
-                        <a href="#" class="share-option">X</a>
+
+
+
+        <div class="why-choose-us-container">
+            <h2 class="why-choose-us-heading">Why Choose Us</h2>
+            <div class="why-choose-us">
+                <div class="box" style="background-image: url('/images/australia-flag.jpg');">
+                    <div class="content">
+                        <h3>Personalized Support</h3>
+                        <p class="toggle-text"> Benefit from a dedicated event manager and assistant who provide
+                            hands-on
+                            support
+                            and personalized attention to every aspect of your event.
+                        </p>
+                        <button class="toggle-btn">
+                            Show More <i class="fas fa-chevron-down"></i>
+                        </button>
+
                     </div>
                 </div>
-
-
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
+                <div class="box" style="background-image: url('image2.jpg');">
+                    <div class="content">
+                        <h3>End-to-End Excellence</h3>
+                        <p class="toggle-text"> We handle all phases of your event—from planning to execution
+                            and on-site
+                            management,
+                            ensuring every detail is covered.
+                        </p>
+                        <button class="toggle-btn">
+                            Show More <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box" style="background-image: url('image3.jpg');">
+                    <div class="content">
+                        <h3>Detail-Oriented Approach</h3>
+                        <p class="toggle-text">
+                            We focus on both the grand vision and the subtle details that transform an ordinary
+                            event into a distinctive and memorable experience.
+                        </p>
+                        <button class="toggle-btn">
+                            Show More <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box" style="background-image: url('image4.jpg');">
+                    <div class="content">
+                        <h3>Versatile Expertise</h3>
+                        <p class="toggle-text">With a proven record of planning and executing events for any
+                            scale, from
+                            intimate executive meetings
+                            to large-scale gatherings of 3,000+ participants, we cater to all your
+                            corporate event needs.
+                        </p>
+                        <button class="toggle-btn">
+                            Show More <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i id="heart-icon" class="fas fa-heart" data-post-id="2"></i>
-                    <span id="heart-count-2">0</span>
-                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
-                        height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <title>Share Post</title>
-                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
-                            x2="9.218" y1="3" y2="10.083"></line>
-                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
-                    </svg>
+        <div class="blog-section">
+            <h5 class="blog-heading">BLOG POST</h5>
+            <div class="blog-box">
+                <h6 class="blog-title">Blog Title</h6>
+                <div class="blog-image">
+                    <img src="/images/australia-flag.jpg" alt="Blog Image">
                 </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
-            </div>
-        </div>
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i id="heart-icon" class="fas fa-heart" data-post-id="3"></i>
-                    <span id="heart-count-3">0</span>
-                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
-                        height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <title>Share Post</title>
-                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
-                            x2="9.218" y1="3" y2="10.083"></line>
-                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
-                    </svg>
-                </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
-            </div>
-        </div>
-
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i id="heart-icon" class="fas fa-heart" data-post-id="4"></i>
-                    <span id="heart-count-4">0</span>
-                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
-                        height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <title>Share Post</title>
-                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
-                            x2="9.218" y1="3" y2="10.083"></line>
-                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
-                    </svg>
-                </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy introduction to the
-                    content.</p>
-            </div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <!-- Clients Section -->
-    <h7>Our Clients</h7>
-    <div class="clients">
-        <div class="carousel">
-            <div class="carousel__track">
-                <div class="carousel__slide">
-                    <img src="images/BNI.jpg" alt="Client 1">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/oppo.jpg" alt="Client 2">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo3.jpg" alt="Client 3">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo4.jpg" alt="Client 4">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 5">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 6">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 7">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 8">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 9">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 10">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 11">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 12">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 13">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 14">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 15">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 16">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 17">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 18">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 19">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 20">
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <section class="testimonials-section fade-in">
-        <div class="container">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-container">
-                <div class="testimonial" id="testimonial">
-                    <blockquote>
-                        "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and
-                        the team loved the mix of work and leisure."
-                    </blockquote>
-                    <div class="user">
-                        <img src="/images/user.jpg" alt="Client Photo" class="user-image">
-                        <div class="user-details">
-                            <p class="username">John Doe</p>
-                            <p class="role">CEO, Acme Corp</p>
+                <div class="blog-description">
+                    <div class="icons">
+                        <i id="heart-icon" class="fas fa-heart" data-post-id="1"></i>
+                        <span id="heart-count-1">0</span>
+                        <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af"
+                            fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                            <title>Share Post</title>
+                            <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                x2="9.218" y1="3" y2="10.083"></line>
+                            <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                        </svg>
+                        <div id="share-options" class="share-options">
+                            <a href="#" class="share-option">WhatsApp</a>
+                            <a href="#" class="share-option">Telegram</a>
+                            <a href="#" class="share-option">Instagram</a>
+                            <a href="#" class="share-option">X</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="progress-dots">
-                    <span class="progress-dot active"></span>
-                    <span class="progress-dot"></span>
+
+                    <p>This is a brief description of the blog post. It can be a summary or a catchy
+                        introduction to the
+                        content.</p>
                 </div>
-                <div id="btn-prev" class="btn-prev">
-                    <i class="fas fa-chevron-left"></i>
+            </div>
+
+            <div class="blog-box">
+                <h6 class="blog-title">Blog Title</h6>
+                <div class="blog-image">
+                    <img src="/images/australia-flag.jpg" alt="Blog Image">
                 </div>
-                <div id="btn-next" class="btn-next">
-                    <i class="fas fa-chevron-right"></i>
+                <div class="blog-description">
+                    <div class="icons">
+                        <i id="heart-icon" class="fas fa-heart" data-post-id="2"></i>
+                        <span id="heart-count-2">0</span>
+                        <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af"
+                            fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                            <title>Share Post</title>
+                            <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                x2="9.218" y1="3" y2="10.083"></line>
+                            <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                        </svg>
+                    </div>
+                    <p>This is a brief description of the blog post. It can be a summary or a catchy
+                        introduction to the
+                        content.</p>
+                </div>
+            </div>
+            <div class="blog-box">
+                <h6 class="blog-title">Blog Title</h6>
+                <div class="blog-image">
+                    <img src="/images/australia-flag.jpg" alt="Blog Image">
+                </div>
+                <div class="blog-description">
+                    <div class="icons">
+                        <i id="heart-icon" class="fas fa-heart" data-post-id="3"></i>
+                        <span id="heart-count-3">0</span>
+                        <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af"
+                            fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                            <title>Share Post</title>
+                            <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                x2="9.218" y1="3" y2="10.083"></line>
+                            <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                        </svg>
+                    </div>
+                    <p>This is a brief description of the blog post. It can be a summary or a catchy
+                        introduction to the
+                        content.</p>
+                </div>
+            </div>
+
+            <div class="blog-box">
+                <h6 class="blog-title">Blog Title</h6>
+                <div class="blog-image">
+                    <img src="/images/australia-flag.jpg" alt="Blog Image">
+                </div>
+                <div class="blog-description">
+                    <div class="icons">
+                        <i id="heart-icon" class="fas fa-heart" data-post-id="4"></i>
+                        <span id="heart-count-4">0</span>
+                        <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af"
+                            fill="currentColor" height="24" role="img" viewBox="0 0 24 24" width="24">
+                            <title>Share Post</title>
+                            <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                x2="9.218" y1="3" y2="10.083"></line>
+                            <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                        </svg>
+                    </div>
+                    <p>This is a brief description of the blog post. It can be a summary or a catchy
+                        introduction to the
+                        content.</p>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="parallax">
-        <div class="parallax-content">
-            <div class="text-box">
-                <h8>Planning your next event?</h8>
-                <a href="contacts.html" class="btn-1">Let's Talk</a>
+        <br>
+        <br>
+        <!-- Clients Section -->
+        <h7>Our Clients</h7>
+        <div class="clients">
+            <div class="carousel">
+                <div class="carousel__track">
+                    <div class="carousel__slide">
+                        <img src="images/BNI.jpg" alt="Client 1">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/oppo.jpg" alt="Client 2">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo3.jpg" alt="Client 3">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo4.jpg" alt="Client 4">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 5">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 6">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 7">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 8">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 9">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 10">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 11">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 12">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 13">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 14">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 15">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 16">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 17">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 18">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 19">
+                    </div>
+                    <div class="carousel__slide">
+                        <img src="images/logo5.jpg" alt="Client 20">
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
+        <section class="testimonials-section fade-in">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial" id="testimonial">
+                        <blockquote>
+                            "Our retreat in Australia was an unforgettable experience. The facilities were
+                            top-notch, and
+                            the team loved the mix of work and leisure."
+                        </blockquote>
+                        <div class="user">
+                            <img src="/images/user.jpg" alt="Client Photo" class="user-image">
+                            <div class="user-details">
+                                <p class="username">John Doe</p>
+                                <p class="role">CEO, Acme Corp</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-dots">
+                        <span class="progress-dot active"></span>
+                        <span class="progress-dot"></span>
+                    </div>
+                    <div id="btn-prev" class="btn-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div id="btn-next" class="btn-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="parallax">
+            <div class="parallax-content">
+                <div class="text-box">
+                    <h8>Planning your next event?</h8>
+                    <a href="contacts.html" class="btn-1">Let's Talk</a>
+                </div>
+            </div>
+        </div>
 
 
-    <div id="footer-container"></div>
+        <div id="footer-container"></div>
 
-    <script>
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
+        <script>
+            let currentSlideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
 
-        function showSlide(index) {
-            if (index >= slides.length) {
-                currentSlideIndex = 0;
-            } else if (index < 0) {
-                currentSlideIndex = slides.length - 1;
-            } else {
-                currentSlideIndex = index;
-            }
-
-            const offset = -currentSlideIndex * 100;
-            document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
-
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlideIndex);
-            });
-        }
-
-        function moveSlide(direction) {
-            showSlide(currentSlideIndex + direction);
-        }
-
-        function currentSlide(index) {
-            showSlide(index - 1);
-        }
-
-        // Automatically change slides every 5 seconds
-        setInterval(() => moveSlide(1), 5000);
-        document.querySelectorAll('.show-more-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const featureBox = this.closest('.feature');
-                featureBox.classList.toggle('expanded');
-            });
-        });
-
-        document.querySelectorAll('.toggle-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const text = button.previousElementSibling;
-                const isTextVisible = text.style.display === 'block' || text.style.display === '';
-
-                text.style.display = isTextVisible ? 'none' : 'block';
-
-                if (isTextVisible) {
-                    button.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+            function showSlide(index) {
+                if (index >= slides.length) {
+                    currentSlideIndex = 0;
+                } else if (index < 0) {
+                    currentSlideIndex = slides.length - 1;
                 } else {
-                    button.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                    currentSlideIndex = index;
                 }
-            });
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = document.querySelectorAll('section');
+                const offset = -currentSlideIndex * 100;
+                document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
 
-            function checkVisibility() {
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 100) {
-                        section.classList.add('visible');
-                    }
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlideIndex);
                 });
             }
 
-            checkVisibility(); // Check visibility on load
-            document.addEventListener('scroll', checkVisibility);
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-            const btnPrev = document.querySelector('#btn-prev');
-            const btnNext = document.querySelector('#btn-next');
-            const testimonial = document.querySelector('#testimonial');
-            const progressDotsContainer = document.querySelector('.progress-dots');
-            const testimonials = [
-                {
-                    quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
-                    author: "John Doe",
-                    role: "CEO, Acme Corp"
-                },
-                {
-                    quote: "Another testimonial about our amazing retreats in Australia.",
-                    author: "Jane Smith",
-                    role: "COO, Beta Ltd"
-                },
-                {
-                    quote: "Another testimonial about our amazing retreats in Australia.",
-                    author: "Jane Smith11",
-                    role: "COO, Beta Ltd"
-                },
-            ];
-            let currentIndex = 0;
-
-            // Function to generate progress dots based on the number of testimonials
-            function generateDots() {
-                progressDotsContainer.innerHTML = ''; // Clear any existing dots
-                testimonials.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('progress-dot');
-                    if (index === 0) {
-                        dot.classList.add('active');
-                    }
-                    progressDotsContainer.appendChild(dot);
-                });
+            function moveSlide(direction) {
+                showSlide(currentSlideIndex + direction);
             }
 
-            function updateTestimonial() {
-                const currentTestimonial = testimonials[currentIndex];
-
-                testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
-                testimonial.querySelector('.username').innerText = currentTestimonial.author;
-                testimonial.querySelector('.role').innerText = currentTestimonial.role;
-
-                const progressDots = document.querySelectorAll('.progress-dot');
-                progressDots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
+            function currentSlide(index) {
+                showSlide(index - 1);
             }
 
-            btnPrev.addEventListener('click', () => {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
-                updateTestimonial();
-            });
-
-            btnNext.addEventListener('click', () => {
-                currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
-                updateTestimonial();
-            });
-
-            generateDots(); // Generate dots on page load
-            updateTestimonial(); // Update testimonial on page load
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const counters = document.querySelectorAll(".stats-box h3");
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute("data-end-value");
-                    const count = +counter.innerText;
-                    const increment = target / 200;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(updateCount, 10);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const heartIcons = document.querySelectorAll('#heart-icon');
-            const shareIcons = document.querySelectorAll('#share-icon');
-
-            heartIcons.forEach(function (heartIcon) {
-                const postId = heartIcon.getAttribute('data-post-id');
-                const heartCount = document.getElementById(`heart-count-${postId}`);
-
-                heartIcon.addEventListener("click", function () {
-                    heartIcon.classList.toggle("red");
-                    let count = parseInt(heartCount.innerText);
-                    if (heartIcon.classList.contains("red")) {
-                        count += 1;
-                    } else {
-                        count -= 1;
-                    }
-                    heartCount.innerText = count;
+            // Automatically change slides every 5 seconds
+            setInterval(() => moveSlide(1), 5000);
+            document.querySelectorAll('.show-more-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const featureBox = this.closest('.feature');
+                    featureBox.classList.toggle('expanded');
                 });
             });
 
-            shareIcons.forEach(function (shareIcon) {
-                shareIcon.addEventListener("click", function () {
-                    const shareOptions = shareIcon.nextElementSibling;
-                    if (shareOptions.style.display === "none" || !shareOptions.style.display) {
-                        shareOptions.style.display = "block";
-                        setTimeout(function () {
-                            shareOptions.style.opacity = "1";
-                        }, 0);
+            document.querySelectorAll('.toggle-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const text = button.previousElementSibling;
+                    const isTextVisible = text.style.display === 'block' || text.style.display === '';
+
+                    text.style.display = isTextVisible ? 'none' : 'block';
+
+                    if (isTextVisible) {
+                        button.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
                     } else {
-                        shareOptions.style.opacity = "0";
-                        setTimeout(function () {
-                            shareOptions.style.display = "none";
-                        }, 300);
+                        button.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
                     }
                 });
             });
 
-            document.addEventListener("click", function (event) {
+            document.addEventListener('DOMContentLoaded', function () {
+                const sections = document.querySelectorAll('section');
+
+                function checkVisibility() {
+                    sections.forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 100) {
+                            section.classList.add('visible');
+                        }
+                    });
+                }
+
+                checkVisibility(); // Check visibility on load
+                document.addEventListener('scroll', checkVisibility);
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                const btnPrev = document.querySelector('#btn-prev');
+                const btnNext = document.querySelector('#btn-next');
+                const testimonial = document.querySelector('#testimonial');
+                const progressDotsContainer = document.querySelector('.progress-dots');
+                const testimonials = [
+                    {
+                        quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
+                        author: "John Doe",
+                        role: "CEO, Acme Corp"
+                    },
+                    {
+                        quote: "Another testimonial about our amazing retreats in Australia.",
+                        author: "Jane Smith",
+                        role: "COO, Beta Ltd"
+                    },
+                    {
+                        quote: "Another testimonial about our amazing retreats in Australia.",
+                        author: "Jane Smith11",
+                        role: "COO, Beta Ltd"
+                    },
+                ];
+                let currentIndex = 0;
+
+                // Function to generate progress dots based on the number of testimonials
+                function generateDots() {
+                    progressDotsContainer.innerHTML = ''; // Clear any existing dots
+                    testimonials.forEach((_, index) => {
+                        const dot = document.createElement('span');
+                        dot.classList.add('progress-dot');
+                        if (index === 0) {
+                            dot.classList.add('active');
+                        }
+                        progressDotsContainer.appendChild(dot);
+                    });
+                }
+
+                function updateTestimonial() {
+                    const currentTestimonial = testimonials[currentIndex];
+
+                    testimonial.querySelector('blockquote').innerText = currentTestimonial.quote;
+                    testimonial.querySelector('.username').innerText = currentTestimonial.author;
+                    testimonial.querySelector('.role').innerText = currentTestimonial.role;
+
+                    const progressDots = document.querySelectorAll('.progress-dot');
+                    progressDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+
+                btnPrev.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+                    updateTestimonial();
+                });
+
+                btnNext.addEventListener('click', () => {
+                    currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+                    updateTestimonial();
+                });
+
+                generateDots(); // Generate dots on page load
+                updateTestimonial(); // Update testimonial on page load
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const counters = document.querySelectorAll(".stats-box h3");
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute("data-end-value");
+                        const count = +counter.innerText;
+                        const increment = target / 200;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const heartIcons = document.querySelectorAll('#heart-icon');
+                const shareIcons = document.querySelectorAll('#share-icon');
+
+                heartIcons.forEach(function (heartIcon) {
+                    const postId = heartIcon.getAttribute('data-post-id');
+                    const heartCount = document.getElementById(`heart-count-${postId}`);
+
+                    heartIcon.addEventListener("click", function () {
+                        heartIcon.classList.toggle("red");
+                        let count = parseInt(heartCount.innerText);
+                        if (heartIcon.classList.contains("red")) {
+                            count += 1;
+                        } else {
+                            count -= 1;
+                        }
+                        heartCount.innerText = count;
+                    });
+                });
+
                 shareIcons.forEach(function (shareIcon) {
-                    const shareOptions = shareIcon.nextElementSibling;
-                    if (!shareIcon.contains(event.target) && !shareOptions.contains(event.target)) {
-                        shareOptions.style.opacity = "0";
-                        setTimeout(function () {
-                            shareOptions.style.display = "none";
-                        }, 300);
-                    }
+                    shareIcon.addEventListener("click", function () {
+                        const shareOptions = shareIcon.nextElementSibling;
+                        if (shareOptions.style.display === "none" || !shareOptions.style.display) {
+                            shareOptions.style.display = "block";
+                            setTimeout(function () {
+                                shareOptions.style.opacity = "1";
+                            }, 0);
+                        } else {
+                            shareOptions.style.opacity = "0";
+                            setTimeout(function () {
+                                shareOptions.style.display = "none";
+                            }, 300);
+                        }
+                    });
+                });
+
+                document.addEventListener("click", function (event) {
+                    shareIcons.forEach(function (shareIcon) {
+                        const shareOptions = shareIcon.nextElementSibling;
+                        if (!shareIcon.contains(event.target) && !shareOptions.contains(event.target)) {
+                            shareOptions.style.opacity = "0";
+                            setTimeout(function () {
+                                shareOptions.style.display = "none";
+                            }, 300);
+                        }
+                    });
                 });
             });
-        });
 
-    </script>
+        </script>
 </body>
 
 </html>
