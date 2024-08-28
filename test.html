@@ -21,7 +21,7 @@
         }
 
         .contact-container {
-            display: flex;
+            
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -29,6 +29,10 @@
             width: 100%;
             padding: 20px;
             box-sizing: border-box;
+        }
+
+        .form-group {
+            padding:5px;
         }
 
         .contact-info {
@@ -216,7 +220,6 @@
             </div>
             <div id="map" style="display:none;"></div>
         </div>
-        
 
         <div class="contact-form">
             <form id="submit-form">
@@ -273,14 +276,12 @@
                         <label for="terms">I agree to the terms & conditions</label>
                         <small class="error-message"></small>
                     </div>
-
                     <div class="form-group full-width">
                         <input type="submit" id="submit-btn" class="send-message-btn" value="Submit">
                     </div>
                 </div>
             </form>
         </div>
-    </div>
     <div id="footer-container"></div>
     <script>
        document.addEventListener('DOMContentLoaded', (event) => {
