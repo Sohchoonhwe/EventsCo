@@ -28,6 +28,7 @@
             width: 48%;
         }
 
+
         .contact-box {
             text-align: left;
         }
@@ -79,7 +80,6 @@
         .form-input {
             padding: 20px;
             font-size: 14px;
-            border: 2px solid #003366;
             /* Dark blue border */
             border-radius: 8px;
             outline: none;
@@ -101,7 +101,6 @@
             color: #fff;
             padding: 20px 35px;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
@@ -132,7 +131,6 @@
             width: 0;
             height: 3px;
             background-color: #00509e;
-            /* Blue underline */
             transition: width 0.3s ease;
         }
 
@@ -154,7 +152,6 @@
             font-size: 16px;
             font-weight: bold;
             color: #003366;
-            /* Dark blue color */
         }
 
         @media (max-width: 768px) {
@@ -190,7 +187,12 @@
             <h2>CONTACT US TODAY!</h2>
             <p>We will get back to you within 2 working days!</p>
         </div>
-        <div class="form-box">
+        <div class="contact-buttons">
+            <button onclick="showForm('form1')">Form 1</button>
+            <button onclick="showForm('form2')">Form 2</button>
+            <button onclick="showForm('form3')">Form 3</button>
+        </div>
+        <div class="form-box" id="form1">
             <div class="form">
                 <form id="submit-form">
                     <div class="form-row">
@@ -261,6 +263,78 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div id="form2" class="form-box">
+        <div class="form">
+            <form id="submit-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input id="full-name" class="form-input" type="text" required>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input id="email" class="form-input" type="email" required>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Contact Number *</label>
+                        <input id="phone" class="form-input" type="text" required>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Expected Date of Event *</label>
+                        <input id="start-date" class="form-input" type="date" required>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="find-us">How did you find us? *</label>
+                        <select id="find-us" class="form-input" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Google">Google</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Referrals">Referrals</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Estimate Budget per Guest *</label>
+                        <input id="budget" class="form-input" type="number" placeholder="Select Budget" required>
+                        <div class="underline"></div>
+                        <small class="error-message"></small>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Message *</label>
+                    <textarea id="message" class="form-input" rows="4"
+                        placeholder="You can write things such as plans/thoughts for this event, expected number of participants, and services required/in mind for your event."
+                        required></textarea>
+                    <div class="underline"></div>
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the terms & conditions</label>
+                    <small class="error-message"></small>
+                </div>
+
+                <div class="form-group full-width">
+                    <input type="submit" class="submit-btn" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
     </div>
     <div id="footer-container"></div>
 
@@ -368,6 +442,23 @@
                 }
             });
         });
+        function showForm(formId) {
+            // Hide all forms
+            document.querySelectorAll('.form-box').forEach(form => {
+                form.style.display = 'none';
+            });
+
+            // Show the selected form
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        // Hide all forms initially
+        document.querySelectorAll('.form-box').forEach(form => {
+            form.style.display = 'none';
+        });
+
+        // Optionally, show the first form by default
+        showForm('form1');
     </script>
 </body>
 

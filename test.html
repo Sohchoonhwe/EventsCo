@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/assets/css/overall.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contact-container {
+            display: flex;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .contact-info {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .contact-details .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-details .contact-item i {
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        .contact-details .contact-item:hover {
+            background-color: #ddd;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons .social-icon {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .contact-form .form-group select {
+            width: 100%;
+            padding: 12px 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            cursor: pointer;
+            height: auto;
+        }
+
+        .contact-form .form-group select:focus {
+            border-color: #333;
+            outline: none;
+        }
+
+        .contact-form .form-group select option {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .contact-form {
+            flex: 2;
+            padding: 20px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .contact-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .contact-form .send-message-btn {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form .send-message-btn:hover {
+            background-color: #555;
+        }
+
+        .contact-form .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-form .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .contact-form .checkbox-group label {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .contact-info,
+            .contact-form {
+                padding: 10px;
+            }
+
+            .contact-form .form-group input,
+            .contact-form .form-group select,
+            .contact-form .form-group textarea {
+                font-size: 14px;
+            }
+
+            .contact-form .send-message-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script src="/assets/js/loadNavbar.js"></script>
+    <script src="/assets/js/loadFooter.js"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Any question? We would be happy to help you!</p>
+            <div class="contact-details">
+                <div class="contact-item" id="phone-contact">
+                    <i class="fa fa-phone"></i>
+                    <span>+65 8820 9756</span>
+                </div>
+                <div class="contact-item" id="email-contact">
+                    <i class="fa fa-envelope"></i>
+                    <span>sales@eventsco.sg</span>
+                </div>
+                <div class="contact-item" id="address-contact">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <span>48 Jln Kuras, Singapore 577739</span>
+                </div>
+                
+            </div>
+            <div id="map" style="display:none;"></div>
+        </div>
+        
+
+        <div class="contact-form">
+            <form id="submit-form">
+                <div class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="full-name">Full Name *</label>
+                            <input id="full-name" class="form-input" type="text" required>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input id="email" class="form-input" type="email" required>
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Contact Number *</label>
+                            <input id="phone" class="form-input" type="text" required>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-date">Expected Date of Event *</label>
+                            <input id="start-date" class="form-input" type="date" required>
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="find-us">How did you find us? *</label>
+                            <select id="find-us" class="form-input" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Google">Google</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Referrals">Referrals</option>
+                                <option value="others">Others</option>
+                            </select>
+                            <small class="error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimate Budget per Guest *</label>
+                            <input id="budget" class="form-input" type="number" placeholder="Select Budget" required>
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="message">Message *</label>
+                        <textarea id="message" class="form-input" rows="4" placeholder="You can write things such as plans/thoughts for this event, expected number of participants, and services required/in mind for your event." required></textarea>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the terms & conditions</label>
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <input type="submit" id="submit-btn" class="send-message-btn" value="Submit">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+    <script>
+       document.addEventListener('DOMContentLoaded', (event) => {
+    // Load saved data from local storage
+    const formElements = document.querySelectorAll('.form-input');
+    formElements.forEach(element => {
+        const savedValue = localStorage.getItem(element.id);
+        if (savedValue) {
+            element.value = savedValue;
+        }
+    });
+
+    // Default submission type is WhatsApp
+    let submissionType = 'whatsapp';
+    updateSubmitButton('Submit via WhatsApp');
+
+    // Always display the map
+    document.getElementById('map').style.display = 'block';
+    initMap();
+
+    // Save data to local storage on input change
+    document.getElementById('submit-form').addEventListener('input', (event) => {
+        localStorage.setItem(event.target.id, event.target.value);
+    });
+
+    // Set up click handlers
+    document.getElementById('phone-contact').addEventListener('click', () => {
+        submissionType = 'whatsapp';
+        updateSubmitButton('Submit via WhatsApp');
+    });
+
+    document.getElementById('email-contact').addEventListener('click', () => {
+        submissionType = 'email';
+        updateSubmitButton('Submit via Email');
+    });
+
+    // Form validation and submission
+    document.getElementById('submit-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Validate form fields
+        let isValid = validateForm();
+
+        if (isValid) {
+            if (submissionType === 'whatsapp') {
+                sendViaWhatsApp();
+            } else if (submissionType === 'email') {
+                sendViaEmail();
+            }
+
+            // Clear local storage after successful submission
+            localStorage.clear();
+        }
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        const fullName = document.getElementById('full-name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const startDate = document.getElementById('start-date');
+        const findUs = document.getElementById('find-us');
+        const budget = document.getElementById('budget');
+        const message = document.getElementById('message');
+        const termsCheckbox = document.getElementById('terms');
+
+        // Validate Full Name
+        if (!fullName.value.trim()) {
+            isValid = false;
+            showError(fullName, 'Full Name is required');
+        } else {
+            clearError(fullName);
+        }
+
+        // Validate Email
+        if (!email.value.trim()) {
+            isValid = false;
+            showError(email, 'Email is required');
+        } else {
+            clearError(email);
+        }
+
+        // Validate Phone Number (8 digits)
+        const phonePattern = /^\d{8}$/;
+        if (!phone.value.trim() || !phonePattern.test(phone.value)) {
+            isValid = false;
+            showError(phone, 'Contact Number must be 8 digits');
+        } else {
+            clearError(phone);
+        }
+
+        // Validate Date (Cannot be today or earlier)
+        const selectedDate = new Date(startDate.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set time to midnight for comparison
+
+        if (!startDate.value || selectedDate <= today) {
+            isValid = false;
+            showError(startDate, 'Expected Date of Event must be later than today');
+        } else {
+            clearError(startDate);
+        }
+
+        // Validate How did you find us?
+        if (!findUs.value) {
+            isValid = false;
+            showError(findUs, 'Please select how you found us');
+        } else {
+            clearError(findUs);
+        }
+
+        // Validate Budget
+        if (!budget.value.trim()) {
+            isValid = false;
+            showError(budget, 'Estimate Budget per Guest is required');
+        } else {
+            clearError(budget);
+        }
+
+        // Validate Message
+        if (!message.value.trim()) {
+            isValid = false;
+            showError(message, 'Message is required');
+        } else {
+            clearError(message);
+        }
+
+        // Validate Terms Checkbox
+        if (!termsCheckbox.checked) {
+            isValid = false;
+            showError(termsCheckbox, 'You must agree to the terms');
+        } else {
+            clearError(termsCheckbox);
+        }
+
+        return isValid;
+    }
+
+    function showError(element, message) {
+        const errorElement = element.nextElementSibling;
+        errorElement.textContent = message;
+    }
+
+    function clearError(element) {
+        const errorElement = element.nextElementSibling;
+        errorElement.textContent = '';
+    }
+
+    function updateSubmitButton(text) {
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.value = text;
+    }
+
+    // Initialize map
+    function initMap() {
+        const officeLocation = { lat: 1.3843, lng: 103.8270 }; // Coordinates for 48 Jln Kuras, Singapore 577739
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: officeLocation,
+        });
+        new google.maps.Marker({
+            position: officeLocation,
+            map: map,
+        });
+    }
+
+    function sendViaWhatsApp() {
+        const whatsappMessage = generateMessage();
+        const whatsappLink = `https://wa.me/+6588209756?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappLink, '_blank');
+    }
+
+    function sendViaEmail() {
+        const emailMessage = generateMessage();
+        const emailSubject = "Contact Form Submission";
+        const mailtoLink = `mailto:sales@eventsco.sg?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailMessage)}`;
+        window.location.href = mailtoLink;
+    }
+
+    function generateMessage() {
+        const fullName = document.getElementById('full-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const startDate = document.getElementById('start-date').value;
+        const findUs = document.getElementById('find-us').value;
+        const budget = document.getElementById('budget').value;
+        const message = document.getElementById('message').value;
+
+        return `Full Name: ${fullName}\nEmail: ${email}\nContact Number: ${phone}\nExpected Date of Event: ${startDate}\nHow did you find us?: ${findUs}\nEstimate Budget per Guest: ${budget}\nMessage: ${message}`;
+    }
+});
+
+        </script>
+        
+        
+</body>
+
+</html>
