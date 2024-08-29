@@ -193,7 +193,6 @@
             justify-content: space-between;
         }
 
-        /* Featured Services Section */
         .packages-section h2 {
             font-size: 2.5em;
             margin: 0 auto 40px;
@@ -203,7 +202,6 @@
             width: 70%;
             padding-bottom: 10px;
         }
-
 
         .packages-section h2::after {
             content: '';
@@ -215,11 +213,19 @@
             position: absolute;
             bottom: -5px;
             left: 25%;
-
         }
 
+        .package-details h3 {
+            font-size: 1px;
+            font-weight: bold;
+            margin: 0 0 10px;
+            color: #1b6ec2;
+            white-space: nowrap;
+            /* Prevents the text from wrapping to a new line */
+            overflow: hidden;
+            /* Ensures that any overflow text is hidden */
 
-
+        }
 
         .package-card {
             width: 30%;
@@ -227,19 +233,22 @@
 
         .package-card img {
             width: 100%;
-            height: auto;
+            height: 200px;
+            /* Fixed height for all images */
             display: block;
+            object-fit: cover;
+            /* Ensures images are scaled and cropped to fit */
             box-shadow: 0 4px 8px rgba(111, 141, 251, 0.8);
             border-radius: 10px;
             margin-bottom: 17px;
-            /* Fixed typo from 17x to 17px */
         }
 
         .package-details {
             padding: 20px;
-            min-height: 200px;
-            max-width: 500px;
-            margin-top: 10px;
+            min-height: 250px;
+            /* Adjust this value to your preference */
+            text-align: center;
+            /* Center-aligns content within this section */
         }
 
         .package-details h3 {
@@ -250,22 +259,45 @@
         }
 
         .package-info {
-            font-size: 14px;
+            font-size: 16px;
             color: #555;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            height: 60px;
+            /* Fixed height for uniform size */
         }
 
         .featured-read-btn {
             display: inline-block;
-            padding: 10px 15px;
-            background-color: #f0f2f5;
-            color: #333;
-            border-radius: 5px;
-            font-size: 14px;
+            padding: 0;
+            background: none;
+            color: #007bff;
+            font-size: 23px;
             text-align: center;
             cursor: pointer;
             text-decoration: none;
+            position: relative;
         }
+
+        .featured-read-btn::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #007bff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+
+        .featured-read-btn:hover {
+            color: #0056b3;
+            /* Darker text color on hover */
+        }
+
+
 
         /* Responsive adjustments */
         @media (max-width: 1024px) {
@@ -969,7 +1001,7 @@
         <div class="package-card">
             <img src="/images/australia-flag.jpg" alt="Seminars and Conferences">
             <div class="package-details">
-                <h3>SEMINARS & CONFERENCES</h3>
+                <h3>SEMINAR & CONFERENCE</h3>
                 <div class="package-info">Participate in insightful sessions and discussions led by industry experts.
                 </div>
                 <a href="#" class="featured-read-btn">Read More!</a>
@@ -977,12 +1009,42 @@
         </div>
 
         <div class="package-card">
+            <img src="/images/australia-flag.jpg" alt="Highlights of Europe">
+            <div class="package-details">
+                <h3>DINNER & AWARD NIGHTS </h3>
+                <div class="package-info">Enjoy gourmet dining and celebrate with prestigious awards and captivating
+                    performances. </div>
+                <a href="#" class="featured-read-btn">Read More!</a>
+            </div>
+        </div>
+
+        <div class="package-card">
+            <img src="images/australia-flag.jpg" alt="Lapland Northern Lights">
+            <div class="package-details">
+                <h3>FAMILY DAY</h3>
+                <div class="package-info">Experience a day of fun activities for the entire team and their families.
+                </div>
+                <a href="#" class="featured-read-btn">Read More!</a>
+            </div>
+        </div>
+
+
+        <div class="package-card">
             <img src="https://via.placeholder.com/300x200" alt="Highlights of Europe">
             <div class="package-details">
-                <h3>11 Days Highlights of Europe</h3>
-                <div class="package-info">8 Nights | 5 Countries | 9 Cities</div>
-                <div class="package-info">Bang for the buck - score a great vacay without breaking the bank with this
-                    value-for-money trip that delivers big time.</div>
+                <h3>TEAM BUILDING </h3>
+                <div class="package-info">Engage in interactive activities designed to strengthen teamwork and
+                    collaboration.</div>
+                <a href="#" class="featured-read-btn">Read More!</a>
+            </div>
+        </div>
+
+
+        <div class="package-card">
+            <img src="https://via.placeholder.com/300x200" alt="Highlights of Europe">
+            <div class="package-details">
+                <h3>RETREATS</h3>
+                <div class="package-info">Retreat to a tranquil location for focused planning and team growth. </div>
                 <a href="#" class="featured-read-btn">Read More!</a>
             </div>
         </div>
@@ -990,13 +1052,14 @@
         <div class="package-card">
             <img src="https://via.placeholder.com/300x200" alt="Lapland Northern Lights">
             <div class="package-details">
-                <h3>13 Days Lapland Northern Lights With...</h3>
-                <div class="package-info">10 Nights | 3 Countries | 7 Cities</div>
-                <div class="package-info">All-rounder - fulfil your wish list in one fell swoop with this blockbuster
-                    showcasing the destination’s myriad charms.</div>
+                <h3>SPECIAL EVENTS</h3>
+                <div class="package-info">Enjoy unique events crafted to provide unforgettable and immersive
+                    experiences.</div>
                 <a href="#" class="featured-read-btn">Read More!</a>
             </div>
         </div>
+
+
     </div>
 
 
