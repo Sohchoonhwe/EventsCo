@@ -189,7 +189,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            padding: 60px;
+            padding: 80px;
             justify-content: space-between;
         }
 
@@ -233,8 +233,7 @@
 
         .package-card img {
             width: 100%;
-            height: 200px;
-            /* Fixed height for all images */
+            height: 300px;
             display: block;
             object-fit: cover;
             /* Ensures images are scaled and cropped to fit */
@@ -252,7 +251,7 @@
         }
 
         .package-details h3 {
-            font-size: 13px;
+            font-size: 30px !important;
             font-weight: bold;
             margin: 0 0 10px;
             color: #1b6ec2;
@@ -370,15 +369,10 @@
             content: "";
             display: block;
             width: 470px;
-            /* Set the desired length of the line */
             height: 2px;
-            /* Set the thickness of the line */
             background-color: #000;
-            /* Set the color of the line */
             margin: 10px auto 0 auto;
-            /* Center the line */
         }
-
 
         .why-choose-us {
             display: grid;
@@ -391,16 +385,19 @@
             border-radius: 20px;
             overflow: hidden;
             transition: transform 0.3s ease;
-            width: 80%;
+            width: 100%;
             height: 300px;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            /* Vertically center content */
+            justify-content: center;
+            /* Horizontally center content */
             padding: 30px;
             background-size: cover;
-            background-position: right center;
+            background-position: center;
             background-repeat: no-repeat;
             background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .box:hover {
@@ -409,15 +406,29 @@
 
         .box .content {
             z-index: 1;
-            max-width: 80%;
-            background: linear-gradient(to right, rgba(46, 59, 89, 0.9), rgba(46, 59, 89, 0.6));
-            padding: 20px;
+            width: 80%;
+            /* Increase width of the content box */
+            height: 80%;
+            /* Increase height of the content box */
+            background: linear-gradient(to right, rgba(46, 59, 89, 0.8), rgba(46, 59, 89, 0.5));
+            padding: 30px;
+            /* Increase padding for more space inside the content box */
             border-radius: 10px;
-            font-size: large;
+            font-size: larger;
+            /* Adjust font size as needed */
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center content horizontally within the content box */
         }
 
         .box h3 {
             margin-bottom: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 1.5rem;
         }
 
         .toggle-text {
@@ -434,7 +445,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Center the text and icon horizontally */
             gap: 5px;
             padding: 0;
             margin: 20px auto 0 auto;
@@ -457,57 +467,37 @@
             transform: rotate(180deg);
         }
 
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             .why-choose-us {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                /* Stacks boxes vertically on smaller screens */
             }
 
             .box {
-                width: 100%;
                 height: auto;
-                padding: 20px;
+                /* Adjusts height to fit content */
             }
 
-            .box .content {
-                max-width: 100%;
-                padding: 15px;
-                font-size: medium;
-            }
-
-            .toggle-btn {
-                font-size: medium;
-                margin: 10px auto 0 auto;
+            .box h3 {
+                font-size: 1.5rem;
+                /* Adjusted font size for headings on smaller screens */
+                white-space: normal;
+                /* Allows headings to wrap to the next line if needed */
             }
         }
 
-
-
-        @media (max-width: 480px) {
-            .service-box h3 {
-                font-size: 1em;
-            }
-
-            .services-p {
-                font-size: 0.9em;
-            }
-
-            .read-more {
-                font-size: 0.9em;
-            }
-        }
 
         /* Blog Post Section */
         .blog-section {
             display: flex;
             flex-wrap: wrap;
-            /* Allows the items to wrap onto multiple lines if needed */
             justify-content: center;
             align-items: flex-start;
-            /* Aligns items to the start of the container */
-            margin-top: 50px;
+
+
         }
+    
 
         /* Blog Post Title */
         .blog-heading {
@@ -543,7 +533,7 @@
             max-width: 400px;
             /* Adjusted max-width for better fit side by side */
             width: 100%;
-            padding: 20px;
+            padding: 10px;
             /* Added padding for more spacing */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             /* Enhanced shadow for better depth */
@@ -645,30 +635,32 @@
 
         /* Clients Section Carousel */
         .clients {
-            position: relative;
-            overflow: hidden;
-        }
+    position: relative;
+    overflow: hidden;
+}
 
-        .carousel__track {
-            display: flex;
-            animation: scroll 30s linear infinite;
-            justify-content: center;
-        }
+.carousel__track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    justify-content: center;
+}
 
-        .carousel__slide {
-            flex: 0 0 auto;
-            width: 200px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.carousel__slide {
+    flex: 0 0 auto;
+    margin: 0 30px; /* Spacing between logos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .carousel__slide img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 50%;
-        }
+.carousel__slide img {
+    width: auto; /* Natural width */
+    height: 100px; /* Consistent height */
+    object-fit: contain; /* Prevents distortion */
+    background: none; /* Ensures no background color */
+    border-radius: 0%; /* No rounding, just clean logos */
+}
+
 
         @keyframes scroll {
             from {
@@ -803,7 +795,21 @@
             margin: 0;
             line-height: 28px;
         }
+        .testimonial-container {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
 
+.testimonial blockquote {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
+
+.user .username {
+    font-size: 1.5em; /* Adjust the size as needed */
+}
+
+.user .role {
+    font-size: 1.1em; /* Adjust the size as needed */
+}
         .user {
             display: flex;
             flex-direction: column;
@@ -907,40 +913,51 @@
         }
 
         .parallax {
-            background-image: url('/images/test2.jpg');
-            position: relative;
-            height: 60vh;
+    background-image: url('/images/parallex.JPG');
+    position: relative;
+    height: 60vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 25%;
+}
 
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            padding-left: 5%;
-        }
+.parallax-content {
+    max-width: 850px;
+    padding: 40px;
+    border-radius: 10px;
+}
 
-        .parallax-content {
-            max-width: 650px;
-            /* Adjust the width of the text box */
-            background-color: rgba(255, 255, 255, 1);
-            /* White background with some transparency */
-            padding: 40px;
-            border-radius: 10px;
-        }
+.text-box h8 {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center; /* Center the heading text */
+}
 
-        .text-box h8 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 20px;
-        }
+.text-box {
+    text-align: center; /* Center the content inside the text box */
+}
 
-        .text-box p {
-            font-size: 1.2em;
-            color: #666;
-            /* Gray text color */
-            margin-bottom: 30px;
-        }
+.text-box .btn-1 {
+    padding: 15px 200px;
+    font-size: 1em;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px auto; /* Center the button and add space between the heading and button */
+    cursor: pointer;
+}
+
+
+
     </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
@@ -954,8 +971,8 @@
     <!-- Fullscreen Carousel -->
     <div class="carousel-container">
         <div class="carousel">
-            <div class="slide"><img src="/images/china-flag.jpg" alt="Image 1"></div>
-            <div class="slide"><img src="/images/australia-flag.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="/images/landing-page1.JPG" alt="Image 1"></div>
+            <div class="slide"><img src="/images/landing-page2.jpg" alt="Image 2"></div>
             <div class="slide"><img src="/images/bali.jpg " alt="Image 3"></div>
             <div class="slide"><img src="/images/japan-flag.jpg" alt="Image 4"></div>
         </div>
@@ -981,7 +998,7 @@
                 <div class="hero-col">
                     <div class="stats-box">
                         <h3 data-end-value="93">10</h3>
-                        <h4>Coperate Clients 🏆</h4>
+                        <h4>Coperate Clients 👤</h4>
                     </div>
                 </div>
             </div>
@@ -999,58 +1016,58 @@
     <div class="packages-section">
         <h2>F E A T U R E D&nbsp; S E R V I C E S</h2>
         <div class="package-card">
-            <img src="/images/australia-flag.jpg" alt="Seminars and Conferences">
+            <img src="/images/seminar and conferences.JPG" alt="Seminars and Conferences">
             <div class="package-details">
-                <h3>SEMINAR & CONFERENCE</h3>
+                <h3>SEMINAR & CONFERENCES</h3>
                 <div class="package-info">Participate in insightful sessions and discussions led by industry experts.
                 </div>
-                <a href="#" class="featured-read-btn">Read More!</a>
+                <a href="/corporate/conferences.html" class="featured-read-btn">Read More!</a>
             </div>
         </div>
 
         <div class="package-card">
-            <img src="/images/australia-flag.jpg" alt="Highlights of Europe">
+            <img src="/images/gala dinner.jpg" alt="Highlights of Europe">
             <div class="package-details">
                 <h3>DINNER & AWARD NIGHTS </h3>
                 <div class="package-info">Enjoy gourmet dining and celebrate with prestigious awards and captivating
                     performances. </div>
-                <a href="#" class="featured-read-btn">Read More!</a>
+                <a href="/corporate/galadinner.html" class="featured-read-btn">Read More!</a>
             </div>
         </div>
 
         <div class="package-card">
-            <img src="images/australia-flag.jpg" alt="Lapland Northern Lights">
+            <img src="images/familydayout.jpg" alt="Lapland Northern Lights">
             <div class="package-details">
                 <h3>FAMILY DAY</h3>
                 <div class="package-info">Experience a day of fun activities for the entire team and their families.
                 </div>
-                <a href="#" class="featured-read-btn">Read More!</a>
+                <a href="/corporate/familydayout.html" class="featured-read-btn">Read More!</a>
             </div>
         </div>
 
 
         <div class="package-card">
-            <img src="https://via.placeholder.com/300x200" alt="Highlights of Europe">
+            <img src="images/teambuilding.jpg" alt="Highlights of Europe">
             <div class="package-details">
                 <h3>TEAM BUILDING </h3>
                 <div class="package-info">Engage in interactive activities designed to strengthen teamwork and
                     collaboration.</div>
-                <a href="#" class="featured-read-btn">Read More!</a>
+                <a href="/corporate/familydayout.html" class="featured-read-btn">Read More!</a>
             </div>
         </div>
 
 
         <div class="package-card">
-            <img src="https://via.placeholder.com/300x200" alt="Highlights of Europe">
+            <img src="/images/retreatlandingpage.jpg" alt="Highlights of Europe">
             <div class="package-details">
                 <h3>RETREATS</h3>
                 <div class="package-info">Retreat to a tranquil location for focused planning and team growth. </div>
-                <a href="#" class="featured-read-btn">Read More!</a>
+                <a href="/retreats/overview.html" class="featured-read-btn">Read More!</a>
             </div>
         </div>
 
         <div class="package-card">
-            <img src="https://via.placeholder.com/300x200" alt="Lapland Northern Lights">
+            <img src="/images/specialevents.jpeg" alt="Lapland Northern Lights">
             <div class="package-details">
                 <h3>SPECIAL EVENTS</h3>
                 <div class="package-info">Enjoy unique events crafted to provide unforgettable and immersive
@@ -1068,7 +1085,7 @@
     <div class="why-choose-us-container">
         <h2 class="why-choose-us-heading">W H Y&nbsp C H O O S E&nbsp U S</h2>
         <div class="why-choose-us">
-            <div class="box" style="background-image: url('/images/australia-flag.jpg');">
+            <div class="box" style="background-image: url('images/personalised support.JPG');">
                 <div class="content">
                     <h3>Personalized Support</h3>
                     <p class="toggle-text"> Benefit from a dedicated event manager and assistant who provide
@@ -1082,7 +1099,7 @@
 
                 </div>
             </div>
-            <div class="box" style="background-image: url('image2.jpg');">
+            <div class="box" style="background-image: url('images/end\ to\ end\ excellence.JPG');">
                 <div class="content">
                     <h3>End-to-End Excellence</h3>
                     <p class="toggle-text"> We handle all phases of your event—from planning to execution
@@ -1095,7 +1112,7 @@
                     </button>
                 </div>
             </div>
-            <div class="box" style="background-image: url('image3.jpg');">
+            <div class="box" style="background-image: url('/images/detail\ oriented.jpg');">
                 <div class="content">
                     <h3>Detail-Oriented Approach</h3>
                     <p class="toggle-text">
@@ -1107,7 +1124,7 @@
                     </button>
                 </div>
             </div>
-            <div class="box" style="background-image: url('image4.jpg');">
+            <div class="box" style="background-image: url('/images/expertise.JPG');">
                 <div class="content">
                     <h3>Versatile Expertise</h3>
                     <p class="toggle-text">With a proven record of planning and executing events for any
@@ -1158,29 +1175,7 @@
             </div>
         </div>
 
-        <div class="blog-box">
-            <h6 class="blog-title">Blog Title</h6>
-            <div class="blog-image">
-                <img src="/images/australia-flag.jpg" alt="Blog Image">
-            </div>
-            <div class="blog-description">
-                <div class="icons">
-                    <i id="heart-icon" class="fas fa-heart" data-post-id="2"></i>
-                    <span id="heart-count-2">0</span>
-                    <svg id="share-icon" aria-label="Share Post" class="x1lliihq x1n2onr6 x5n08af" fill="currentColor"
-                        height="24" role="img" viewBox="0 0 24 24" width="24">
-                        <title>Share Post</title>
-                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
-                            x2="9.218" y1="3" y2="10.083"></line>
-                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-                            stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
-                    </svg>
-                </div>
-                <p>This is a brief description of the blog post. It can be a summary or a catchy
-                    introduction to the
-                    content.</p>
-            </div>
-        </div>
+
         <div class="blog-box">
             <h6 class="blog-title">Blog Title</h6>
             <div class="blog-image">
@@ -1243,60 +1238,40 @@
                     <img src="images/oppo.jpg" alt="Client 2">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo3.jpg" alt="Client 3">
+                    <img src="images/TP-logo.jpg" alt="Client 3">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo4.jpg" alt="Client 4">
+                    <img src="images/MOE-logo.jpg" alt="Client 4">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 5">
+                    <img src="images/MOC-logo.jpg" alt="Client 5">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 6">
+                    <img src="images/science-and-tech-logo.jpg" alt="Client 6">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 7">
+                    <img src="images/semcorp-logo.jpg" alt="Client 7">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 8">
+                    <img src="images/aptiv-logo.jpg" alt="Client 8">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 9">
+                    <img src="images/CapitaLand_Logo.jpg" alt="Client 9">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 10">
+                    <img src="images/cchy logo.jpg" alt="Client 10">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 11">
+                    <img src="images/DBS-logo.jpg" alt="Client 11">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 12">
+                    <img src="images/CPF-logo.jpg" alt="Client 12">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 13">
+                    <img src="images/doterra-logo.jpg" alt="Client 13">
                 </div>
                 <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 14">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 15">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 16">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 17">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 18">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 19">
-                </div>
-                <div class="carousel__slide">
-                    <img src="images/logo5.jpg" alt="Client 20">
-                </div>
-
+                    <img src="images/HPB-logo.jpg" alt="Client 14">
             </div>
         </div>
     </div>
@@ -1306,15 +1281,13 @@
             <div class="testimonial-container">
                 <div class="testimonial" id="testimonial">
                     <blockquote>
-                        "Our retreat in Australia was an unforgettable experience. The facilities were
-                        top-notch, and
-                        the team loved the mix of work and leisure."
+                        "The team were amazing in coordinating our year-end dinner. They really knew what they were doing, like suggesting not to serve food during the president's speech, which we hadn't even thought about. Everything was handled so smoothly from start to finish, and for once, I could actually enjoy the night without stressing over program and logistics. We'll definitely work with them again!"
                     </blockquote>
                     <div class="user">
-                        <img src="/images/user.jpg" alt="Client Photo" class="user-image">
                         <div class="user-details">
-                            <p class="username">John Doe</p>
-                            <p class="role">CEO, Acme Corp</p>
+                            <p class="username"> Sin Ying
+                            </p>
+                            <p class="role">  CapitaLand</p>
                         </div>
                     </div>
                 </div>
@@ -1335,7 +1308,8 @@
     <div class="parallax">
         <div class="parallax-content">
             <div class="text-box">
-                <h8>Planning your next event?</h8>
+                <h8>LET US BE YOUR PARTNER IN EVENT EXCELLENCE!</h8>
+                <br>
                 <a href="contacts.html" class="btn-1">Let's Talk</a>
             </div>
         </div>
@@ -1420,14 +1394,14 @@
             const progressDotsContainer = document.querySelector('.progress-dots');
             const testimonials = [
                 {
-                    quote: "Our retreat in Australia was an unforgettable experience. The facilities were top-notch, and the team loved the mix of work and leisure.",
-                    author: "John Doe",
-                    role: "CEO, Acme Corp"
+                    quote: "The team were amazing in coordinating our year-end dinner. They really knew what they were doing, like suggesting not to serve food during the president's speech, which we hadn't even thought about. Everything was handled so smoothly from start to finish, and for once, I could actually enjoy the night without stressing over program and logistics. We'll definitely work with them again!",
+                    author: "Sin Ying",
+                    role: "CapitaLand"
                 },
                 {
-                    quote: "Another testimonial about our amazing retreats in Australia.",
-                    author: "Jane Smith",
-                    role: "COO, Beta Ltd"
+                    quote: "Kai Xing and her team did an outstanding job coordinating our gala dinner. Everything ran smoothly, from the registration and instant name tag printing to the entertaining performances like the Mirror Man, LED drone show, and live bands. The technology and innovation they brought to the event were truly impressive. The emcee kept the attendees entertained throughout the night and hosted the lucky draw with a blast. We couldn’t have asked for a better experience and will definitely recommend them!",
+                    author: "Sindy",
+                    role: "Honsen"
                 },
                 {
                     quote: "Another testimonial about our amazing retreats in Australia.",

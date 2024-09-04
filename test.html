@@ -5,247 +5,292 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="/assets/css/overall.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>
-    <style>
-        body {
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .contact-container {
-            
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .form-group {
-            padding:5px;
-        }
-
-        .contact-info {
-            flex: 1;
-            padding: 20px;
-            border-right: 1px solid #e0e0e0;
-        }
-
-        .contact-info h2 {
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        .contact-info p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .contact-details .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .contact-details .contact-item i {
-            background-color: #333;
-            color: white;
-            border-radius: 50%;
-            padding: 8px;
-            margin-right: 10px;
-        }
-
-        .contact-details .contact-item:hover {
-            background-color: #ddd;
-        }
-
-        .social-icons {
-            margin-top: 20px;
-        }
-
-        .social-icons .social-icon {
-            display: inline-block;
-            background-color: #333;
-            color: white;
-            border-radius: 50%;
-            padding: 10px;
-            margin-right: 10px;
-        }
-
-        .contact-form .form-group select {
-            width: 100%;
-            padding: 12px 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-            cursor: pointer;
-            height: auto;
-        }
-
-        .contact-form .form-group select:focus {
-            border-color: #333;
-            outline: none;
-        }
-
-        .contact-form .form-group select option {
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .contact-form {
-            flex: 2;
-            padding: 20px;
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 15px;
-        }
-
-        .contact-form .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .contact-form .form-group input,
-        .contact-form .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .contact-form .send-message-btn {
-            display: inline-block;
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form .send-message-btn:hover {
-            background-color: #555;
-        }
-
-        .contact-form .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .contact-form .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-            width: 16px;
-            height: 16px;
-        }
-
-        .contact-form .checkbox-group label {
-            font-size: 14px;
-            color: #666;
-            margin: 0;
-        }
-
-        #map {
-            height: 300px;
-            width: 100%;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 600px) {
-            .contact-info,
-            .contact-form {
-                padding: 10px;
-            }
-
-            .contact-form .form-group input,
-            .contact-form .form-group select,
-            .contact-form .form-group textarea {
-                font-size: 14px;
-            }
-
-            .contact-form .send-message-btn {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-        }
-    </style>
     <script src="/assets/js/loadNavbar.js"></script>
     <script src="/assets/js/loadFooter.js"></script>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/overall.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        height: 100vh;
+        color: black;
+    }
+
+    .contact-container {
+        display: flex;
+        width: 90%;
+        max-width: 1600px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .content-right {
+        flex: 1;
+        /* Reduce space taken by .content-right */
+        padding: 20px;
+        /* Maintain padding */
+        background-color: #fff;
+        box-sizing: border-box;
+    }
+
+    .contact-left {
+        flex: 2;
+        /* Increase space taken by .contact-left */
+        padding: 20px;
+        /* Maintain padding */
+        background-color: #fff;
+    }
+
+    .content-right h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .content-right p {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .contact-details {
+        margin-bottom: 20px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px;
+        margin: 10px 0;
+        font-size: 18px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .contact-item i {
+        margin-right: 10px;
+    }
+
+    .contact-item:hover {
+        background-color: #6c757d;
+    }
+
+    #map {
+        margin-top: 20px;
+        height: 300px;
+        width: 100%;
+    }
+
+    .contact-left {
+        flex: 2;
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    /* Ensure the form takes up more vertical space */
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        /* Increase spacing between form elements */
+        height: auto;
+        /* Allow form to grow with its content */
+    }
+
+    /* Make the form fields taller and more spacious */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* Space between label and input */
+    }
+
+    /* Adjust the height of input fields */
+    .form-input {
+        padding: 15px;
+        font-size: 16px;
+        border: none;
+        border-bottom: 2px solid transparent;
+        background-color: #f5f5f5;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box;
+        height: 50px;
+        /* Increase height of input fields */
+    }
+
+    /* Ensure the textarea is also longer */
+    textarea.form-input {
+        height: 100px;
+        /* Increase height for the textarea */
+        resize: vertical;
+        /* Allow vertical resizing */
+    }
+
+
+    .form-input {
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        border-bottom: 2px solid transparent;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #f5f5f5;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-input:focus {
+        outline: none;
+        border-bottom-color: #007bff;
+    }
+
+    .form-input:hover {
+        border-bottom-color: #007bff;
+    }
+
+    #full-name {
+        width: 500px;
+        /* Adjust width for Full Name */
+    }
+
+    #email {
+        width: 500px;
+        /* Adjust width for Email Address */
+    }
+
+    #phone {
+        width: 500px;
+        /* Adjust width for Contact Number */
+    }
+
+    #start-date {
+        width: 500px;
+        /* Adjust width for Expected Date of Event */
+    }
+
+    #find-us {
+        width: 500px;
+        /* Adjust width for How did you find us? */
+    }
+
+    #budget {
+        width: 550px;
+        /* Adjust width for Estimate Budget per Guest */
+    }
+
+    /* Hover effect for all inputs */
+    .form-input:hover {
+        border-bottom: 2px solid #333;
+        /* Add underline on hover */
+    }
+
+    .checkbox-group {
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    margin-top: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px; /* Adjust width of checkbox if needed */
+    height: 20px; /* Adjust height of checkbox if needed */
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+.checkbox-group label {
+    font-size: 16px; /* Adjust font size to match checkbox size */
+    color: black;
+}
+
+    .form-row {
+        display: flex;
+        gap: 10px;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .send-message-btn {
+        padding: 10px;
+        background-color: black;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .send-message-btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Error Message Styles */
+    .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+</style>
 
 <body>
     <div id="navbar-container"></div>
     <div class="contact-container">
-        <div class="contact-info">
+        <div class="content-right">
             <h2>Contact Us</h2>
             <p>Any question? We would be happy to help you!</p>
             <div class="contact-details">
-                <div class="contact-item" id="phone-contact">
-                    <i class="fa fa-phone"></i>
-                    <span>+65 8820 9756</span>
-                </div>
-                <div class="contact-item" id="email-contact">
-                    <i class="fa fa-envelope"></i>
-                    <span>sales@eventsco.sg</span>
-                </div>
-                <div class="contact-item" id="address-contact">
-                    <i class="fa fa-map-marker-alt"></i>
-                    <span>48 Jln Kuras, Singapore 577739</span>
-                </div>
-                
+                <button class="contact-item" id="phone-contact">
+                    <i class="fa fa-phone"></i> +65 8820 9756
+                </button>
+                <button class="contact-item" id="email-contact">
+                    <i class="fa fa-envelope"></i> sales@eventsco.sg
+                </button>
+                <button class="contact-item" id="address-contact">
+                    <i class="fa fa-map-marker-alt"></i> 48 Jln Kuras, Singapore 577739
+                </button>
             </div>
-            <div id="map" style="display:none;"></div>
+            <div id="map"></div>
         </div>
 
-        <div class="contact-form">
+        <div class="contact-left">
             <form id="submit-form">
                 <div class="form">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="full-name">Full Name *</label>
                             <input id="full-name" class="form-input" type="text" required>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input id="email" class="form-input" type="email" required>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Contact Number *</label>
                             <input id="phone" class="form-input" type="text" required>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="start-date">Expected Date of Event *</label>
                             <input id="start-date" class="form-input" type="date" required>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -258,23 +303,25 @@
                                 <option value="Referrals">Referrals</option>
                                 <option value="others">Others</option>
                             </select>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                         <div class="form-group">
                             <label for="budget">Estimate Budget per Guest *</label>
                             <input id="budget" class="form-input" type="number" placeholder="Select Budget" required>
-                            <small class="error-message"></small>
+                            <span class="error-message"></span>
                         </div>
                     </div>
                     <div class="form-group full-width">
                         <label for="message">Message *</label>
-                        <textarea id="message" class="form-input" rows="4" placeholder="You can write things such as plans/thoughts for this event, expected number of participants, and services required/in mind for your event." required></textarea>
-                        <small class="error-message"></small>
+                        <textarea id="message" class="form-input" rows="4"
+                            placeholder="You can write things such as plans/thoughts for this event, expected number of participants, and services required/in mind for your event."
+                            required></textarea>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group checkbox-group">
                         <input type="checkbox" id="terms" name="terms" required>
                         <label for="terms">I agree to the terms & conditions</label>
-                        <small class="error-message"></small>
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group full-width">
                         <input type="submit" id="submit-btn" class="send-message-btn" value="Submit">
@@ -282,9 +329,16 @@
                 </div>
             </form>
         </div>
-    <div id="footer-container"></div>
+    </div>
+
+    <!-- Add your JavaScript code at the end of the body -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
     <script>
-       document.addEventListener('DOMContentLoaded', (event) => {
+     document.addEventListener('DOMContentLoaded', () => {
+    // Initialize form submission type as WhatsApp
+    let submissionType = 'whatsapp';
+    updateSubmitButton('Submit via WhatsApp');
+
     // Load saved data from local storage
     const formElements = document.querySelectorAll('.form-input');
     formElements.forEach(element => {
@@ -294,20 +348,19 @@
         }
     });
 
-    // Default submission type is WhatsApp
-    let submissionType = 'whatsapp';
-    updateSubmitButton('Submit via WhatsApp');
+    // Display the map
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+        mapElement.style.display = 'block';
+        initMap();
+    }
 
-    // Always display the map
-    document.getElementById('map').style.display = 'block';
-    initMap();
-
-    // Save data to local storage on input change
+    // Save form data to local storage on input change
     document.getElementById('submit-form').addEventListener('input', (event) => {
         localStorage.setItem(event.target.id, event.target.value);
     });
 
-    // Set up click handlers
+    // Click event listeners for contact buttons
     document.getElementById('phone-contact').addEventListener('click', () => {
         submissionType = 'whatsapp';
         updateSubmitButton('Submit via WhatsApp');
@@ -334,9 +387,21 @@
 
             // Clear local storage after successful submission
             localStorage.clear();
+
+            // Reset the form fields
+            resetForm();
         }
     });
 
+    // Function to update the submit button text
+    function updateSubmitButton(text) {
+        const submitBtn = document.getElementById('submit-btn');
+        if (submitBtn) {
+            submitBtn.value = text;
+        }
+    }
+
+    // Form validation function
     function validateForm() {
         let isValid = true;
 
@@ -421,22 +486,23 @@
         return isValid;
     }
 
+    // Show error message
     function showError(element, message) {
         const errorElement = element.nextElementSibling;
-        errorElement.textContent = message;
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
     }
 
+    // Clear error message
     function clearError(element) {
         const errorElement = element.nextElementSibling;
-        errorElement.textContent = '';
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
     }
 
-    function updateSubmitButton(text) {
-        const submitBtn = document.getElementById('submit-btn');
-        submitBtn.value = text;
-    }
-
-    // Initialize map
+    // Initialize Google Map
     function initMap() {
         const officeLocation = { lat: 1.3843, lng: 103.8270 }; // Coordinates for 48 Jln Kuras, Singapore 577739
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -449,12 +515,14 @@
         });
     }
 
+    // Send form data via WhatsApp
     function sendViaWhatsApp() {
         const whatsappMessage = generateMessage();
         const whatsappLink = `https://wa.me/+6588209756?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappLink, '_blank');
     }
 
+    // Send form data via Email
     function sendViaEmail() {
         const emailMessage = generateMessage();
         const emailSubject = "Contact Form Submission";
@@ -462,6 +530,7 @@
         window.location.href = mailtoLink;
     }
 
+    // Generate the message content
     function generateMessage() {
         const fullName = document.getElementById('full-name').value;
         const email = document.getElementById('email').value;
@@ -473,11 +542,16 @@
 
         return `Full Name: ${fullName}\nEmail: ${email}\nContact Number: ${phone}\nExpected Date of Event: ${startDate}\nHow did you find us?: ${findUs}\nEstimate Budget per Guest: ${budget}\nMessage: ${message}`;
     }
+
+    // Reset form fields
+    function resetForm() {
+        document.getElementById('submit-form').reset();
+        document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
+    }
 });
 
-        </script>
-        
-        
+
+    </script>
 </body>
 
 </html>
